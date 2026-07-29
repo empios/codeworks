@@ -1,0 +1,16 @@
+{
+  "name": "CodeWorks Paweł Włodarczyk | Strony WWW i Sklepy Trójmiasto & Elbląg",
+  "short_name": "CodeWorks",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2C001E",
+  "theme_color": "#E95420",
+  "description": "Studio IT i partner technologiczny. Tworzenie stron internetowych, sklepów WooCommerce i aplikacji B2B w Gdańsku, Gdyni, Sopocie i Elblągu.",
+  "icons": [
+    {
+      "src": "/avatar.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================
+   PANGOLIN — DESIGN SYSTEM SEMANTIC TOKENS
+   Paper (Light Mode) & Terminal (Dark Aubergine Mode)
+   ============================================================= */
+:root,
+[data-theme="paper"] {
+  --pg-bg: #FAF7F4;
+  --pg-bg-subtle: #F2EEE9;
+  --pg-layer-01: #FFFFFF;
+  --pg-layer-02: #F2EEE9;
+  --pg-layer-03: #E8E2DA;
+  
+  --pg-text-primary: #1B1612;
+  --pg-text-secondary: #4A433C;
+  --pg-text-muted: #6B6259;
+  
+  --pg-border-subtle: #E8E2DA;
+  --pg-border-strong: #BFB5A8;
+  
+  --pg-header-bg: rgba(250, 247, 244, 0.95);
+  --pg-header-border: #E8E2DA;
+  
+  --pg-card-bg: #FFFFFF;
+  --pg-card-border: #E8E2DA;
+  
+  --pg-badge-bg: #F2EEE9;
+  --pg-badge-border: #E8E2DA;
+  --pg-badge-text: #C8420A;
+  
+  --pg-table-header-bg: #F2EEE9;
+  
+  --pg-input-bg: #FFFFFF;
+  --pg-input-border: #DCD4CA;
+  --pg-input-text: #1B1612;
+  
+  --pg-footer-bg: #2C001E;
+  --pg-footer-text: #E0BFD6;
+  --pg-footer-heading: #FFFFFF;
+  
+  --pg-brand-aubergine: #2C001E;
+  --pg-accent-orange: #E95420;
+  
+  color-scheme: light;
+}
+
+[data-theme="terminal"] {
+  --pg-bg: #1A0011;
+  --pg-bg-subtle: #250019;
+  --pg-layer-01: #2C001E;
+  --pg-layer-02: #44032E;
+  --pg-layer-03: #5A0F4D;
+  
+  --pg-text-primary: #F4EFED;
+  --pg-text-secondary: #D4C9CB;
+  --pg-text-muted: #B9ACAE;
+  
+  --pg-border-subtle: #44032E;
+  --pg-border-strong: #8E5279;
+  
+  --pg-header-bg: rgba(26, 0, 17, 0.95);
+  --pg-header-border: #44032E;
+  
+  --pg-card-bg: #2C001E;
+  --pg-card-border: #44032E;
+  
+  --pg-badge-bg: #2C001E;
+  --pg-badge-border: #44032E;
+  --pg-badge-text: #FFAE85;
+  
+  --pg-table-header-bg: #2C001E;
+  
+  --pg-input-bg: #1A0011;
+  --pg-input-border: #44032E;
+  --pg-input-text: #F4EFED;
+  
+  --pg-footer-bg: #0D0008;
+  --pg-footer-text: #B9ACAE;
+  --pg-footer-heading: #FFFFFF;
+  
+  --pg-brand-aubergine: #E95420;
+  --pg-accent-orange: #FF7848;
+  
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--pg-bg);
+  color: var(--pg-text-primary);
+  font-family: 'Ubuntu Sans', sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Pangolin Component Cards */
+.pg-card {
+  background-color: var(--pg-card-bg);
+  border: 1px solid var(--pg-card-border);
+  color: var(--pg-text-primary);
+  transition: all 0.25s cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+.pg-card:hover {
+  border-color: #E95420;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(233, 84, 32, 0.15);
+}
+
+.gradient-orange-aubergine {
+  background: linear-gradient(135deg, #E95420 0%, #FF7848 50%, #77216F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+[data-theme="terminal"] .gradient-orange-aubergine {
+  background: linear-gradient(135deg, #E95420 0%, #FF7848 50%, #E0BFD6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
