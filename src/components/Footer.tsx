@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Phone, Mail } from 'lucide-react';
+import { Code2, Phone, Mail, ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -46,9 +46,19 @@ export const Footer: React.FC = () => {
               <li><a href="#oferta" className="hover:text-ubuntuOrange-40 transition-colors">Cennik i Pakiet Smart</a></li>
               <li><a href="#kalkulator" className="hover:text-ubuntuOrange-40 transition-colors">Kalkulator Projekcji</a></li>
               <li><a href="#realizacje" className="hover:text-ubuntuOrange-40 transition-colors">Wdrożenia</a></li>
-              <li><a href="#dlaczego-ja" className="hover:text-ubuntuOrange-40 transition-colors">Dlaczego Lokalnie?</a></li>
               <li><a href="#faq" className="hover:text-ubuntuOrange-40 transition-colors">FAQ</a></li>
               <li><a href="#kontakt" className="hover:text-ubuntuOrange-40 transition-colors">Darmowy Audyt Wideo</a></li>
+              <li className="pt-2">
+                <a 
+                  href="https://www.pawelvlodarczyk.pl/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-ubuntuOrange-40 font-bold hover:underline"
+                >
+                  <span>Portfolio Inżynierskie (CV)</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
             </ul>
           </div>
 
