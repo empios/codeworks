@@ -70,43 +70,45 @@ export const AboutSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Visual Avatar Card */}
-          <div className="lg:col-span-5">
-            <div className="pg-card p-8 rounded-3xl relative overflow-hidden shadow-2xl space-y-6">
+          {/* Right Column: Centered Visual Avatar Portrait Card */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="pg-card p-8 rounded-3xl relative overflow-hidden shadow-2xl space-y-6 w-full max-w-md text-center">
               
-              <div className="relative z-10 space-y-4">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-ubuntuOrange-50 shadow-md">
+              <div className="relative z-10 space-y-5 flex flex-col items-center">
+                
+                {/* Beautifully Centered Portrait Image */}
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-ubuntuOrange-50 shadow-xl p-1 bg-ubuntuOrange-50/10">
                   <img 
                     src="/avatar.jpg" 
                     alt="Paweł Włodarczyk" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-full"
                   />
                 </div>
 
-                <div>
-                  <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Paweł Włodarczyk</h3>
-                  <p className="text-xs font-mono font-medium text-ubuntuOrange-50">Założyciel &amp; Lead Software Developer</p>
+                <div className="space-y-1">
+                  <h3 className="text-2xl font-bold tracking-tight" style={{ color: 'var(--pg-text-primary)' }}>Paweł Włodarczyk</h3>
+                  <p className="text-xs font-mono font-bold text-ubuntuOrange-50 uppercase tracking-wider">Założyciel &amp; Lead Software Developer</p>
                 </div>
 
-                <div className="space-y-2 pt-4 border-t text-xs" style={{ borderColor: 'var(--pg-border-subtle)', color: 'var(--pg-text-secondary)' }}>
-                  <div className="flex items-center gap-2">
+                <div className="w-full space-y-2.5 pt-4 border-t text-xs text-left" style={{ borderColor: 'var(--pg-border-subtle)', color: 'var(--pg-text-secondary)' }}>
+                  <div className="flex items-center gap-2.5">
                     <UserCheck className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
                     <span>Dojazd do firm: Gdańsk, Gdynia, Sopot, Elbląg</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2.5">
                     <UserCheck className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
                     <span>Spotkania w kawiarni lub omówienie projektu online</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2.5">
                     <UserCheck className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
                     <span>Inżynier Magister (Politechnika / AMW / WSB)</span>
                   </div>
                 </div>
 
-                <div className="pt-2">
+                <div className="w-full pt-2">
                   <a 
                     href="#kontakt"
-                    className="w-full block text-center py-3 rounded-xl bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs shadow-md transition-all"
+                    className="w-full block text-center py-3.5 rounded-xl bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs shadow-md transition-all"
                   >
                     Umów darmową konsultację
                   </a>
