@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap URL
-Sitemap: https://codeworks.pl/sitemap.xml
+Sitemap: https://www.codeworks-it.pl/sitemap.xml

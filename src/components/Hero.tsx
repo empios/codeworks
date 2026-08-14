@@ -3,7 +3,7 @@ import { Video, Coffee, Unlock, Zap, MapPin, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Hero: React.FC = () => {
-  const locations = ["Gdańsk", "Gdynia", "Sopot", "Elbląg", "Pasłęk", "Tolkmicko", "Młynary", "Gronowo Górne"];
+  const locations = ["Elbląg", "Gdańsk", "Gdynia", "Sopot", "Pasłęk", "Gronowo Górne", "Zdalnie w całej PL"];
 
   return (
     <section 
@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           
-          {/* Location & Title Badge */}
+          {/* Badge */}
           <div>
             <div 
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs md:text-sm font-medium shadow-sm transition-colors"
@@ -28,31 +28,30 @@ export const Hero: React.FC = () => {
               }}
             >
               <span className="w-2 h-2 rounded-full bg-ubuntuOrange-50 animate-pulse"></span>
-              <span>CodeWorks · Studio IT · Trójmiasto (Gdańsk, Gdynia, Sopot) &amp; Elbląg</span>
+              <span>CodeWorks · Automatyzacja Procesów AI · On-Premise (RODO)</span>
             </div>
           </div>
 
           {/* H1 Main Heading */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.15]" style={{ color: 'var(--pg-text-primary)' }}>
-            Tworzenie Stron Internetowych i Sklepów w <span className="font-bold gradient-orange-aubergine">Trójmieście i Elblągu</span>
+            Automatyzujemy powtarzalną robotę w <span className="font-bold gradient-orange-aubergine">sklepach i hurtowniach</span>
           </h1>
 
-          {/* H2 Subtitle / Value Proposition */}
+          {/* H2 Subtitle / Value Proposition: 2 sentences */}
           <p className="text-lg sm:text-xl max-w-3xl mx-auto font-normal leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-            CodeWorks – Twój lokalny partner technologiczny w regionie Pomorza. Budujemy szybkie strony firmowe, sklepy WooCommerce i dedykowane aplikacje B2B. 
-            <strong className="text-ubuntuOrange-50 font-semibold"> 100% otwarty kod źródłowy</strong>, brak vendor lock-in i bezpośredni kontakt z inżynierem bez pośredników.
+            Wdrażamy lokalne modele AI, które automatycznie przetwarzają zdjęcia produktowe, weryfikują opisy z kartami PDF, tłumaczą wielotysięczne katalogi oraz wyszukują wiedzę w dokumentach. Wszystkie rozwiązania działają w 100% na Twoim własnym serwerze (on-premise) — Twoje dane i pliki nie wychodzą na zewnątrz (argument RODO).
           </p>
 
-          {/* Ubuntu Orange Location Badges Strip */}
+          {/* Location Badges Strip */}
           <div className="pt-2 flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-ubuntuOrange-50 flex items-center gap-1 mr-1">
               <MapPin className="w-3.5 h-3.5 text-ubuntuOrange-50" />
-              <span>Dojazd do firm:</span>
+              <span>Obszar działania:</span>
             </span>
             {locations.map((loc, idx) => (
               <span 
                 key={idx}
-                className="px-3.5 py-1 rounded-full text-xs font-semibold border bg-ubuntuOrange-50/10 border-ubuntuOrange-50/30 text-ubuntuOrange-50 shadow-xs transition-all hover:scale-105 hover:bg-ubuntuOrange-50 hover:text-white cursor-default"
+                className="px-3.5 py-1 rounded-full text-xs font-semibold border bg-ubuntuOrange-50/10 border-ubuntuOrange-50/30 text-ubuntuOrange-50 shadow-xs cursor-default"
               >
                 📍 {loc}
               </span>
@@ -64,17 +63,17 @@ export const Hero: React.FC = () => {
             <motion.a 
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              href="#kontakt" 
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-medium text-base px-8 py-4 rounded-lg shadow-lg hover:shadow-pg-glow transition-all"
+              href="/audyt" 
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-8 py-4 rounded-lg shadow-lg hover:shadow-pg-glow transition-all"
             >
               <Video className="w-5 h-5" />
-              <span>Zamów Bezpłatny Audyt Wideo</span>
+              <span>Zamów Audyt Procesu (3 500 zł netto)</span>
             </motion.a>
 
             <motion.a 
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              href="#kontakt" 
+              href="#kompetencje" 
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 border font-medium text-base px-6 py-4 rounded-lg transition-all shadow-sm hover:border-ubuntuOrange-50"
               style={{
                 backgroundColor: 'var(--pg-layer-01)',
@@ -83,11 +82,11 @@ export const Hero: React.FC = () => {
               }}
             >
               <Coffee className="w-5 h-5 text-ubuntuOrange-50" />
-              <span>Umów się na spotkanie na Pomorzu</span>
+              <span>Poznaj 4 Rozwiązania AI</span>
             </motion.a>
           </div>
 
-          {/* Trust Badges Grid */}
+          {/* Key Advantages */}
           <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
             
             <motion.div 
@@ -95,11 +94,11 @@ export const Hero: React.FC = () => {
               className="pg-card p-4 rounded-xl flex items-start gap-3 transition-all"
             >
               <div className="p-2 rounded-lg bg-ubuntuOrange-50/10 text-ubuntuOrange-50 shrink-0">
-                <Unlock className="w-5 h-5" />
+                <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>100% Otwarty Kod</h3>
-                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>Zero vendor lock-in. Pełne prawa autorskie dla klienta.</p>
+                <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>100% On-Premise</h3>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>Dane pozostają u klienta. Zgodność z RODO.</p>
               </div>
             </motion.div>
 
@@ -111,8 +110,8 @@ export const Hero: React.FC = () => {
                 <Zap className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Szybkość &lt; 1.5s</h3>
-                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>Optymalizacja Google PageSpeed i zoptymalizowany kod.</p>
+                <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Wysoka Wydajność</h3>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>Obsługa skali do 1M rekordów katalogowych.</p>
               </div>
             </motion.div>
 
@@ -121,11 +120,11 @@ export const Hero: React.FC = () => {
               className="pg-card p-4 rounded-xl flex items-start gap-3 transition-all"
             >
               <div className="p-2 rounded-lg bg-ubuntuOrange-50/10 text-ubuntuOrange-50 shrink-0">
-                <ShieldCheck className="w-5 h-5" />
+                <Unlock className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Fixed Price &amp; Gwarancja</h3>
-                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>12 miesięcy gwarancji i stała wycena w umowie.</p>
+                <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Brak Opłat za Tokeny</h3>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>Lokalne modele bez płacenia subskrypcji API.</p>
               </div>
             </motion.div>
 
@@ -137,8 +136,8 @@ export const Hero: React.FC = () => {
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Mobilnie na Pomorzu</h3>
-                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>Dojazd w Gdańsku, Gdyni, Sopocie i Elblągu.</p>
+                <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Lokalnie z Elbląga</h3>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>Wdrożenie produkcyjne i bezpośredni kontakt.</p>
               </div>
             </motion.div>
 

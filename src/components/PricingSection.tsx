@@ -3,194 +3,192 @@ import { Check, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export const PricingSection: React.FC = () => {
   return (
-    <section id="oferta" className="py-24 relative">
+    <section id="cennik" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold font-mono tracking-widest uppercase text-ubuntuOrange-50">Przejrzyste zasady</span>
+          <span className="text-xs font-bold font-mono tracking-widest uppercase text-ubuntuOrange-50">Transparentny Cennik Usług AI</span>
           <h2 className="text-3xl sm:text-5xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-            Oferta i Cennik usługi <span className="font-semibold text-ubuntuOrange-50">IT</span>
+            Cennik automatyzacji procesów <span className="font-semibold text-ubuntuOrange-50">AI on-premise</span>
           </h2>
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-            Bez ukrytych opłat i podchwytliwych zapisów. Otrzymujesz wycenę typu Fixed Price oraz pełne przekazanie autorskich praw majątkowych.
+            Jasne kwoty netto, brak stałych opłat abonamentowych za chmurę. Model instalowany bezpośrednio u klienta.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+        {/* Featured Product Entry: Audyt procesów */}
+        <div className="mb-12 pg-card p-8 rounded-2xl border-2 border-ubuntuOrange-50 shadow-pg-glow relative overflow-hidden">
+          <div className="absolute top-0 right-0 bg-ubuntuOrange-50 text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-bl-xl shadow-sm">
+            Produkt wejściowy — 100% odliczany od wdrożenia
+          </div>
           
-          {/* Package 1 */}
-          <div className="pg-card p-8 rounded-2xl flex flex-col justify-between relative">
-            <div>
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">Wizytówka &amp; Services</span>
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 space-y-4">
+              <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">Krok 1</span>
+              <h3 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Audyt procesu automatyzacji AI</h3>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
+                Pełna weryfikacja Twoich procesów e-commerce/hurtowni pod kątem automatyzacji AI. Przygotowujemy specyfikację techniczną, estymację oszczędności czasu i architekturę modelu on-premise.
+              </p>
+              <p className="text-xs font-semibold text-ubuntuOrange-50">
+                Wartość audytu (3 500 zł netto) jest w 100% odliczana od kwoty późniejszego wdrożenia systemu.
+              </p>
+            </div>
+
+            <div className="lg:col-span-4 flex flex-col items-center lg:items-end justify-center space-y-4 border-t lg:border-t-0 lg:border-l pt-6 lg:pt-0 lg:pl-8" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+              <div className="text-center lg:text-right">
+                <span className="text-3xl font-extrabold text-ubuntuOrange-50">3 500 zł</span>
+                <span className="text-sm font-medium" style={{ color: 'var(--pg-text-secondary)' }}> netto</span>
+                <p className="text-xs mt-1" style={{ color: 'var(--pg-text-muted)' }}>Typowy projekt: 3 500 zł</p>
               </div>
-              <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--pg-text-primary)' }}>Wizytówka Smart</h3>
-              <p className="text-xs mb-6" style={{ color: 'var(--pg-text-muted)' }}>Idealne rozwiązanie dla lokalnych firm usługowych, budowlanych i rzemieślniczych.</p>
+              <a 
+                href="/audyt" 
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-6 py-3.5 rounded-lg shadow-md transition-all"
+              >
+                <span>Zamów Audyt Procesu</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* 4 Main Competencies Grid */}
+        <div className="grid md:grid-cols-2 gap-8 items-stretch mb-16">
+          
+          {/* Card 1: Zdjęcia */}
+          <div className="pg-card p-8 rounded-2xl flex flex-col justify-between border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+            <div>
+              <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">Grafika &amp; E-commerce</span>
+              <h3 className="text-xl font-bold mt-3 mb-2" style={{ color: 'var(--pg-text-primary)' }}>Automatyzacja zdjęć produktowych</h3>
+              <p className="text-xs mb-6 leading-relaxed" style={{ color: 'var(--pg-text-muted)' }}>Wycinanie tła, kadrowanie, ujednolicanie proporcji i nakładanie logotypów lokalnym algorytmem AI.</p>
               
-              <div className="mb-8 pb-6 border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
-                <span className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>od </span>
-                <span className="text-4xl font-extrabold text-ubuntuOrange-50">1 800</span>
-                <span className="text-sm font-medium" style={{ color: 'var(--pg-text-secondary)' }}> PLN netto</span>
+              <div className="mb-6 pb-6 border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+                <span className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>Wdrożenie: </span>
+                <span className="text-2xl font-extrabold text-ubuntuOrange-50">od 12 000 zł</span>
+                <span className="text-xs font-medium" style={{ color: 'var(--pg-text-secondary)' }}> netto</span>
+                <span className="text-xs block mt-1" style={{ color: 'var(--pg-text-muted)' }}>Utrzymanie: od 500 zł/mies</span>
+                <span className="text-xs font-semibold text-ubuntuOrange-50 block mt-1">Typowy projekt: 12 000 – 25 000 zł netto</span>
               </div>
 
-              <ul className="space-y-3.5 text-sm mb-8">
-                <li className="flex items-center gap-3">
+              <ul className="space-y-2.5 text-xs mb-8">
+                <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Nowoczesna strona One-Page lub 3-5 podstron</span>
+                  <span style={{ color: 'var(--pg-text-secondary)' }}>Automatyczne usuwanie tła i centrowanie produktów</span>
                 </li>
-                <li className="flex items-center gap-3">
+                <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>100% Responsywny design (RWD)</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Formularz kontaktowy + integracja Google Maps</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Podstawowe SEO na Elbląg i powiat elbląski</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Otwarty system CMS (WordPress)</span>
+                  <span style={{ color: 'var(--pg-text-secondary)' }}>Nakładanie znaku wodnego i dopasowanie do wymogów rynków</span>
                 </li>
               </ul>
             </div>
 
-            <a 
-              href="#kontakt" 
-              className="w-full text-center py-3 rounded-lg border hover:bg-ubuntuOrange-50 hover:text-white font-medium text-sm transition-all"
-              style={{
-                backgroundColor: 'var(--pg-layer-02)',
-                borderColor: 'var(--pg-border-strong)',
-                color: 'var(--pg-text-primary)'
-              }}
-            >
-              Zamów Pakiet Smart
+            <a href="/automatyzacja-zdjec-produktowych" className="w-full text-center py-3 rounded-lg border hover:bg-ubuntuOrange-50 hover:text-white font-medium text-xs transition-all" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-strong)', color: 'var(--pg-text-primary)' }}>
+              Szczegóły oferty zdjęć AI
             </a>
           </div>
 
-          {/* Package 2 (Most Popular) */}
-          <div className="pg-card p-8 rounded-2xl flex flex-col justify-between relative border-2 border-ubuntuOrange-50 shadow-pg-glow">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-ubuntuOrange-50 text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-sm">
-              Najczęściej Wybierany w Elblągu
-            </div>
-
+          {/* Card 2: Walidacja PDF */}
+          <div className="pg-card p-8 rounded-2xl flex flex-col justify-between border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
             <div>
-              <div className="flex justify-between items-center mb-4 mt-2">
-                <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">Sklep E-Commerce</span>
-              </div>
-              <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--pg-text-primary)' }}>E-Commerce Starter</h3>
-              <p className="text-xs mb-6" style={{ color: 'var(--pg-text-muted)' }}>Dla sklepów, handlu i producentów z regionu chcących sprzedawać online.</p>
+              <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">Jakość Danych</span>
+              <h3 className="text-xl font-bold mt-3 mb-2" style={{ color: 'var(--pg-text-primary)' }}>Walidacja opisów z kartami PDF</h3>
+              <p className="text-xs mb-6 leading-relaxed" style={{ color: 'var(--pg-text-muted)' }}>Automatyczne porównywanie parametrów w e-commerce z dokumentacją techniczną PDF dostawców.</p>
               
-              <div className="mb-8 pb-6 border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
-                <span className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>od </span>
-                <span className="text-4xl font-extrabold text-ubuntuOrange-50">4 500</span>
-                <span className="text-sm font-medium" style={{ color: 'var(--pg-text-secondary)' }}> PLN netto</span>
+              <div className="mb-6 pb-6 border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+                <span className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>Wdrożenie: </span>
+                <span className="text-2xl font-extrabold text-ubuntuOrange-50">od 15 000 zł</span>
+                <span className="text-xs font-medium" style={{ color: 'var(--pg-text-secondary)' }}> netto</span>
+                <span className="text-xs block mt-1" style={{ color: 'var(--pg-text-muted)' }}>Utrzymanie: od 800 zł/mies</span>
+                <span className="text-xs font-semibold text-ubuntuOrange-50 block mt-1">Typowy projekt: 15 000 – 30 000 zł netto</span>
               </div>
 
-              <ul className="space-y-3.5 text-sm mb-8">
-                <li className="flex items-center gap-3">
+              <ul className="space-y-2.5 text-xs mb-8">
+                <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Sklep WooCommerce z nieograniczoną liczbą produktów</span>
+                  <span style={{ color: 'var(--pg-text-secondary)' }}>Weryfikacja parametrów technicznych i kodów produktów</span>
                 </li>
-                <li className="flex items-center gap-3">
+                <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Integracja płatności (BLIK, Przelewy24, PayU)</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Kurierzy i Paczkomaty InPost / Allegro Smart</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Szkolenie wideo z prowadzenia i edycji sklepu</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Zero prowizji od Twojej sprzedaży</span>
+                  <span style={{ color: 'var(--pg-text-secondary)' }}>Raport rozbieżności i natychmiastowe flagowanie błędów</span>
                 </li>
               </ul>
             </div>
 
-            <a href="#kontakt" className="w-full text-center py-3.5 rounded-lg bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-medium text-sm transition-all shadow-md">
-              Wybierz Sklep WooCommerce
+            <a href="/walidacja-opisow-produktow" className="w-full text-center py-3 rounded-lg border hover:bg-ubuntuOrange-50 hover:text-white font-medium text-xs transition-all" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-strong)', color: 'var(--pg-text-primary)' }}>
+              Szczegóły walidacji opisów
             </a>
           </div>
 
-          {/* Package 3 */}
-          <div className="pg-card p-8 rounded-2xl flex flex-col justify-between relative">
+          {/* Card 3: Tłumaczenie 1M */}
+          <div className="pg-card p-8 rounded-2xl flex flex-col justify-between border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
             <div>
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">B2B / Dedicated</span>
-              </div>
-              <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--pg-text-primary)' }}>Software House B2B</h3>
-              <p className="text-xs mb-6" style={{ color: 'var(--pg-text-muted)' }}>Dedykowane aplikacje webowe, portale klienckie i integracje systemowe API.</p>
+              <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">Skala &amp; Ekspansja</span>
+              <h3 className="text-xl font-bold mt-3 mb-2" style={{ color: 'var(--pg-text-primary)' }}>Tłumaczenie katalogu (1M rekordów)</h3>
+              <p className="text-xs mb-6 leading-relaxed" style={{ color: 'var(--pg-text-muted)' }}>Lokalne przekładanie wielkich baz produktów bez stałych opłat za zewnętrzne chmurowe API.</p>
               
-              <div className="mb-8 pb-6 border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
-                <span className="text-3xl font-extrabold text-ubuntuOrange-50">Wycena indywidualna</span>
+              <div className="mb-6 pb-6 border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+                <span className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>Wdrożenie: </span>
+                <span className="text-2xl font-extrabold text-ubuntuOrange-50">od 10 000 zł</span>
+                <span className="text-xs font-medium" style={{ color: 'var(--pg-text-secondary)' }}> netto</span>
+                <span className="text-xs block mt-1" style={{ color: 'var(--pg-text-muted)' }}>Utrzymanie: od 500 zł/mies</span>
+                <span className="text-xs font-semibold text-ubuntuOrange-50 block mt-1">Typowy projekt: 10 000 – 22 000 zł netto</span>
               </div>
 
-              <ul className="space-y-3.5 text-sm mb-8">
-                <li className="flex items-center gap-3">
+              <ul className="space-y-2.5 text-xs mb-8">
+                <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Dedykowana aplikacja React / Node.js / PHP</span>
+                  <span style={{ color: 'var(--pg-text-secondary)' }}>Własny słownik pojęć branżowych i zachowanie tagów HTML</span>
                 </li>
-                <li className="flex items-center gap-3">
+                <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Integracje z systemami ERP / CRM / Magazyn</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Dedykowany architekt systemu i analiza biznesowa</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Gwarancja SLA i dedykowany czas wsparcia</span>
+                  <span style={{ color: 'var(--pg-text-secondary)' }}>Przetwarzanie wsadowe do 1 000 000 pozycji</span>
                 </li>
               </ul>
             </div>
 
-            <a 
-              href="#kontakt" 
-              className="w-full text-center py-3 rounded-lg border hover:bg-ubuntuOrange-50 hover:text-white font-medium text-sm transition-all"
-              style={{
-                backgroundColor: 'var(--pg-layer-02)',
-                borderColor: 'var(--pg-border-strong)',
-                color: 'var(--pg-text-primary)'
-              }}
-            >
-              Zapytaj o Projekt B2B
+            <a href="/tlumaczenie-katalogu-produktowego" className="w-full text-center py-3 rounded-lg border hover:bg-ubuntuOrange-50 hover:text-white font-medium text-xs transition-all" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-strong)', color: 'var(--pg-text-primary)' }}>
+              Szczegóły tłumaczeń AI
+            </a>
+          </div>
+
+          {/* Card 4: Chatbot RAG */}
+          <div className="pg-card p-8 rounded-2xl flex flex-col justify-between border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+            <div>
+              <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">Baza Wiedzy</span>
+              <h3 className="text-xl font-bold mt-3 mb-2" style={{ color: 'var(--pg-text-primary)' }}>Chatbot AI on-premise (RAG)</h3>
+              <p className="text-xs mb-6 leading-relaxed" style={{ color: 'var(--pg-text-muted)' }}>Asystent AI przeszukujący firmową dokumentację, instrukcje i procedury w 100% lokalnie.</p>
+              
+              <div className="mb-6 pb-6 border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+                <span className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>Wdrożenie: </span>
+                <span className="text-2xl font-extrabold text-ubuntuOrange-50">od 25 000 zł</span>
+                <span className="text-xs font-medium" style={{ color: 'var(--pg-text-secondary)' }}> netto</span>
+                <span className="text-xs block mt-1" style={{ color: 'var(--pg-text-muted)' }}>Utrzymanie: od 1 500 zł/mies</span>
+                <span className="text-xs font-semibold text-ubuntuOrange-50 block mt-1">Typowy projekt: 25 000 – 50 000 zł netto</span>
+              </div>
+
+              <ul className="space-y-2.5 text-xs mb-8">
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
+                  <span style={{ color: 'var(--pg-text-secondary)' }}>Indeksacja instrukcji PDF, umów i specyfikacji technicznych</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
+                  <span style={{ color: 'var(--pg-text-secondary)' }}>100% prywatności — dane firmy nie zasilają zewnętrznych modeli</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="/chatbot-ai-on-premise" className="w-full text-center py-3 rounded-lg border hover:bg-ubuntuOrange-50 hover:text-white font-medium text-xs transition-all" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-strong)', color: 'var(--pg-text-primary)' }}>
+              Szczegóły chatbota RAG
             </a>
           </div>
 
         </div>
 
-        {/* SLA Banner */}
-        <div 
-          className="mt-16 rounded-2xl border p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 transition-colors"
-          style={{
-            backgroundColor: 'var(--pg-layer-02)',
-            borderColor: 'var(--pg-border-strong)'
-          }}
-        >
-          <div className="space-y-4 max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10 border border-ubuntuOrange-50/20">
-              <ShieldCheck className="w-4 h-4 text-ubuntuOrange-50" />
-              <span>Opieka Techniczna &amp; Maintenance SLA</span>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Abonament Serwisowy z Rozliczanym Bankiem Godzin</h3>
-            <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-              Nie zostawiam Cię samemu po wdrożeniu strony. W ramach stałej opieki (od <strong className="text-ubuntuOrange-50">250 PLN netto/miesiąc</strong>) dbam o kopie zapasowe, aktualizacje bezpieczeństwa, monitoring 24/7 oraz wykonuję bieżące poprawki graficzne i treściowe w ramach rozliczanego banku godzin.
-            </p>
-          </div>
-
-          <div className="shrink-0 flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
-            <a href="#kontakt" className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-medium px-6 py-3.5 rounded-lg transition-all text-sm shadow-sm">
-              <span>Dowiedz się więcej o SLA</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
+        {/* WooCommerce & WWW Single-Line Note (Rule 7) */}
+        <div className="pt-8 border-t text-center" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+          <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--pg-text-secondary)' }}>
+            Budujemy również sklepy WooCommerce oraz strony internetowe z otwartym kodem źródłowym.
+          </p>
         </div>
 
       </div>

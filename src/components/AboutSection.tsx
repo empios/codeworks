@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="o-agencji" className="py-24 transition-colors relative" style={{ backgroundColor: 'var(--pg-bg)' }}>
+    <section id="o-firmie" className="py-24 transition-colors relative" style={{ backgroundColor: 'var(--pg-bg)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -13,19 +13,19 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
               <Award className="w-4 h-4 text-ubuntuOrange-50" />
-              <span>O Marce CodeWorks</span>
+              <span>Kto Za Tym Stoi</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight" style={{ color: 'var(--pg-text-primary)' }}>
-              Inżynierskie podejście do oprogramowania dla <span className="font-semibold text-ubuntuOrange-50">Lokalnego Biznesu</span>
+              Lokalny partner w automatyzacji <span className="font-semibold text-ubuntuOrange-50">procesów AI</span>
             </h2>
 
             <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-              Nazywam się <strong>Paweł Włodarczyk</strong>. Stworzyłem <strong>CodeWorks</strong> jako nowoczesne studio technologiczne, które dostarcza małym i średnim firmom z Trójmiasta i Elbląga rozwiązania na poziomie dużych software house’ów – bez agencji narzutów i zbędnej biurokracji.
+              Nazywam się <strong>Paweł Włodarczyk</strong>. Prowadzę jednoosobową firmę <strong>CodeWorks</strong> w Elblągu. Wdrażam praktyczne rozwiązania AI dla e-commerce, hurtowni i dystrybutorów, pomagając eliminować najbardziej żmudną i podatną na błędy pracę.
             </p>
 
             <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-muted)' }}>
-              Wierzę w pełną przejrzystość: buduję projekty w 100% oparte na otwartym kodzie źródłowym (Zero Vendor Lock-in), z natychmiastowym przekazaniem pełnych praw autorskich dla zamawiającego oraz jasną gwarancją Fixed Price w umowie.
+              Moim kluczowym wyróżnikiem jest wdrażanie modeli w 100% on-premise (lokalnie u klienta). Twoje dane firmowe, katalogi produktowe i dokumenty wewnętrzne nigdy nie wychodzą do zewnętrznej chmury, co daje pełne bezpieczeństwo i zgodność z RODO.
             </p>
 
             {/* Core Pillars */}
@@ -33,8 +33,8 @@ export const AboutSection: React.FC = () => {
               <div className="flex items-start gap-3 p-3 rounded-lg bg-ubuntuOrange-50/5 border border-ubuntuOrange-50/20">
                 <ShieldCheck className="w-5 h-5 text-ubuntuOrange-50 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-xs uppercase tracking-wider" style={{ color: 'var(--pg-text-primary)' }}>Gwarancja SLA &amp; Fixed Price</h4>
-                  <p className="text-xs mt-1" style={{ color: 'var(--pg-text-muted)' }}>Stała cena w umowie, brak ukrytych opłat i opieka powdrożeniowa.</p>
+                  <h4 className="font-bold text-xs uppercase tracking-wider" style={{ color: 'var(--pg-text-primary)' }}>100% Bezpieczeństwa RODO</h4>
+                  <p className="text-xs mt-1" style={{ color: 'var(--pg-text-muted)' }}>Dane nie opuszczają Twojej sieci i serwerów firmowych.</p>
                 </div>
               </div>
 
@@ -42,7 +42,7 @@ export const AboutSection: React.FC = () => {
                 <HeartHandshake className="w-5 h-5 text-ubuntuOrange-50 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-xs uppercase tracking-wider" style={{ color: 'var(--pg-text-primary)' }}>Bezpośredni Kontakt</h4>
-                  <p className="text-xs mt-1" style={{ color: 'var(--pg-text-muted)' }}>Rozmawiasz bezpośrednio z inżynierem tworzącym Twój system.</p>
+                  <p className="text-xs mt-1" style={{ color: 'var(--pg-text-muted)' }}>Rozmawiasz i współpracujesz bezpośrednio z inżynierem bez pośredników.</p>
                 </div>
               </div>
             </div>
@@ -51,9 +51,9 @@ export const AboutSection: React.FC = () => {
             <div className="pt-4 border-t" style={{ borderColor: 'var(--pg-border-subtle)' }}>
               <div className="p-4 rounded-xl border bg-ubuntuOrange-50/5 border-ubuntuOrange-50/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
-                  <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50">Osobista strona inżynierska / Full-Time CV:</span>
+                  <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50">Strona osobista programisty / Portfolio:</span>
                   <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-secondary)' }}>
-                    Szukasz mojego indywidualnego portfolio inżyniera oprogramowania do pracy na etacie?
+                    Poznaj moje zaplecze inżynieryjne i doświadczenie projektowe na stronie osobistej.
                   </p>
                 </div>
                 <a 
@@ -76,7 +76,6 @@ export const AboutSection: React.FC = () => {
               
               <div className="relative z-10 space-y-5 flex flex-col items-center">
                 
-                {/* Beautifully Centered Portrait Image */}
                 <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-ubuntuOrange-50 shadow-xl p-1 bg-ubuntuOrange-50/10">
                   <img 
                     src="/avatar.jpg" 
@@ -87,30 +86,30 @@ export const AboutSection: React.FC = () => {
 
                 <div className="space-y-1">
                   <h3 className="text-2xl font-bold tracking-tight" style={{ color: 'var(--pg-text-primary)' }}>Paweł Włodarczyk</h3>
-                  <p className="text-xs font-mono font-bold text-ubuntuOrange-50 uppercase tracking-wider">Założyciel &amp; Lead Software Developer</p>
+                  <p className="text-xs font-mono font-bold text-ubuntuOrange-50 uppercase tracking-wider">Inżynier &amp; Założyciel CodeWorks (Elbląg)</p>
                 </div>
 
                 <div className="w-full space-y-2.5 pt-4 border-t text-xs text-left" style={{ borderColor: 'var(--pg-border-subtle)', color: 'var(--pg-text-secondary)' }}>
                   <div className="flex items-center gap-2.5">
                     <UserCheck className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                    <span>Dojazd do firm: Gdańsk, Gdynia, Sopot, Elbląg</span>
+                    <span>Lokalne wdrożenia w Elblągu i na Pomorzu</span>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <UserCheck className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                    <span>Spotkania w kawiarni lub omówienie projektu online</span>
+                    <span>Współpraca zdalna dla firm z całej Polski</span>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <UserCheck className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                    <span>Inżynier Magister (Politechnika / AMW / WSB)</span>
+                    <span>Wdrożenia modeli AI produkcyjnie sprawdzonych w działaniu</span>
                   </div>
                 </div>
 
                 <div className="w-full pt-2">
                   <a 
-                    href="#kontakt"
+                    href="/audyt"
                     className="w-full block text-center py-3.5 rounded-xl bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs shadow-md transition-all"
                   >
-                    Umów darmową konsultację
+                    Zamów Audyt Procesu (3 500 zł)
                   </a>
                 </div>
               </div>

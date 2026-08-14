@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 group shrink-0">
+        <a href="/" className="flex items-center gap-2.5 group shrink-0">
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-ubuntuOrange-50 to-aubergine-60 flex items-center justify-center text-white shadow-pg-sm group-hover:scale-105 transition-transform">
             <Code2 className="w-6 h-6" />
           </div>
@@ -29,22 +29,21 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
             <span className="font-bold text-base sm:text-lg tracking-tight flex items-center gap-1.5" style={{ color: 'var(--pg-text-primary)' }}>
               Code<span className="text-ubuntuOrange-50">Works</span>
             </span>
-            <span className="text-[10px] tracking-wider uppercase font-medium" style={{ color: 'var(--pg-text-muted)' }}>Trójmiasto &amp; Elbląg</span>
+            <span className="text-[10px] tracking-wider uppercase font-medium" style={{ color: 'var(--pg-text-muted)' }}>Automatyzacja AI · Elbląg</span>
           </div>
         </a>
 
-        {/* Desktop Nav - Optimized Spacing */}
-        <nav className="hidden lg:flex items-center space-x-3 xl:space-x-5 text-xs xl:text-sm font-medium">
-          <a href="#o-agencji" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>O agencji</a>
-          <a href="#oferta" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Oferta</a>
-          <a href="#kalkulator" className="transition-colors hover:text-ubuntuOrange-50 flex items-center gap-1 text-ubuntuOrange-50 font-semibold">
-            <Calculator className="w-3.5 h-3.5" />
-            <span>Kalkulator</span>
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center space-x-3 xl:space-x-4 text-xs xl:text-sm font-medium">
+          <a href="/" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Strona główna</a>
+          <a href="/audyt" className="transition-colors hover:text-ubuntuOrange-50 text-ubuntuOrange-50 font-bold flex items-center gap-1 bg-ubuntuOrange-50/10 px-2.5 py-1 rounded">
+            <span>Audyt Procesu (3 500 zł)</span>
           </a>
-          <a href="#realizacje" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Wdrożenia</a>
-          <a href="#dlaczego-ja" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Dlaczego lokalnie?</a>
-          <a href="#faq" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>FAQ</a>
-          <a href="#kontakt" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Kontakt</a>
+          <a href="/automatyzacja-zdjec-produktowych" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Zdjęcia AI</a>
+          <a href="/walidacja-opisow-produktow" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Walidacja PDF</a>
+          <a href="/tlumaczenie-katalogu-produktowego" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Tłumaczenie 1M</a>
+          <a href="/chatbot-ai-on-premise" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Chatbot RAG</a>
+          <a href="/#o-firmie" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>O firmie</a>
         </nav>
 
         {/* Right Controls */}
@@ -62,11 +61,11 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           </button>
 
           <a 
-            href="#kontakt" 
-            className="inline-flex items-center gap-1.5 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-medium text-xs xl:text-sm px-3.5 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap"
+            href="/audyt" 
+            className="inline-flex items-center gap-1.5 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs xl:text-sm px-4 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap"
           >
             <Video className="w-4 h-4" />
-            <span>Darmowy Audyt</span>
+            <span>Zamów Audyt Procesu</span>
           </a>
         </div>
 
@@ -98,16 +97,16 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
             borderColor: 'var(--pg-border-subtle)'
           }}
         >
-          <a href="#o-agencji" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>O CodeWorks</a>
-          <a href="#oferta" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Oferta i Cennik</a>
-          <a href="#kalkulator" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Kalkulator Projekcji</a>
-          <a href="#realizacje" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Wdrożenia</a>
-          <a href="#dlaczego-ja" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Dlaczego lokalnie?</a>
-          <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>FAQ</a>
-          <a href="#kontakt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Kontakt</a>
-          <a href="#kontakt" onClick={() => setMobileMenuOpen(false)} className="w-full flex items-center justify-center gap-2 bg-ubuntuOrange-50 text-white font-medium py-3 rounded-md">
+          <a href="/" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Strona główna</a>
+          <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-bold text-ubuntuOrange-50">Audyt Procesu (3 500 zł)</a>
+          <a href="/automatyzacja-zdjec-produktowych" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Obróbka zdjęć produktowych</a>
+          <a href="/walidacja-opisow-produktow" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Walidacja opisów z PDF</a>
+          <a href="/tlumaczenie-katalogu-produktowego" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Tłumaczenie katalogów (1M)</a>
+          <a href="/chatbot-ai-on-premise" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Chatbot AI on-premise (RAG)</a>
+          <a href="/#o-firmie" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>O firmie</a>
+          <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="w-full flex items-center justify-center gap-2 bg-ubuntuOrange-50 text-white font-bold py-3 rounded-md">
             <Video className="w-5 h-5" />
-            <span>Darmowy Audyt Wideo (2 min)</span>
+            <span>Zamów Audyt Procesu (3 500 zł)</span>
           </a>
         </div>
       )}

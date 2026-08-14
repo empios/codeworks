@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
               <span>CodeWorks Paweł Włodarczyk</span>
             </div>
             <p className="text-xs leading-relaxed max-w-md" style={{ color: 'var(--pg-footer-text)' }}>
-              CodeWorks – Studio IT i partner technologiczny dla małych i średnich firm z obszaru Trójmiasta (Gdańsk, Gdynia, Sopot), Elbląga i całego Pomorza. Tworzenie zoptymalizowanych stron WWW, sklepów WooCommerce i dedykowanych aplikacji B2B.
+              CodeWorks – Automatyzacja procesów AI dla e-commerce, dystrybutorów i hurtowni. Przetwarzanie zdjęć produktowych, walidacja specyfikacji z kartami PDF, tłumaczenie katalogów do 1M rekordów oraz firmowy chatbot RAG 100% on-premise.
             </p>
             <div className="space-y-1 font-mono text-[11px] text-ubuntuOrange-40">
               <p className="flex items-center gap-2">
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
                 <Mail className="w-3.5 h-3.5" />
                 <a href="mailto:pawelwlodarczyk97@yahoo.com" className="hover:underline">pawelwlodarczyk97@yahoo.com</a>
               </p>
-              <p>📍 Mobilne studio IT – dojazd do klienta w Gdańsku, Gdyni, Sopocie i Elblągu</p>
+              <p>📍 Elbląg (siedziba firmy) · Wdrożenia on-premise i zdalne w całej Polsce</p>
             </div>
           </div>
 
@@ -41,13 +41,13 @@ export const Footer: React.FC = () => {
           <div className="space-y-2">
             <h4 className="font-bold text-xs uppercase tracking-wider mb-3" style={{ color: 'var(--pg-footer-heading)' }}>Nawigacja</h4>
             <ul className="space-y-2">
-              <li><a href="#o-agencji" className="hover:text-ubuntuOrange-40 transition-colors">O CodeWorks</a></li>
-              <li><a href="#problem" className="hover:text-ubuntuOrange-40 transition-colors">Problem z Agencjami</a></li>
-              <li><a href="#oferta" className="hover:text-ubuntuOrange-40 transition-colors">Cennik i Pakiet Smart</a></li>
-              <li><a href="#kalkulator" className="hover:text-ubuntuOrange-40 transition-colors">Kalkulator Projekcji</a></li>
-              <li><a href="#realizacje" className="hover:text-ubuntuOrange-40 transition-colors">Wdrożenia</a></li>
-              <li><a href="#faq" className="hover:text-ubuntuOrange-40 transition-colors">FAQ</a></li>
-              <li><a href="#kontakt" className="hover:text-ubuntuOrange-40 transition-colors">Darmowy Audyt Wideo</a></li>
+              <li><a href="/" className="hover:text-ubuntuOrange-40 transition-colors">Strona główna</a></li>
+              <li><a href="/audyt" className="hover:text-ubuntuOrange-40 transition-colors font-bold text-ubuntuOrange-50">Audyt Procesu (3 500 zł)</a></li>
+              <li><a href="/automatyzacja-zdjec-produktowych" className="hover:text-ubuntuOrange-40 transition-colors">Zdjęcia AI</a></li>
+              <li><a href="/walidacja-opisow-produktow" className="hover:text-ubuntuOrange-40 transition-colors">Walidacja opisu z PDF</a></li>
+              <li><a href="/tlumaczenie-katalogu-produktowego" className="hover:text-ubuntuOrange-40 transition-colors">Tłumaczenie katalogu (1M)</a></li>
+              <li><a href="/chatbot-ai-on-premise" className="hover:text-ubuntuOrange-40 transition-colors">Chatbot AI (RAG)</a></li>
+              <li><a href="/#o-firmie" className="hover:text-ubuntuOrange-40 transition-colors">Kto za tym stoi</a></li>
               <li className="pt-2">
                 <a 
                   href="https://www.pawelvlodarczyk.pl/" 
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-ubuntuOrange-40 font-bold hover:underline"
                 >
-                  <span>Portfolio Inżynierskie (CV)</span>
+                  <span>Strona osobista pawelvlodarczyk.pl</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
@@ -64,22 +64,22 @@ export const Footer: React.FC = () => {
 
           {/* Regional SEO Tags */}
           <div className="space-y-2">
-            <h4 className="font-bold text-xs uppercase tracking-wider mb-3" style={{ color: 'var(--pg-footer-heading)' }}>Obszar Działań SEO</h4>
+            <h4 className="font-bold text-xs uppercase tracking-wider mb-3" style={{ color: 'var(--pg-footer-heading)' }}>Obszar Specjalizacji</h4>
             <div className="flex flex-wrap gap-1.5">
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Strony WWW Gdańsk</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Sklepy Gdynia</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Programista Sopot</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">CodeWorks Elbląg</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">WooCommerce Trójmiasto</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Tworzenie stron Pasłęk</span>
+              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Automatyzacja AI Elbląg</span>
+              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Modele On-Premise</span>
+              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">RODO AI E-commerce</span>
+              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Tłumaczenie 1M katalogów</span>
+              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">RAG Dokumentacja Firmowa</span>
+              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Audyt procesów 3500 zł</span>
             </div>
           </div>
 
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
-          <p>© 2026 CodeWorks Paweł Włodarczyk. Wszystkie prawa zastrzeżone. Projekt w oparciu o Pangolin Design System.</p>
-          <p>100% Otwarty Kod · Zero Vendor Lock-in · Wsparcie SLA</p>
+          <p>© 2026 CodeWorks Paweł Włodarczyk. Wszystkie prawa zastrzeżone.</p>
+          <p>100% On-Premise · Zgodność z RODO · Dedykowane Wdrożenia</p>
         </div>
 
       </div>

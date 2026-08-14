@@ -4,17 +4,17 @@ import { motion } from 'framer-motion';
 
 export const ProblemSection: React.FC = () => {
   return (
-    <section id="problem" className="py-24 transition-colors" style={{ backgroundColor: 'var(--pg-bg)' }}>
+    <section id="kompetencje" className="py-24 transition-colors" style={{ backgroundColor: 'var(--pg-bg)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold font-mono tracking-widest uppercase text-ubuntuOrange-50">Lokalne wyzwania B2B</span>
+          <span className="text-xs font-bold font-mono tracking-widest uppercase text-ubuntuOrange-50">Wydajność &amp; RODO w e-commerce</span>
           <h2 className="text-3xl sm:text-5xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-            Dlaczego zwykła strona od agencji <span className="font-semibold text-ubuntuOrange-50">nie przynosi klientów?</span>
+            Z jakimi wyzwaniami mierzą się <span className="font-semibold text-ubuntuOrange-50">sklepy i hurtownie?</span>
           </h2>
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-            Wielu przedsiębiorców z Elbląga wydaje budżet na ładny obrazek, który po miesiącu okazuje się wolną „cyfrową wizytówką” bez ani jednego zapytania.
+            Setki godzin spędzone na powtarzalnych czynnościach oraz ryzyko wycieku danych przy korzystaniu z publicznych modeli AI.
           </p>
         </div>
 
@@ -29,21 +29,21 @@ export const ProblemSection: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-rose-500 font-bold text-sm uppercase tracking-wider">
                 <XCircle className="w-5 h-5 shrink-0" />
-                <span>Problem z Agencją</span>
+                <span>Ręczny proces</span>
               </div>
-              <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Wolne ładowanie (5-8 sek) i porzucenia</h3>
+              <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Tygodnie obróbki zdjęć i opisów</h3>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                Gotowe, przeładowane wtyczkami szablony ładują się zbyt wolno na telefonach. Ponad 50% klientów opuszcza stronę zanim w ogóle zobaczy ofertę.
+                Ręczne wycinanie tła ze zdjęć od kilkunastu dostawców i sprawdzanie specyfikacji technicznych paraliżuje wdrożenia nowych produktów na sklep.
               </p>
             </div>
 
             <div className="pt-6 border-t space-y-2" style={{ borderColor: 'var(--pg-border-subtle)' }}>
               <div className="flex items-center gap-2 text-ubuntuOrange-50 font-bold text-xs uppercase tracking-wider">
                 <CheckCircle2 className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                <span>Rozwiązanie CodeWorks</span>
+                <span>Automatyzacja CodeWorks</span>
               </div>
               <p className="text-xs font-medium" style={{ color: 'var(--pg-text-primary)' }}>
-                Optymalizacja kodu i Pangolin DS. Wynik Google PageSpeed 95-100 i ładowanie poniżej 1.5 sekundy.
+                Skrócenie czasu z 5 dni do 5 minut dzięki automatycznemu pipeline'owi wycinania tła i walidacji danych z kartami PDF.
               </p>
             </div>
           </motion.div>
@@ -56,21 +56,21 @@ export const ProblemSection: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-rose-500 font-bold text-sm uppercase tracking-wider">
                 <XCircle className="w-5 h-5 shrink-0" />
-                <span>Problem z Agencją</span>
+                <span>Przeszkoda biznesowa</span>
               </div>
-              <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Autorski CMS i Uwięzienie Klienta</h3>
+              <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Kosztotwórcze opłaty za tokeny chmurowe</h3>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                Dedykowane, autorskie systemy agencji (Vendor Lock-in) zmuszają do płacenia wysokich abonamentów za każdą, nawet drobną zmianę tekstu.
+                Przetłumaczenie bazy 1M produktów za pomocą zewnętrznych chmurowych API generuje fortunę w miesięcznych rachunkach.
               </p>
             </div>
 
             <div className="pt-6 border-t space-y-2" style={{ borderColor: 'var(--pg-border-subtle)' }}>
               <div className="flex items-center gap-2 text-ubuntuOrange-50 font-bold text-xs uppercase tracking-wider">
                 <CheckCircle2 className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                <span>Rozwiązanie CodeWorks</span>
+                <span>Automatyzacja CodeWorks</span>
               </div>
               <p className="text-xs font-medium" style={{ color: 'var(--pg-text-primary)' }}>
-                100% Otwarty Kod (WordPress/WooCommerce/React). Strona i dostęp są w 100% Twoją własnością bez opłat.
+                Wdrożenie lokalnego modelu na serwerze klienta: zero stałych opłat za tokeny i pełna kontrola nad bazą słownictwa.
               </p>
             </div>
           </motion.div>
@@ -83,21 +83,21 @@ export const ProblemSection: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-rose-500 font-bold text-sm uppercase tracking-wider">
                 <XCircle className="w-5 h-5 shrink-0" />
-                <span>Problem z Agencją</span>
+                <span>Ryzyko prawne &amp; RODO</span>
               </div>
-              <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Brak nastawienia na konwersję (Lead Gen)</h3>
+              <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Wyciek danych firmowych do chmury</h3>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                Strona skupia się na „ładnych grafikach”, pomijając język korzyści, wyraziste przyciski CTA i ułatwienia kontaktu telefonicznego dla lokalnych klientów.
+                Wysyłanie poufnej dokumentacji, procedur i umów do publicznych modeli AI niesie ryzyko naruszenia tajemnic i RODO.
               </p>
             </div>
 
             <div className="pt-6 border-t space-y-2" style={{ borderColor: 'var(--pg-border-subtle)' }}>
               <div className="flex items-center gap-2 text-ubuntuOrange-50 font-bold text-xs uppercase tracking-wider">
                 <CheckCircle2 className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                <span>Rozwiązanie CodeWorks</span>
+                <span>Automatyzacja CodeWorks</span>
               </div>
               <p className="text-xs font-medium" style={{ color: 'var(--pg-text-primary)' }}>
-                Projektowanie UX/UI nakierowane na zysk: czytelna nawigacja, lead magnety i natychmiastowe połączenie z firmą.
+                Chatbot RAG działający w 100% on-premise na Twoim serwerze. Dane firmowe nigdy nie trafiają do sieci zewnętrznej.
               </p>
             </div>
           </motion.div>
@@ -107,10 +107,10 @@ export const ProblemSection: React.FC = () => {
         {/* Bottom Banner */}
         <div className="mt-16 text-center">
           <a 
-            href="#oferta" 
+            href="#cennik" 
             className="inline-flex items-center gap-2 text-sm font-bold text-ubuntuOrange-50 hover:underline group"
           >
-            <span>Zobacz, jak budujemy strony wolne od tych błędów</span>
+            <span>Zobacz cennik i wyceny wdrożeń AI on-premise</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
