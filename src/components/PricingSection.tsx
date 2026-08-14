@@ -118,11 +118,11 @@ export const PricingSection: React.FC = () => {
             </a>
           </div>
 
-          {/* Card 3: Tłumaczenie 1M */}
+          {/* Card 3: Automatyzacja translacji */}
           <div className="pg-card p-8 rounded-2xl flex flex-col justify-between border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
             <div>
               <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">Skala &amp; Ekspansja</span>
-              <h3 className="text-xl font-bold mt-3 mb-2" style={{ color: 'var(--pg-text-primary)' }}>Tłumaczenie katalogu (1M rekordów)</h3>
+              <h3 className="text-xl font-bold mt-3 mb-2" style={{ color: 'var(--pg-text-primary)' }}>Automatyzacja translacji katalogów</h3>
               <p className="text-xs mb-6 leading-relaxed" style={{ color: 'var(--pg-text-muted)' }}>Lokalne przekładanie wielkich baz produktów bez stałych opłat za zewnętrzne chmurowe API.</p>
               
               <div className="mb-6 pb-6 border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
@@ -140,7 +140,7 @@ export const PricingSection: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                  <span style={{ color: 'var(--pg-text-secondary)' }}>Przetwarzanie wsadowe do 1 000 000 pozycji</span>
+                  <span style={{ color: 'var(--pg-text-secondary)' }}>Automatyczne przetwarzanie wsadowe wielkich katalogów</span>
                 </li>
               </ul>
             </div>

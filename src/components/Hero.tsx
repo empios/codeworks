@@ -111,7 +111,7 @@ export const Hero: React.FC = () => {
               </div>
               <div>
                 <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Wysoka Wydajność</h3>
-                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>Obsługa skali do 1M rekordów katalogowych.</p>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-muted)' }}>Skalowalna automatyzacja dużych katalogów.</p>
               </div>
             </motion.div>
 

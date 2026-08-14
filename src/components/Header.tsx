@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           <a href="/" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Strona główna</a>
           <a href="/automatyzacja-zdjec-produktowych" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Zdjęcia AI</a>
           <a href="/walidacja-opisow-produktow" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Walidacja PDF</a>
-          <a href="/tlumaczenie-katalogu-produktowego" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Tłumaczenie 1M</a>
+          <a href="/tlumaczenie-katalogu-produktowego" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Automatyzacja translacji</a>
           <a href="/chatbot-ai-on-premise" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Chatbot RAG</a>
           <a href="/#o-firmie" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>O firmie</a>
         </nav>
@@ -98,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-bold text-ubuntuOrange-50">Audyt Procesu (3 500 zł)</a>
           <a href="/automatyzacja-zdjec-produktowych" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Obróbka zdjęć produktowych</a>
           <a href="/walidacja-opisow-produktow" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Walidacja opisów z PDF</a>
-          <a href="/tlumaczenie-katalogu-produktowego" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Tłumaczenie katalogów (1M)</a>
+          <a href="/tlumaczenie-katalogu-produktowego" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Automatyzacja translacji katalogów</a>
           <a href="/chatbot-ai-on-premise" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Chatbot AI on-premise (RAG)</a>
           <a href="/#o-firmie" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>O firmie</a>
           <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="w-full flex items-center justify-center gap-2 bg-ubuntuOrange-50 text-white font-bold py-3 rounded-md">

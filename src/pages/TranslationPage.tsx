@@ -6,20 +6,20 @@ export const TranslationPage: React.FC = () => {
     <OfferTemplate
       slug="/tlumaczenie-katalogu-produktowego"
       title="Tłumaczenie katalogów produktowych AI — CodeWorks Elbląg"
-      metaDescription="Lokalne tłumaczenie AI dla katalogów e-commerce do 1M rekordów. Bezpiecznie, szybko i bez opłat za tokeny w chmurze. Sprawdź."
+      metaDescription="Lokalne tłumaczenie AI dla katalogów e-commerce. Bezpiecznie, szybko i bez opłat za tokeny w chmurze. Sprawdź wycenę."
       h1="Automatyczne tłumaczenie katalogów produktowych AI"
-      badge="Przekład Katalogów do 1M Rekordów"
+      badge="Automatyzacja Translacji Katalogów"
       problem="Przekład wielotysięcznych katalogów produktów na rynki zagraniczne generuje ogromne koszty przy korzystaniu z biur tłumaczeń. Z kolei chmurowe usługi API naliczają wysokie opłaty za każdy milion tokenów i często niszczą strukturę znaczników HTML w opisach."
       steps={[
         {
           number: "01",
           title: "Import katalogu produktów",
-          description: "Pobranie danych produktowych z bazy e-commerce, pliku CSV/XML (skala do 1M rekordów)."
+          description: "Pobranie danych produktowych z bazy e-commerce lub pliku CSV/XML."
         },
         {
           number: "02",
           title: "Słownik pojęć branżowych",
-          description: "Wdrożenie dedykowanej bazy pojęć i nazw technicznych specyficznych dla Twojego asortymentu."
+          description: "Wdrożenie bazy pojęć i nazw technicznych specyficznych dla Twojego asortymentu."
         },
         {
           number: "03",
@@ -34,8 +34,8 @@ export const TranslationPage: React.FC = () => {
       ]}
       benefits={[
         {
-          title: "Obsługa do 1M Rekordów",
-          description: "Wydajna infrastruktura radzi sobie z wielkimi bazami produktów hurtowni i dystrybutorów."
+          title: "Skalowanie Wielkich Baz",
+          description: "Wydajna infrastruktura radzi sobie z obszernymi bazami produktów hurtowni i dystrybutorów."
         },
         {
           title: "Zero Opłat za Tokeny API",

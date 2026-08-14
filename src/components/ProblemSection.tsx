@@ -60,7 +60,7 @@ export const ProblemSection: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Kosztotwórcze opłaty za tokeny chmurowe</h3>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                Przetłumaczenie bazy 1M produktów za pomocą zewnętrznych chmurowych API generuje fortunę w miesięcznych rachunkach.
+                Przetłumaczenie obszernych katalogów produktów za pomocą zewnętrznych chmurowych API generuje fortunę w miesięcznych rachunkach.
               </p>
             </div>
 
