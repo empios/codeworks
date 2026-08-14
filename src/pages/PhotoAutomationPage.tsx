@@ -6,50 +6,50 @@ export const PhotoAutomationPage: React.FC = () => {
     <OfferTemplate
       slug="/automatyzacja-zdjec-produktowych"
       title="Automatyzacja zdjęć produktowych AI — CodeWorks Elbląg"
-      metaDescription="Automatyczna obróbka zdjęć produktów: wycinanie tła, dopasowanie logotypów i kadrowanie lokalnym modelem AI. Sprawdź ofertę."
+      metaDescription="Automatyczna obróbka zdjęć produktów: wycinanie tła, kadrowanie i standaryzacja plików graficznych. Sprawdź ofertę."
       h1="Automatyzacja obróbki zdjęć produktowych dla e-commerce"
       badge="Automatyzacja Zdjęć AI"
-      problem="Ręczne przygotowanie tysięcy zdjęć dostarczanych przez producentów zajmuje grafikom całe tygodnie. Każdy dostawca przesyła pliki w innym rozmiarze, na różnym tle i z niejednolitym kadrowaniem. Wydłuża to czas wprowadzania nowości na sklep i generuje wysokie koszty stałe obróbki graficznej."
+      problem="Przygotowanie i ujednolicanie materiałów graficznych dla obszernych katalogów produktów wymaga ciągłej pracy nad wycinaniem tła i dopasowywaniem kadru. Ręczna obróbka wydłuża czas wprowadzania asortymentu i generuje stałe koszty operacyjne."
       steps={[
         {
           number: "01",
-          title: "Pobieranie plików",
-          description: "System automatycznie zaciąga nowe zdjęcia produktów z serwera, FTP lub folderów dostawców."
+          title: "Wprowadzenie grafik",
+          description: "Przekazanie surowych plików graficznych do automatycznego przetwarzania."
         },
         {
           number: "02",
-          title: "Usuwanie tła i kadrowanie",
-          description: "Lokalny model wycina tło, ujednolica marginesy, wyśrodkowuje produkt i dostosowuje proporcje."
+          title: "Standaryzacja kadrów",
+          description: "Automatyczne wycinanie tła, wyśrodkowanie i ujednolicenie marginesów."
         },
         {
           number: "03",
-          title: "Nakładanie logotypów",
-          description: "Automatyczne dodawanie znaku wodnego, znaku marki lub znaków wymaganych przez marketplace."
+          title: "Formatowanie i branding",
+          description: "Dopasowanie rozdzielczości i dodanie oznaczeń zgodnie z wymogami kanałów sprzedaży."
         },
         {
           number: "04",
-          title: "Eksport do sklepu",
-          description: "Zoptymalizowane pliki graficzne trafiają bezpośrednio do bazy danych sklepu lub platformy e-commerce."
+          title: "Eksport gotowych plików",
+          description: "Przekazanie zoptymalizowanych grafik bezpośrednio do systemu sklepu lub katalogu."
         }
       ]}
       benefits={[
         {
-          title: "Skrócenie czasu o 95%",
-          description: "Czas wprowadzania nowych zdjęć do katalogu skraca się z kilku dni do zaledwie kilku minut."
+          title: "Przyspieszenie Publikacji",
+          description: "Znaczne skrócenie czasu od otrzymania grafik do ich publikacji w katalogu."
         },
         {
-          title: "100% Spójności Wizualnej",
-          description: "Wszystkie zdjęcia w Twoim sklepie mają jednolite tło, proporcje i profesjonalny wygląd."
+          title: "Spójny Wygląd Katalogu",
+          description: "Jednolite tło, dopasowane proporcje i czysta prezentacja produktów."
         },
         {
-          title: "Brak Rachunków za Chmurę",
-          description: "Model działa lokalnie na Twoim serwerze — bez płacenia subskrypcji za zewnętrzne API."
+          title: "Model On-Premise",
+          description: "Przetwarzanie lokalne bez przesyłania plików do zewnętrznych serwisów chmurowych."
         }
       ]}
       priceImplementation="od 12 000 zł netto"
       priceMaintenance="od 500 zł/mies"
       priceTypical="12 000 – 25 000 zł netto"
-      initialFormMessage="Dzień dobry, jestem zainteresowany wdrożeniem automatyzacji obróbki zdjęć produktowych AI."
+      initialFormMessage="Dzień dobry, jestem zainteresowany automatyzacją obróbki zdjęć produktowych."
     />
   );
 };

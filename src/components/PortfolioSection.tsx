@@ -8,22 +8,22 @@ export const PortfolioSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
         
         {/* ============================================================ */}
-        {/* 1. SEKCJA GÓRNA: WYBRANE PROJEKTY KOMERCYJNE                 */}
+        {/* 1. SEKCJA GÓRNA: DOŚWIADCZENIE W SYSTEMACH B2B               */}
         {/* ============================================================ */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-xs font-bold font-mono tracking-widest uppercase text-ubuntuOrange-50">Doświadczenie &amp; Realne Produkty</span>
             <h2 className="text-3xl sm:text-5xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-              Wybrane <span className="font-semibold text-ubuntuOrange-50">Projekty Komercyjne</span>
+              Obszary <span className="font-semibold text-ubuntuOrange-50">Doświadczenia Inżynieryjnego</span>
             </h2>
             <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-              Doświadczenie inżynieryjne zdobyte przy współtworzeniu cenionych aplikacji rynkowych i systemów dla znanych marek.
+              Praktyczna znajomość budowania skalowalnych aplikacji webowych, systemów AI oraz platform B2B.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch">
             
-            {/* Real Project 1: TimeCamp */}
+            {/* Area 1: SaaS / Productivity */}
             <motion.div 
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="pg-card p-8 rounded-2xl flex flex-col justify-between h-full border-2 border-ubuntuOrange-50/20 shadow-sm transition-shadow"
@@ -31,49 +31,49 @@ export const PortfolioSection: React.FC = () => {
               <div className="flex-1 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
-                    Aplikacja SaaS / Produktywność
+                    Aplikacje SaaS &amp; B2B
                   </span>
                   <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
-                    <Zap className="w-3.5 h-3.5" /> TimeCamp
+                    <Zap className="w-3.5 h-3.5" /> Produktywność
                   </span>
                 </div>
 
                 <h3 className="text-xl font-bold mb-3 min-h-[3.5rem] flex items-center" style={{ color: 'var(--pg-text-primary)' }}>
-                  TimeCamp – System Zarządzania Czasem Zespołów
+                  Platformy SaaS &amp; Systemy Produktywności
                 </h3>
 
                 <p className="text-xs leading-relaxed mb-6 min-h-[3rem]" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Rozwój interfejsu i kluczowych funkcji frontendowych dla znanej na całym świecie platformy SaaS do monitorowania czasu pracy i produktywności.
+                  Tworzenie wydajnych interfejsów użytkownika i zaawansowanych modułów raportowania dla systemów klasy SaaS.
                 </p>
 
                 <div className="p-4 rounded-xl space-y-2 border mb-6 mt-auto" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-subtle)' }}>
                   <div className="flex items-center gap-2 text-xs font-semibold text-ubuntuOrange-50 mb-1">
-                    <TrendingUp className="w-4 h-4" /> Wykorzystany stack &amp; zakres:
+                    <TrendingUp className="w-4 h-4" /> Wykorzystywany stack:
                   </div>
                   <ul className="text-xs space-y-1.5" style={{ color: 'var(--pg-text-secondary)' }}>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>React, Redux, TailwindCSS</span>
+                      <span>React, TypeScript, TailwindCSS</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Wysoka wydajność interfejsu dla tysięcy użytkowników</span>
+                      <span>Wysoka wydajność interfejsów dla wielu użytkowników</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Moduły raportowania i wykresów czasu pracy</span>
+                      <span>Moduły analityczne i wykresy danych</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="pt-4 border-t flex items-center justify-between text-xs font-medium mt-auto" style={{ borderColor: 'var(--pg-border-subtle)', color: 'var(--pg-text-muted)' }}>
-                <span>Produkt: TimeCamp SaaS</span>
+                <span>Obszar: SaaS / B2B</span>
                 <span className="text-ubuntuOrange-50 font-bold">Rola: Front-End Dev</span>
               </div>
             </motion.div>
 
-            {/* Real Project 2: Baloise Group & okWOW */}
+            {/* Area 2: AI & Document Processing */}
             <motion.div 
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="pg-card p-8 rounded-2xl flex flex-col justify-between h-full border-2 border-ubuntuOrange-50/40 shadow-md transition-shadow"
@@ -81,49 +81,49 @@ export const PortfolioSection: React.FC = () => {
               <div className="flex-1 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
-                    Sztuczna Inteligencja (AI)
+                    Sztuczna Inteligencja
                   </span>
                   <span className="text-xs text-ubuntuOrange-50 font-semibold flex items-center gap-1">
-                    <Cpu className="w-3.5 h-3.5" /> Baloise / okWOW
+                    <Cpu className="w-3.5 h-3.5" /> AI &amp; Dokumenty
                   </span>
                 </div>
 
                 <h3 className="text-xl font-bold mb-3 min-h-[3.5rem] flex items-center" style={{ color: 'var(--pg-text-primary)' }}>
-                  Aplikacje AI &amp; Generowanie Dokumentów
+                  Aplikacje AI &amp; Przetwarzanie Dokumentacji
                 </h3>
 
                 <p className="text-xs leading-relaxed mb-6 min-h-[3rem]" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Projektowanie i kodowanie aplikacji wykorzystujących sztuczną inteligencję (OpenAI API), OCR, przetwarzanie dokumentów oraz moduły głosu.
+                  Integracje modeli AI, rozpoznawanie tekstu (OCR), analiza plików i tworzenie inteligentnych asystentów.
                 </p>
 
                 <div className="p-4 rounded-xl space-y-2 border mb-6 mt-auto" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-subtle)' }}>
                   <div className="flex items-center gap-2 text-xs font-semibold text-ubuntuOrange-50 mb-1">
-                    <TrendingUp className="w-4 h-4" /> Wykorzystany stack &amp; zakres:
+                    <TrendingUp className="w-4 h-4" /> Wykorzystywany stack:
                   </div>
                   <ul className="text-xs space-y-1.5" style={{ color: 'var(--pg-text-secondary)' }}>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>OpenAI API, React, Express, Node.js, OCR</span>
+                      <span>LLM, Node.js, Express, OCR</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Zaawansowane makiety Figma, MCP connectors</span>
+                      <span>Lokalne architektury on-premise</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Asystent AI wspierający przetwarzanie wiedzy</span>
+                      <span>Asystenci przeszukujący wiedzę firmową</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="pt-4 border-t flex items-center justify-between text-xs font-medium mt-auto" style={{ borderColor: 'var(--pg-border-subtle)', color: 'var(--pg-text-muted)' }}>
-                <span>Projekty: Baloise / okWOW</span>
+                <span>Obszar: Sztuczna Inteligencja</span>
                 <span className="text-ubuntuOrange-50 font-bold">Rola: Full-Stack AI</span>
               </div>
             </motion.div>
 
-            {/* Real Project 3: Sternkraft */}
+            {/* Area 3: Interactive Web & Maps */}
             <motion.div 
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="pg-card p-8 rounded-2xl flex flex-col justify-between h-full border-2 border-ubuntuOrange-50/20 shadow-sm transition-shadow"
@@ -131,44 +131,44 @@ export const PortfolioSection: React.FC = () => {
               <div className="flex-1 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
-                    Aplikacja Geolokalizacyjna
+                    Systemy Webowe
                   </span>
                   <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5" /> Sternkraft
+                    <MapPin className="w-3.5 h-3.5" /> Interaktywne Mapy
                   </span>
                 </div>
 
                 <h3 className="text-xl font-bold mb-3 min-h-[3.5rem] flex items-center" style={{ color: 'var(--pg-text-primary)' }}>
-                  Sternkraft – Interaktywny System Mapowy
+                  Interaktywne Systemy Webowe &amp; Mapowe
                 </h3>
 
                 <p className="text-xs leading-relaxed mb-6 min-h-[3rem]" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Aplikacja oparta na mapach i geolokalizacji z obsługą dynamicznych markerów, filtrowania zasobów i zarządzania stanem.
+                  Tworzenie bogatych wizualnie aplikacji webowych z obsługą geodanych, filtrowania zasobów i płynnej nawigacji.
                 </p>
 
                 <div className="p-4 rounded-xl space-y-2 border mb-6 mt-auto" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-subtle)' }}>
                   <div className="flex items-center gap-2 text-xs font-semibold text-ubuntuOrange-50 mb-1">
-                    <TrendingUp className="w-4 h-4" /> Wykorzystany stack &amp; zakres:
+                    <TrendingUp className="w-4 h-4" /> Wykorzystywany stack:
                   </div>
                   <ul className="text-xs space-y-1.5" style={{ color: 'var(--pg-text-secondary)' }}>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>React, Redux, Interaktywne Mapy &amp; Markery</span>
+                      <span>React, TypeScript, Mapbox / Leaflet</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Dynamiczne filtrowanie obiektów na mapie</span>
+                      <span>Dynamiczne filtrowanie obiektów</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Optymalizacja renderowania warstw geodanych</span>
+                      <span>Optymalne renderowanie złożonych warstw</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="pt-4 border-t flex items-center justify-between text-xs font-medium mt-auto" style={{ borderColor: 'var(--pg-border-subtle)', color: 'var(--pg-text-muted)' }}>
-                <span>Produkt: Sternkraft</span>
+                <span>Obszar: Web &amp; Maps</span>
                 <span className="text-ubuntuOrange-50 font-bold">Rola: Front-End Dev</span>
               </div>
             </motion.div>
@@ -187,7 +187,7 @@ export const PortfolioSection: React.FC = () => {
               Proponowane Wdrożenia dla <span className="font-semibold text-ubuntuOrange-50">Twojej Firmy</span>
             </h2>
             <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-              Zobacz, jak nasza architektura Pangolin DS i czysty kod przełożą się na szybkość, SEO i nowe zapytania ofertowe w Twoim sektorze.
+              Zobacz, jak nowoczesna architektura i czysty kod przełożą się na szybkość, SEO i nowe zapytania ofertowe.
             </p>
           </div>
 
@@ -213,7 +213,7 @@ export const PortfolioSection: React.FC = () => {
                 </h3>
 
                 <p className="text-xs leading-relaxed mb-6 min-h-[3rem]" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Dedykowany układ dla firm usługowych (budownictwo, wykończenia, transport) nakierowany na natychmiastowe połączenie telefoniczne i pozyskiwanie zapytań z Elbląga.
+                  Funkcjonalny układ dla firm usługowych nakierowany na natychmiastowe połączenie telefoniczne i pozyskiwanie zapytań ofertowych.
                 </p>
 
                 <div className="p-4 rounded-xl space-y-2 border mb-6 mt-auto" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-subtle)' }}>
@@ -227,18 +227,18 @@ export const PortfolioSection: React.FC = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Przystosowanie pod SEO na Elbląg i powiat</span>
+                      <span>Optymalizacja pod lokalne pozycjonowanie SEO</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Formularz szybkiego wyceny + Mapa Google</span>
+                      <span>Formularz wyceny + Mapa dojazdu</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="pt-4 border-t flex items-center justify-between text-xs font-medium mt-auto" style={{ borderColor: 'var(--pg-border-subtle)', color: 'var(--pg-text-muted)' }}>
-                <span>Stack: React / WordPress + Pangolin</span>
+                <span>Stack: React / HTML5 / CSS3</span>
                 <span className="text-ubuntuOrange-50 font-bold">Wdrożenie: 7-10 dni</span>
               </div>
             </motion.div>
@@ -263,7 +263,7 @@ export const PortfolioSection: React.FC = () => {
                 </h3>
 
                 <p className="text-xs leading-relaxed mb-6 min-h-[3rem]" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Sklep e-commerce bez prowizji od sprzedaży z pełną automatyzacją e-płatności (PayU/Przelewy24/BLIK) oraz automatycznym generowaniem etykiet InPost.
+                  Sklep e-commerce z konfiguracją płatności (BLIK/Przelewy24) oraz automatyczną wysyłką etykiet kurierskich.
                 </p>
 
                 <div className="p-4 rounded-xl space-y-2 border mb-6 mt-auto" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-subtle)' }}>
@@ -273,27 +273,27 @@ export const PortfolioSection: React.FC = () => {
                   <ul className="text-xs space-y-1.5" style={{ color: 'var(--pg-text-secondary)' }}>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Zero prowizji dla zewnętrznych platform</span>
+                      <span>Bezpośrednie płatności internetowe</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Szybki koszyk zakupowy na smartfonach</span>
+                      <span>Wygodny koszyk zakupowy dla urządzeń mobilnych</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Panel wprowadzania produktów + szkolenie w cenie</span>
+                      <span>Przejrzysty panel zarządzania asortymentem</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="pt-4 border-t flex items-center justify-between text-xs font-medium mt-auto" style={{ borderColor: 'var(--pg-border-subtle)', color: 'var(--pg-text-muted)' }}>
-                <span>Stack: WooCommerce + InPost + BLIK</span>
+                <span>Stack: WooCommerce + Przelewy24</span>
                 <span className="text-ubuntuOrange-50 font-bold">Wdrożenie: 14-21 dni</span>
               </div>
             </motion.div>
 
-            {/* Implementation 3: Dedykowane B2B */}
+            {/* Implementation 3: B2B */}
             <motion.div 
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="pg-card p-8 rounded-2xl flex flex-col justify-between h-full border-2 border-ubuntuOrange-50/20 transition-shadow"
@@ -301,7 +301,7 @@ export const PortfolioSection: React.FC = () => {
               <div className="flex-1 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
-                    Dla Firm B2B &amp; Produkcji
+                    Dla Firm B2B &amp; Hurtowni
                   </span>
                   <span className="text-xs text-ubuntuOrange-50 font-semibold flex items-center gap-1">
                     <Code2 className="w-3.5 h-3.5" /> React + Node
@@ -309,11 +309,11 @@ export const PortfolioSection: React.FC = () => {
                 </div>
 
                 <h3 className="text-xl font-bold mb-3 min-h-[3.5rem] flex items-center" style={{ color: 'var(--pg-text-primary)' }}>
-                  Dedykowany Portal B2B &amp; Integracje API
+                  Portal B2B &amp; Integracje Systemowe
                 </h3>
 
                 <p className="text-xs leading-relaxed mb-6 min-h-[3rem]" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Systemy webowe dla firm wymagających automatyzacji zamówień hurtowych, integracji ze stanem magazynowym ERP oraz indywidualnych cenników.
+                  Rozwiązania internetowe dla firm potrzebujących porządkowania zamówień hurtowych oraz automatyzacji przepływu danych.
                 </p>
 
                 <div className="p-4 rounded-xl space-y-2 border mb-6 mt-auto" style={{ backgroundColor: 'var(--pg-layer-02)', borderColor: 'var(--pg-border-subtle)' }}>
@@ -323,15 +323,15 @@ export const PortfolioSection: React.FC = () => {
                   <ul className="text-xs space-y-1.5" style={{ color: 'var(--pg-text-secondary)' }}>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Integracja danych API z systemami ERP/CRM</span>
+                      <span>Bezpieczny obieg danych biznesowych</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>Dedykowany obieg zamówień i automatyzacja pracy</span>
+                      <span>Przejrzysty interfejs dla kontrahentów</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-ubuntuOrange-50 font-bold">✓</span>
-                      <span>100% praw autorskich i dedykowany kod</span>
+                      <span>100% praw autorskich do kodu</span>
                     </li>
                   </ul>
                 </div>

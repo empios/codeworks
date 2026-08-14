@@ -9,47 +9,47 @@ export const DescriptionValidationPage: React.FC = () => {
       metaDescription="Automatyczne sprawdzanie zgodności opisów e-commerce z dokumentacją techniczną PDF przy użyciu lokalnego AI. Zobacz wycenę."
       h1="Automatyczna walidacja opisów produktów z kartami PDF"
       badge="Walidacja Danych z PDF"
-      problem="Błędne wymiary, niepoprawne parametry i pomylone kody produktów w opisach sklepu powodują kosztowne zwroty oraz reklamacje klientów. Ręczna weryfikacja tysięcy kart katalogowych PDF dostawców zajmuje setki godzin i nie daje pewności wyłapania wszystkich pomyłek."
+      problem="Rozbieżności między parametrami technicznymi w katalogu a dokumentacją źródłową mogą prowadzić do błędów w opisach i pomyłek przy zamówieniach. Ręczne porównywanie specyfikacji z plikami PDF jest czasochłonne i podatne na niedopatrzenia."
       steps={[
         {
           number: "01",
-          title: "Odczyt specyfikacji PDF",
-          description: "System pobiera karty techniczne PDF od dostawców i ekstrahuje z nich kluczowe parametry."
+          title: "Odczyt kart specyfikacji",
+          description: "Automatyczne wyciąganie parametrów i danych z dokumentacji technicznej PDF."
         },
         {
           number: "02",
-          title: "Pobranie danych ze sklepu",
-          description: "Zaciągane są aktualne opisy, tabele atrybutów i specyfikacje produktów z bazy e-commerce."
+          title: "Analiza danych katalogowych",
+          description: "Pobranie aktualnych opisów i atrybutów produktów z bazy systemowej."
         },
         {
           number: "03",
-          title: "Walidacja lokalnym AI",
-          description: "Algorytm porównuje wartości, jednostki oraz wymiary i flaguje każdą niezgodność."
+          title: "Automatyczna weryfikacja",
+          description: "Porównanie wartości oraz wyłapanie ewentualnych rozbieżności w specyfikacjach."
         },
         {
           number: "04",
-          title: "Raport i automatyczna korekta",
-          description: "Otrzymujesz gotowy zestaw informacji z propozycją automatycznego nadpisania błędnych wartości."
+          title: "Raport zgodności",
+          description: "Generowanie przejrzystego zestawienia z propozycją poprawek danych."
         }
       ]}
       benefits={[
         {
-          title: "Redukcja Zwrotów i Reklamacji",
-          description: "Poprawne parametry techniczne eliminują pomyłki zakupowe klientów na sklepie."
+          title: "Redukcja Błędów w Opisach",
+          description: "Spójność parametrów technicznych w sklepie z dokumentacją źródłową."
         },
         {
-          title: "100% Zgodności z Dokumentacją",
-          description: "Pewność, że opisy na sklepie są w pełni spójne z oficjalnymi kartami PDF producenta."
+          title: "Zgodność z Dokumentacją",
+          description: "Pewność, że prezentowane dane są w pełni zweryfikowane."
         },
         {
-          title: "Automatyczny Monitoring",
-          description: "Ciągła weryfikacja nowych dostaw i wprowadzanych produktów bez angażowania zespołu."
+          title: "Lokalne Przetwarzanie",
+          description: "Model działa na lokalnej infrastrukturze klienta bez wycieku danych zewnętrznie."
         }
       ]}
       priceImplementation="od 15 000 zł netto"
       priceMaintenance="od 800 zł/mies"
       priceTypical="15 000 – 30 000 zł netto"
-      initialFormMessage="Dzień dobry, jestem zainteresowany automatyczną walidacją opisów produktów z kartami katalogowymi PDF."
+      initialFormMessage="Dzień dobry, jestem zainteresowany automatyczną walidacją opisów produktów z kartami PDF."
     />
   );
 };
