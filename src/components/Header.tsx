@@ -18,40 +18,37 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
         borderColor: 'var(--pg-header-border)'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2 lg:gap-4">
         
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2.5 group shrink-0">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-ubuntuOrange-50 to-aubergine-60 flex items-center justify-center text-white shadow-pg-sm group-hover:scale-105 transition-transform">
-            <Code2 className="w-6 h-6" />
+        <a href="/" className="flex items-center gap-2 group shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-ubuntuOrange-50 to-aubergine-60 flex items-center justify-center text-white shadow-pg-sm group-hover:scale-105 transition-transform">
+            <Code2 className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-base sm:text-lg tracking-tight flex items-center gap-1.5" style={{ color: 'var(--pg-text-primary)' }}>
+            <span className="font-bold text-base sm:text-lg tracking-tight flex items-center gap-1" style={{ color: 'var(--pg-text-primary)' }}>
               Code<span className="text-ubuntuOrange-50">Works</span>
             </span>
-            <span className="text-[10px] tracking-wider uppercase font-medium" style={{ color: 'var(--pg-text-muted)' }}>Automatyzacja AI · Elbląg</span>
+            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-medium whitespace-nowrap" style={{ color: 'var(--pg-text-muted)' }}>Automatyzacja AI · Elbląg</span>
           </div>
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center space-x-3 xl:space-x-4 text-xs xl:text-sm font-medium">
-          <a href="/" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Strona główna</a>
-          <a href="/audyt" className="transition-colors hover:text-ubuntuOrange-50 text-ubuntuOrange-50 font-bold flex items-center gap-1 bg-ubuntuOrange-50/10 px-2.5 py-1 rounded">
-            <span>Audyt Procesu (3 500 zł)</span>
-          </a>
-          <a href="/automatyzacja-zdjec-produktowych" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Zdjęcia AI</a>
-          <a href="/walidacja-opisow-produktow" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Walidacja PDF</a>
-          <a href="/tlumaczenie-katalogu-produktowego" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Tłumaczenie 1M</a>
-          <a href="/chatbot-ai-on-premise" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>Chatbot RAG</a>
-          <a href="/#o-firmie" className="transition-colors hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-secondary)' }}>O firmie</a>
+        <nav className="hidden lg:flex items-center space-x-2 xl:space-x-3.5 2xl:space-x-5 text-xs xl:text-sm font-medium">
+          <a href="/" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Strona główna</a>
+          <a href="/automatyzacja-zdjec-produktowych" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Zdjęcia AI</a>
+          <a href="/walidacja-opisow-produktow" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Walidacja PDF</a>
+          <a href="/tlumaczenie-katalogu-produktowego" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Tłumaczenie 1M</a>
+          <a href="/chatbot-ai-on-premise" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Chatbot RAG</a>
+          <a href="/#o-firmie" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>O firmie</a>
         </nav>
 
         {/* Right Controls */}
-        <div className="hidden lg:flex items-center space-x-3 shrink-0">
+        <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 shrink-0">
           <button 
             onClick={onToggleTheme}
             title={`Zmień motyw na ${theme === 'terminal' ? 'Paper (Jasny)' : 'Terminal (Ciemny)'}`} 
-            className="p-2 rounded-full border text-ubuntuOrange-50 hover:scale-105 transition-all cursor-pointer"
+            className="p-2 rounded-full border text-ubuntuOrange-50 hover:scale-105 transition-all cursor-pointer shrink-0"
             style={{
               backgroundColor: 'var(--pg-layer-01)',
               borderColor: 'var(--pg-border-strong)'
@@ -62,10 +59,10 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
 
           <a 
             href="/audyt" 
-            className="inline-flex items-center gap-1.5 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs xl:text-sm px-4 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs xl:text-sm px-3.5 xl:px-4 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap shrink-0"
           >
-            <Video className="w-4 h-4" />
-            <span>Zamów Audyt Procesu</span>
+            <Video className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
+            <span>Audyt Procesu (3 500 zł)</span>
           </a>
         </div>
 
