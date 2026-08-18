@@ -43,7 +43,7 @@ export const ProcessSection: React.FC = () => {
             </div>
             <h3 className="text-lg font-bold" style={{ color: 'var(--pg-text-primary)' }}>Kodowanie &amp; SEO</h3>
             <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-              Tworzę stronę z użyciem czystego kodu Pangolin, dbam o responsywność RWD, optymalizację szybkości i pozycjonowanie na Elbląg.
+              Tworzę stronę z użyciem czystego, wydajnego kodu, dbam o responsywność RWD, optymalizację szybkości i pozycjonowanie na Elbląg.
             </p>
           </div>
 

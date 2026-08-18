@@ -3,7 +3,7 @@ import { Video, Coffee, Unlock, Zap, MapPin, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Hero: React.FC = () => {
-  const locations = ["Elbląg", "Gdańsk", "Gdynia", "Sopot", "Pasłęk", "Gronowo Górne", "Zdalnie w całej PL"];
+  const locations = ["Elbląg (siedziba)", "Trójmiasto (dojazd)", "zdalnie w całej Polsce"];
 
   return (
     <section 

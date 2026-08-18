@@ -26,15 +26,15 @@ export const AuditPage: React.FC = () => {
         <meta name="description" content="Zamów audyt procesów w sklepach i hurtowniach za 3 500 zł netto. Weryfikacja potencjału AI z 100% odliczeniem od wdrożenia. Sprawdź." />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="CodeWorks Paweł Włodarczyk" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:title" content="Audyt procesu automatyzacji AI — CodeWorks Elbląg" />
         <meta property="og:description" content="Zamów audyt procesów w sklepach i hurtowniach za 3 500 zł netto. Weryfikacja potencjału AI z 100% odliczeniem od wdrożenia. Sprawdź." />
-        <meta property="og:image" content="https://www.codeworks-it.pl/avatar.jpg" />
+        <meta property="og:image" content="https://www.codeworks-it.pl/og.png" />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalUrl} />
         <meta property="twitter:title" content="Audyt procesu automatyzacji AI — CodeWorks Elbląg" />
         <meta property="twitter:description" content="Zamów audyt procesów w sklepach i hurtowniach za 3 500 zł netto. Weryfikacja potencjału AI z 100% odliczeniem od wdrożenia. Sprawdź." />
-        <meta property="twitter:image" content="https://www.codeworks-it.pl/avatar.jpg" />
+        <meta property="twitter:image" content="https://www.codeworks-it.pl/og.png" />
       </Helmet>
 
       <Header theme={theme} onToggleTheme={toggleTheme} />

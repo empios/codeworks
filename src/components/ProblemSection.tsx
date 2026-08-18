@@ -43,7 +43,7 @@ export const ProblemSection: React.FC = () => {
                 <span>Automatyzacja CodeWorks</span>
               </div>
               <p className="text-xs font-medium" style={{ color: 'var(--pg-text-primary)' }}>
-                Skrócenie czasu z 5 dni do 5 minut dzięki automatycznemu pipeline'owi wycinania tła i walidacji danych z kartami PDF.
+                Skrócenie czasu o [LICZBA DO UZUPEŁNIENIA] dzięki automatycznemu pipeline'owi wycinania tła i walidacji danych z kartami PDF.
               </p>
             </div>
           </motion.div>

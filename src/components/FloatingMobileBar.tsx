@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, Video } from 'lucide-react';
+import { CONTACT_EMAIL, CONTACT_PHONE } from '../config/contact';
 
 export const FloatingMobileBar: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ export const FloatingMobileBar: React.FC = () => {
     >
       <div className="max-w-md mx-auto grid grid-cols-3 gap-2">
         <a 
-          href="tel:+48534140682"
+          href={`tel:${CONTACT_PHONE}`}
           className="flex flex-col items-center justify-center py-2 px-1 rounded-lg border text-center transition-all"
           style={{
             backgroundColor: 'var(--pg-layer-01)',
@@ -24,7 +25,7 @@ export const FloatingMobileBar: React.FC = () => {
         </a>
 
         <a 
-          href="mailto:pawelwlodarczyk97@yahoo.com"
+          href={`mailto:${CONTACT_EMAIL}`}
           className="flex flex-col items-center justify-center py-2 px-1 rounded-lg border text-center transition-all"
           style={{
             backgroundColor: 'var(--pg-layer-01)',

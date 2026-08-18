@@ -65,15 +65,15 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="CodeWorks Paweł Włodarczyk" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={metaDescription} />
-        <meta property="og:image" content="https://www.codeworks-it.pl/avatar.jpg" />
+        <meta property="og:image" content="https://www.codeworks-it.pl/og.png" />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalUrl} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={metaDescription} />
-        <meta property="twitter:image" content="https://www.codeworks-it.pl/avatar.jpg" />
+        <meta property="twitter:image" content="https://www.codeworks-it.pl/og.png" />
       </Helmet>
 
       <Header theme={theme} onToggleTheme={toggleTheme} />

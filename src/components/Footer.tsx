@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code2, Phone, Mail, ExternalLink } from 'lucide-react';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY, COMPANY_NAME } from '../config/contact';
 
 export const Footer: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-3 md:col-span-2">
             <div className="flex items-center gap-2 font-bold text-base" style={{ color: 'var(--pg-footer-heading)' }}>
               <Code2 className="w-5 h-5 text-ubuntuOrange-50" />
-              <span>CodeWorks Paweł Włodarczyk</span>
+              <span>{COMPANY_NAME}</span>
             </div>
             <p className="text-xs leading-relaxed max-w-md" style={{ color: 'var(--pg-footer-text)' }}>
               CodeWorks – Automatyzacja procesów AI dla e-commerce, dystrybutorów i hurtowni. Przetwarzanie zdjęć produktowych, walidacja specyfikacji z kartami PDF, automatyzacja translacji katalogów oraz firmowy chatbot RAG 100% on-premise.
@@ -27,11 +28,11 @@ export const Footer: React.FC = () => {
             <div className="space-y-1 font-mono text-[11px] text-ubuntuOrange-40">
               <p className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5" />
-                <a href="tel:+48534140682" className="hover:underline">+48 534 140 682</a>
+                <a href={`tel:${CONTACT_PHONE}`} className="hover:underline">{CONTACT_PHONE_DISPLAY}</a>
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5" />
-                <a href="mailto:pawelwlodarczyk97@yahoo.com" className="hover:underline">pawelwlodarczyk97@yahoo.com</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:underline">{CONTACT_EMAIL}</a>
               </p>
               <p>📍 Elbląg (siedziba firmy) · Wdrożenia on-premise i zdalne w całej Polsce</p>
             </div>
@@ -47,6 +48,7 @@ export const Footer: React.FC = () => {
               <li><a href="/walidacja-opisow-produktow" className="hover:text-ubuntuOrange-40 transition-colors">Walidacja opisu z PDF</a></li>
               <li><a href="/tlumaczenie-katalogu-produktowego" className="hover:text-ubuntuOrange-40 transition-colors">Automatyzacja translacji</a></li>
               <li><a href="/chatbot-ai-on-premise" className="hover:text-ubuntuOrange-40 transition-colors">Chatbot AI (RAG)</a></li>
+              <li><a href="/strony-www" className="hover:text-ubuntuOrange-40 transition-colors">Strony WWW</a></li>
               <li><a href="/#o-firmie" className="hover:text-ubuntuOrange-40 transition-colors">Kto za tym stoi</a></li>
               <li className="pt-2">
                 <a 
@@ -61,20 +63,6 @@ export const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-
-          {/* Regional SEO Tags */}
-          <div className="space-y-2">
-            <h4 className="font-bold text-xs uppercase tracking-wider mb-3" style={{ color: 'var(--pg-footer-heading)' }}>Obszar Specjalizacji</h4>
-            <div className="flex flex-wrap gap-1.5">
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Automatyzacja AI Elbląg</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Modele On-Premise</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">RODO AI E-commerce</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Translacja katalogów</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">RAG Dokumentacja Firmowa</span>
-              <span className="px-2 py-1 rounded text-[10px] border border-white/10 bg-white/5">Audyt procesów 3500 zł</span>
-            </div>
-          </div>
-
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* =============================================================
-   PANGOLIN — DESIGN SYSTEM SEMANTIC TOKENS
+   CODEWORKS — DESIGN SYSTEM SEMANTIC TOKENS
    Paper (Light Mode) & Terminal (Dark Aubergine Mode)
    ============================================================= */
 :root,
@@ -94,7 +94,7 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Pangolin Component Cards */
+/* CodeWorks Component Cards */
 .pg-card {
   background-color: var(--pg-card-bg);
   border: 1px solid var(--pg-card-border);

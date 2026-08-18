@@ -50,7 +50,7 @@ export const ComparisonSection: React.FC = () => {
               <tr>
                 <td className="py-4 px-6 font-medium" style={{ color: 'var(--pg-text-primary)' }}>Szybkość strony (Google PageSpeed)</td>
                 <td className="py-4 px-6" style={{ color: 'var(--pg-text-secondary)' }}>Ciężkie szablony i kilkadziesiąt zbędnych wtyczek</td>
-                <td className="py-4 px-6 font-semibold text-ubuntuOrange-50 bg-ubuntuOrange-50/5">Dopracowany, czysty kod Pangolin, ładowanie &lt; 1.5s</td>
+                <td className="py-4 px-6 font-semibold text-ubuntuOrange-50 bg-ubuntuOrange-50/5">Dopracowany, czysty i zoptymalizowany kod, ładowanie &lt; 1.5s</td>
               </tr>
               <tr>
                 <td className="py-4 px-6 font-medium" style={{ color: 'var(--pg-text-primary)' }}>Czas reakcji na awarię</td>
