@@ -38,7 +38,6 @@ export const PricingSection: React.FC = () => {
               <div className="text-center lg:text-right">
                 <span className="text-3xl font-extrabold text-ubuntuOrange-50">3 500 zł</span>
                 <span className="text-sm font-medium" style={{ color: 'var(--pg-text-secondary)' }}> netto</span>
-                <p className="text-xs mt-1" style={{ color: 'var(--pg-text-muted)' }}>Typowy projekt: 3 500 zł</p>
               </div>
               <a 
                 href="/audyt" 

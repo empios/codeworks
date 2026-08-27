@@ -100,7 +100,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
               {variant === 'webdev' ? (
                 <>Wklej adres swojej strony – w <span className="text-ubuntuOrange-50">24h</span> wyślę darmowy audyt wideo!</>
               ) : (
-                <>Skonsultuj bezpłatnie wdrożenie <span className="text-ubuntuOrange-50">automatyzacji AI</span></>
+                <>Porozmawiajmy o <span className="text-ubuntuOrange-50">Twoim procesie</span></>
               )}
             </h2>
 
@@ -306,7 +306,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        <span>{variant === 'webdev' ? 'Wyślij Wycenę / Audyt (0 zł)' : 'Skonsultuj Wdrożenie AI'}</span>
+                        <span>{variant === 'webdev' ? 'Wyślij Wycenę / Audyt (0 zł)' : 'Wyślij wiadomość'}</span>
                       </>
                     )}
                   </button>

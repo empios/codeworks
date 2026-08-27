@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, Video } from 'lucide-react';
+import { Phone, Mail, MessageSquare } from 'lucide-react';
 import { CONTACT_EMAIL, CONTACT_PHONE } from '../config/contact';
 
 export const FloatingMobileBar: React.FC = () => {
@@ -41,8 +41,8 @@ export const FloatingMobileBar: React.FC = () => {
           href="#kontakt"
           className="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-ubuntuOrange-50 text-white font-bold text-center shadow-sm"
         >
-          <Video className="w-4 h-4 mb-0.5" />
-          <span className="text-[10px]">Audyt (0 zł)</span>
+          <MessageSquare className="w-4 h-4 mb-0.5" />
+          <span className="text-[10px]">Napisz do mnie</span>
         </a>
       </div>
     </div>
