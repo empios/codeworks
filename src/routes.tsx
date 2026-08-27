@@ -9,9 +9,12 @@ import ChatbotPage from './pages/ChatbotPage';
 import AuditPage from './pages/AuditPage';
 import WebsitesPage from './pages/WebsitesPage';
 
+import { Analytics } from '@vercel/analytics/react';
+
 const RootLayout = () => (
   <HelmetProvider>
     <Outlet />
+    <Analytics />
   </HelmetProvider>
 );
 
