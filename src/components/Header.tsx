@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           <a href="/" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Strona główna</a>
           <a href="/automatyzacja-zdjec-produktowych" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Zdjęcia AI</a>
           <a href="/walidacja-opisow-produktow" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Walidacja PDF</a>
-          <a href="/tlumaczenie-katalogu-produktowego" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Automatyzacja translacji</a>
+          <a href="/tlumaczenie-katalogu-produktowego" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Translacje AI</a>
           <a href="/chatbot-ai-on-premise" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Chatbot RAG</a>
           <a href="/#o-firmie" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>O firmie</a>
           <a href="/strony-www" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Strony WWW</a>
@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
             className="inline-flex items-center gap-1.5 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs xl:text-sm px-3.5 xl:px-4 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap shrink-0"
           >
             <Video className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
-            <span>Audyt Procesu (3 500 zł)</span>
+            <span>Audyt (3 500 zł)</span>
           </a>
         </div>
 
