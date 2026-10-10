@@ -1,120 +1,39 @@
 import React from 'react';
-import { XCircle, CheckCircle2, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+
+const items = [
+  { problem: 'Ręczne wycinanie tła i kadrowanie zdjęć produktów', solution: 'Obróbka zdjęć AI', href: '/automatyzacja-zdjec-produktowych' },
+  { problem: 'Sprawdzanie opisów z kartami PDF od dostawców', solution: 'Walidacja opisów', href: '/walidacja-opisow-produktow' },
+  { problem: 'Tłumaczenie katalogu i rachunki za zewnętrzne API', solution: 'Tłumaczenie na Twoim serwerze', href: '/tlumaczenie-katalogu-produktowego' },
+  { problem: 'Szukanie informacji w instrukcjach i umowach', solution: 'Chatbot na firmowych dokumentach', href: '/chatbot-ai-on-premise' },
+];
 
 export const ProblemSection: React.FC = () => {
   return (
-    <section id="kompetencje" className="py-24 transition-colors" style={{ backgroundColor: 'var(--pg-bg)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold font-mono tracking-widest uppercase text-ubuntuOrange-50">Wydajność &amp; RODO w e-commerce</span>
-          <h2 className="text-3xl sm:text-5xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-            Z jakimi wyzwaniami mierzą się <span className="font-semibold text-ubuntuOrange-50">sklepy i hurtownie?</span>
+    <section id="kompetencje" className="py-20 transition-colors" style={{ backgroundColor: 'var(--pg-bg)' }}>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mb-10 space-y-3">
+          <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
+            Co zabiera czas w <span className="font-semibold text-ubuntuOrange-50">sklepie i hurtowni?</span>
           </h2>
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-            Setki godzin spędzone na powtarzalnych czynnościach oraz ryzyko wycieku danych przy korzystaniu z publicznych modeli AI.
+            Te zadania przejmuje AI działające na Twoim serwerze.
           </p>
         </div>
 
-        {/* 3 Grid Comparison Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          
-          {/* Card 1 */}
-          <motion.div 
-            whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            className="pg-card p-8 rounded-2xl flex flex-col justify-between space-y-6 transition-all"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 text-rose-500 font-bold text-sm uppercase tracking-wider">
-                <XCircle className="w-5 h-5 shrink-0" />
-                <span>Ręczny proces</span>
-              </div>
-              <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Tygodnie obróbki zdjęć i opisów</h3>
-              <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                Ręczne wycinanie tła ze zdjęć od kilkunastu dostawców i sprawdzanie specyfikacji technicznych paraliżuje wdrożenia nowych produktów na sklep.
-              </p>
-            </div>
-
-            <div className="pt-6 border-t space-y-2" style={{ borderColor: 'var(--pg-border-subtle)' }}>
-              <div className="flex items-center gap-2 text-ubuntuOrange-50 font-bold text-xs uppercase tracking-wider">
-                <CheckCircle2 className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                <span>Automatyzacja CodeWorks</span>
-              </div>
-              <p className="text-xs font-medium" style={{ color: 'var(--pg-text-primary)' }}>
-                Automatyczny pipeline wycinania tła i walidacji danych z kartami PDF przejmuje pracę, którą dziś wykonuje się ręcznie.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Card 2 */}
-          <motion.div 
-            whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            className="pg-card p-8 rounded-2xl flex flex-col justify-between space-y-6 border-2 border-ubuntuOrange-50/30 transition-all"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 text-rose-500 font-bold text-sm uppercase tracking-wider">
-                <XCircle className="w-5 h-5 shrink-0" />
-                <span>Przeszkoda biznesowa</span>
-              </div>
-              <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Kosztotwórcze opłaty za tokeny chmurowe</h3>
-              <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                Przetłumaczenie obszernych katalogów produktów za pomocą zewnętrznych chmurowych API generuje fortunę w miesięcznych rachunkach.
-              </p>
-            </div>
-
-            <div className="pt-6 border-t space-y-2" style={{ borderColor: 'var(--pg-border-subtle)' }}>
-              <div className="flex items-center gap-2 text-ubuntuOrange-50 font-bold text-xs uppercase tracking-wider">
-                <CheckCircle2 className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                <span>Automatyzacja CodeWorks</span>
-              </div>
-              <p className="text-xs font-medium" style={{ color: 'var(--pg-text-primary)' }}>
-                Wdrożenie lokalnego modelu na serwerze klienta: zero stałych opłat za tokeny i pełna kontrola nad bazą słownictwa.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Card 3 */}
-          <motion.div 
-            whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            className="pg-card p-8 rounded-2xl flex flex-col justify-between space-y-6 transition-all"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 text-rose-500 font-bold text-sm uppercase tracking-wider">
-                <XCircle className="w-5 h-5 shrink-0" />
-                <span>Ryzyko prawne &amp; RODO</span>
-              </div>
-              <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Wyciek danych firmowych do chmury</h3>
-              <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                Wysyłanie poufnej dokumentacji, procedur i umów do publicznych modeli AI niesie ryzyko naruszenia tajemnic i RODO.
-              </p>
-            </div>
-
-            <div className="pt-6 border-t space-y-2" style={{ borderColor: 'var(--pg-border-subtle)' }}>
-              <div className="flex items-center gap-2 text-ubuntuOrange-50 font-bold text-xs uppercase tracking-wider">
-                <CheckCircle2 className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                <span>Automatyzacja CodeWorks</span>
-              </div>
-              <p className="text-xs font-medium" style={{ color: 'var(--pg-text-primary)' }}>
-                Chatbot RAG działający w 100% on-premise na Twoim serwerze. Dane firmowe nigdy nie trafiają do sieci zewnętrznej.
-              </p>
-            </div>
-          </motion.div>
-
-        </div>
-
-        {/* Bottom Banner */}
-        <div className="mt-16 text-center">
-          <a 
-            href="#cennik" 
-            className="inline-flex items-center gap-2 text-sm font-bold text-ubuntuOrange-50 hover:underline group"
-          >
-            <span>Zobacz cennik i wyceny wdrożeń AI on-premise</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
-
+        <ul className="divide-y border-y" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+          {items.map((item) => (
+            <li key={item.href} style={{ borderColor: 'var(--pg-border-subtle)' }}>
+              <a href={item.href} className="group flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6 py-4">
+                <span className="flex-1 text-sm sm:text-base" style={{ color: 'var(--pg-text-primary)' }}>{item.problem}</span>
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ubuntuOrange-50 group-hover:underline">
+                  {item.solution}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

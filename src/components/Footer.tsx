@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
               <li><a href="/tlumaczenie-katalogu-produktowego" className="hover:text-ubuntuOrange-40 transition-colors">Automatyzacja translacji</a></li>
               <li><a href="/chatbot-ai-on-premise" className="hover:text-ubuntuOrange-40 transition-colors">Chatbot AI (RAG)</a></li>
               <li><a href="/strony-www" className="hover:text-ubuntuOrange-40 transition-colors">Strony WWW</a></li>
-              <li><a href="/#o-firmie" className="hover:text-ubuntuOrange-40 transition-colors">Kto za tym stoi</a></li>
+              <li><a href="#kontakt" className="hover:text-ubuntuOrange-40 transition-colors">Kontakt</a></li>
               <li className="pt-2">
                 <a 
                   href="https://www.pawelvlodarczyk.pl/" 

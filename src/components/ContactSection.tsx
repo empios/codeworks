@@ -63,14 +63,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
         })
       });
 
-      if (response.ok) {
-        setIsSubmitted(true);
-      } else {
-        setIsSubmitted(true);
-      }
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      setIsSubmitted(true);
     } catch (err) {
       console.error("Form submission error:", err);
-      setIsSubmitted(true);
+      setErrorMessage(`Nie udało się wysłać formularza. Zadzwoń: ${CONTACT_PHONE_DISPLAY} lub napisz: ${CONTACT_EMAIL}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -93,14 +90,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
               <Gift className="w-4 h-4 text-ubuntuOrange-50" />
-              <span>{variant === 'webdev' ? 'Darmowy Lead Magnet (0 zł)' : 'Konsultacja Wdrożenia AI'}</span>
+              <span>{variant === 'webdev' ? 'Darmowy Lead Magnet (0 zł)' : 'Kontakt'}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ color: 'var(--pg-text-primary)' }}>
               {variant === 'webdev' ? (
                 <>Wklej adres swojej strony – w <span className="text-ubuntuOrange-50">24h</span> wyślę darmowy audyt wideo!</>
               ) : (
-                <>Porozmawiajmy o <span className="text-ubuntuOrange-50">Twoim procesie</span></>
+                <>Umów <span className="text-ubuntuOrange-50">darmową 20-min rozmowę</span></>
               )}
             </h2>
 
@@ -108,7 +105,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
               {variant === 'webdev' ? (
                 'Nagram krótki, 2-minutowy materiał wideo, w którym wskażę błędy UX, SEO i szybkości ładowania obecnej strony Twojej firmy. Bez żadnych zobowiązań!'
               ) : (
-                'Napisz lub zadzwoń i opisz proces, który chcesz zautomatyzować w swojej firmie. Przeanalizujemy możliwości i zaproponujemy bezpieczny model AI (100% on-premise).'
+                'Zadzwoń, napisz albo zostaw wiadomość z opisem procesu, który chcesz zautomatyzować.'
               )}
             </p>
 
@@ -320,7 +317,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-500 mx-auto flex items-center justify-center">
                     <CheckCircle className="w-6 h-6" />
                   </div>
-                  <h4 className="font-bold text-lg" style={{ color: 'var(--pg-text-primary)' }}>Dziękuję za zgłoszenie, {formData.name || 'Klencie'}!</h4>
+                  <h4 className="font-bold text-lg" style={{ color: 'var(--pg-text-primary)' }}>Dziękuję za zgłoszenie, {formData.name || 'Kliencie'}!</h4>
                   <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
                     Otrzymałem Twoją specyfikację. Rozpoczynam analizę i w ciągu 24h wyślę odpowiedź na podany kontakt!
                   </p>
