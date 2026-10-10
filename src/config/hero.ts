@@ -26,11 +26,15 @@ export const HERO_FRAMES = {
 export const heroFrameSrc = (dir: string, index: number) =>
   `${dir}/frame_${String(index + 1).padStart(4, '0')}.webp`;
 
-// Podpisy warstw rozłożonego laptopa. `at`: postęp klipu (0–1), od którego podpis jest widoczny.
-// `path`: lewa krawędź warstwy w ułamkach klatki [postęp, x, y] — pozycja jest interpolowana między punktami.
+// Podpisy warstw rozłożonego laptopa (na przemian po lewej i prawej).
+// `at`: postęp klipu (0–1), od którego podpis jest widoczny.
+// `path`: krawędź warstwy po stronie podpisu w ułamkach klatki [postęp, x, y] — interpolowana między punktami.
 export const HERO_LAYERS = [
-  { label: 'Twój sklep i katalog', at: 0.7, path: [[0.7, 0.354, 0.281], [1, 0.344, 0.244]] },
-  { label: 'Zdjęcia, opisy, tłumaczenia', at: 0.77, path: [[0.7, 0.362, 0.469], [1, 0.359, 0.431]] },
-  { label: 'AI na Twoim serwerze', at: 0.84, path: [[0.7, 0.376, 0.585], [1, 0.37, 0.579]] },
-  { label: 'Dane zostają w firmie', at: 0.91, path: [[0.7, 0.359, 0.763], [1, 0.362, 0.771]] },
+  { label: 'Twój sklep i katalog', side: 'left', at: 0.7, path: [[0.7, 0.354, 0.281], [1, 0.344, 0.244]] },
+  { label: 'Zdjęcia, opisy, tłumaczenia', side: 'right', at: 0.77, path: [[0.7, 0.671, 0.427], [1, 0.67, 0.402]] },
+  { label: 'AI na Twoim serwerze', side: 'left', at: 0.84, path: [[0.7, 0.376, 0.585], [1, 0.37, 0.579]] },
+  { label: 'Dane zostają w firmie', side: 'right', at: 0.91, path: [[0.7, 0.688, 0.771], [1, 0.689, 0.788]] },
 ] as const;
+
+// Część klatki zajmowana przez zamknięty laptop (pierwsza klatka) — do ułożenia go pod tekstem na starcie.
+export const HERO_OBJECT = { top: 0.2, bottom: 0.8, width: 0.47 } as const;

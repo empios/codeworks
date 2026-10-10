@@ -12,7 +12,7 @@ export const ProblemSection: React.FC = () => {
   return (
     <section id="kompetencje" className="py-20 transition-colors" style={{ backgroundColor: 'var(--pg-bg)' }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-10 space-y-3">
+        <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
           <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
             Co zabiera czas w <span className="font-semibold text-ubuntuOrange-50">sklepie i hurtowni?</span>
           </h2>
@@ -21,7 +21,7 @@ export const ProblemSection: React.FC = () => {
           </p>
         </div>
 
-        <ul className="divide-y border-y" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+        <ul className="max-w-3xl mx-auto divide-y border-y" style={{ borderColor: 'var(--pg-border-subtle)' }}>
           {items.map((item) => (
             <li key={item.href} style={{ borderColor: 'var(--pg-border-subtle)' }}>
               <a href={item.href} className="group flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6 py-4">

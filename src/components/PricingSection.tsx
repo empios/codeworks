@@ -12,7 +12,7 @@ export const PricingSection: React.FC = () => {
   return (
     <section id="cennik" className="py-20 border-t" style={{ borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-10 space-y-3">
+        <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
           <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
             <span className="font-semibold text-ubuntuOrange-50">Cennik</span> (kwoty netto)
           </h2>
@@ -58,7 +58,7 @@ export const PricingSection: React.FC = () => {
           ))}
         </ul>
 
-        <p className="mt-6 text-sm" style={{ color: 'var(--pg-text-secondary)' }}>
+        <p className="mt-6 text-sm text-center" style={{ color: 'var(--pg-text-secondary)' }}>
           Robię też strony WWW i sklepy WooCommerce —{' '}
           <a href="/strony-www" className="font-semibold text-ubuntuOrange-50 hover:underline">zobacz ofertę</a>.
         </p>

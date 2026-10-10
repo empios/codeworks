@@ -12,7 +12,7 @@ export const ProcessSection: React.FC<{ variant?: 'ai' | 'webdev' }> = ({ varian
     return (
       <section id="proces" className="py-20 border-t" style={{ borderColor: 'var(--pg-border-subtle)' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-10 space-y-3">
+          <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
             <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
               Jak wygląda <span className="font-semibold text-ubuntuOrange-50">współpraca</span>?
             </h2>
@@ -23,8 +23,8 @@ export const ProcessSection: React.FC<{ variant?: 'ai' | 'webdev' }> = ({ varian
 
           <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {aiSteps.map((step, i) => (
-              <li key={step.title} className="pg-card p-5 rounded-2xl space-y-2">
-                <span className="w-8 h-8 rounded-full bg-ubuntuOrange-50 text-white font-mono font-bold flex items-center justify-center text-sm">
+              <li key={step.title} className="pg-card p-5 rounded-2xl space-y-2 text-center">
+                <span className="w-8 h-8 mx-auto rounded-full bg-ubuntuOrange-50 text-white font-mono font-bold flex items-center justify-center text-sm">
                   {i + 1}
                 </span>
                 <h3 className="text-base font-bold" style={{ color: 'var(--pg-text-primary)' }}>{step.title}</h3>

@@ -73,7 +73,7 @@ export const FaqSection: React.FC<{ variant?: 'ai' | 'webdev' }> = ({ variant = 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {isAi ? (
-          <div className="max-w-2xl mb-10 space-y-3">
+          <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
             <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
               Najczęstsze <span className="font-semibold text-ubuntuOrange-50">pytania</span>
             </h2>

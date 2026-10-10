@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Phone, ClipboardList, ShieldCheck, Unlock, MapPin, ChevronDown } from 'lucide-react';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../config/contact';
-import { HERO_FRAMES, HERO_LAYERS, heroFrameSrc } from '../config/hero';
+import { HERO_FRAMES, HERO_LAYERS, HERO_OBJECT, heroFrameSrc } from '../config/hero';
 
 const facts = [
   { icon: ShieldCheck, text: 'Dane zostają na Twoim serwerze' },
@@ -9,13 +9,10 @@ const facts = [
   { icon: MapPin, text: 'Elbląg · kontakt bezpośrednio ze mną' },
 ];
 
-// Plakat, canvas i warstwa podpisów mają identyczną geometrię: wysokość boksu, proporcje klatki,
-// środek obiektu przesunięty w prawo na desktopie (tekst po lewej), wyśrodkowany pod tekstem na mobile.
-const mediaClass =
-  'absolute top-0 h-full w-auto max-w-none -translate-x-1/2 left-1/2 lg:left-[72%]';
-const mediaRatio = { aspectRatio: `${HERO_FRAMES.width} / ${HERO_FRAMES.height}` };
-
 type MediaState = 'poster' | 'canvas' | 'none';
+
+const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+const easeInOut = (v: number) => (v < 0.5 ? 2 * v * v : 1 - (-2 * v + 2) ** 2 / 2);
 
 const layerPoint = (path: readonly (readonly number[])[], t: number) => {
   if (t <= path[0][0]) return path[0];
@@ -30,17 +27,30 @@ const layerPoint = (path: readonly (readonly number[])[], t: number) => {
   return path[path.length - 1];
 };
 
+// Klatka ma miękko wygaszone krawędzie, żeby wtapiała się w tło hero przy każdym rozmiarze.
+const frameMask = {
+  maskImage: 'linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent), linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent)',
+  WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent), linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent)',
+  maskComposite: 'intersect',
+  WebkitMaskComposite: 'source-in',
+} as React.CSSProperties;
+
 export const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const posterRef = useRef<HTMLImageElement>(null);
   const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const captionRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
+  const endCtaRef = useRef<HTMLDivElement>(null);
+  // przejście: 0 = laptop pod tekstem, 1 = laptop na środku ekranu (aktualizowane bez re-renderu)
+  const layoutRef = useRef({ s0: 0.55, ty0: 0, s1: 1, update: () => {} });
   const [media, setMedia] = useState<MediaState>('poster');
   const [loadPct, setLoadPct] = useState<number | null>(null);
-  // false → bez przypinania (brak klipu, oszczędzanie danych, klatki nie doszły)
+  // false → bez przypinania (brak klipu, oszczędzanie danych, reduced motion, klatki nie doszły)
   const [scrub, setScrub] = useState(true);
 
   // Brak plakatu (klip nie został pocięty) → sam gradient i tekst.
@@ -52,16 +62,56 @@ export const Hero: React.FC = () => {
     }
   }, []);
 
+  // Ułożenie startowe: zamknięty laptop mieści się pod tekstem; docelowo wypełnia środek ekranu.
+  useEffect(() => {
+    const sticky = stickyRef.current;
+    const mediaEl = mediaRef.current;
+    const text = textRef.current;
+    if (!sticky || !mediaEl || !text) return;
+
+    const measure = () => {
+      const H = mediaEl.clientHeight;
+      const W = mediaEl.clientWidth;
+      if (!H || !W) return;
+      const frameW = H * (HERO_FRAMES.width / HERO_FRAMES.height);
+      const textBottom = text.offsetTop + text.offsetHeight + 12;
+      const bodyH = HERO_OBJECT.bottom - HERO_OBJECT.top;
+      const s1 = Math.min(1, (W * 0.92) / (HERO_OBJECT.width * frameW));
+      // na dole zostaje miejsce na podpowiedź „Przewiń”
+      const s0 = Math.min(s1, Math.max(0.3, (H - 36 - textBottom) / (bodyH * H)));
+      // przesunięcie, po którym górna krawędź laptopa wypada tuż pod tekstem
+      const ty0 = textBottom - H / 2 + s0 * H * (0.5 - HERO_OBJECT.top);
+      layoutRef.current.s0 = s0;
+      layoutRef.current.s1 = s1;
+      layoutRef.current.ty0 = ty0;
+      layoutRef.current.update();
+    };
+
+    const apply = (k: number) => {
+      const { s0, s1, ty0 } = layoutRef.current;
+      sticky.style.setProperty('--hero-s', String(s0 + (s1 - s0) * k));
+      sticky.style.setProperty('--hero-ty', `${ty0 * (1 - k)}px`);
+    };
+    layoutRef.current.update = () => apply(Number(sticky.dataset.k || 0));
+
+    const ro = new ResizeObserver(measure);
+    ro.observe(mediaEl);
+    ro.observe(text);
+    measure();
+    return () => ro.disconnect();
+  }, [media]);
+
   useEffect(() => {
     const section = sectionRef.current;
     const sticky = stickyRef.current;
     const canvas = canvasRef.current;
-    if (!section || !sticky || !canvas) return;
+    const text = textRef.current;
+    if (!section || !sticky || !canvas || !text) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
     if (reduceMotion || saveData) {
-      setScrub(false); // zostaje statyczny hero.webp
+      setScrub(false); // zostaje statyczny hero.webp pod tekstem
       return;
     }
 
@@ -92,7 +142,7 @@ export const Hero: React.FC = () => {
       const stickyTop = parseFloat(getComputedStyle(sticky).top) || 0;
       const total = section.offsetHeight - sticky.offsetHeight;
       if (total <= 0) return 0;
-      return Math.min(1, Math.max(0, (stickyTop - section.getBoundingClientRect().top) / total));
+      return clamp01((stickyTop - section.getBoundingClientRect().top) / total);
     };
 
     const nearestLoaded = (i: number) => {
@@ -103,13 +153,21 @@ export const Hero: React.FC = () => {
       return -1;
     };
 
-    // Podpisy warstw: pozycja i widoczność wynikają z klatki, która faktycznie jest na ekranie.
-    const updateLayers = (t: number, p: number) => {
+    // Tekst znika, laptop rośnie na środek; podpisy warstw wynikają z klatki, która jest na ekranie.
+    const updateScene = (t: number, p: number) => {
+      const fade = clamp01((p - 0.03) / 0.15);
+      text.style.opacity = String(1 - fade);
+      text.style.transform = `translateY(${-40 * fade}px)`;
+      text.style.visibility = fade >= 1 ? 'hidden' : 'visible';
+      const k = easeInOut(clamp01((p - 0.04) / 0.3));
+      sticky.dataset.k = String(k);
+      layoutRef.current.update();
+
       let current = -1;
-      HERO_LAYERS.forEach((layer, k) => {
-        const el = labelRefs.current[k];
+      HERO_LAYERS.forEach((layer, n) => {
+        const el = labelRefs.current[n];
         const visible = t >= layer.at;
-        if (visible) current = k;
+        if (visible) current = n;
         if (!el) return;
         const [, x, y] = layerPoint(layer.path, t);
         el.style.left = `${x * 100}%`;
@@ -117,13 +175,14 @@ export const Hero: React.FC = () => {
         el.dataset.visible = String(visible);
       });
       if (hintRef.current) hintRef.current.dataset.visible = String(p < 0.03);
+      if (endCtaRef.current) endCtaRef.current.dataset.visible = String(p > 1 - HERO_FRAMES.holdEnd);
       if (current !== shownLayer && captionRef.current) {
         shownLayer = current;
         captionRef.current.dataset.visible = String(current >= 0);
         if (current >= 0) {
           captionRef.current.querySelector('[data-text]')!.textContent = HERO_LAYERS[current].label;
-          captionRef.current.querySelectorAll('[data-dot]').forEach((dot, k) => {
-            (dot as HTMLElement).dataset.on = String(k <= current);
+          captionRef.current.querySelectorAll('[data-dot]').forEach((dot, n) => {
+            (dot as HTMLElement).dataset.on = String(n <= current);
           });
         }
       }
@@ -134,14 +193,13 @@ export const Hero: React.FC = () => {
       const p = scrollProgress();
       const target = Math.round(Math.min(1, p / (1 - HERO_FRAMES.holdEnd)) * (set.count - 1));
       const i = nearestLoaded(target);
-      if (i < 0) return;
-      if (i !== drawnIndex) {
+      if (i >= 0 && i !== drawnIndex) {
         ctx.imageSmoothingQuality = 'high';
         ctx.drawImage(frames[i]!, 0, 0, canvas.width, canvas.height);
         if (drawnIndex === -1) setMedia('canvas');
         drawnIndex = i;
       }
-      updateLayers(i / (set.count - 1), p);
+      updateScene(i >= 0 ? i / (set.count - 1) : 0, p);
     };
 
     const requestDraw = () => {
@@ -194,6 +252,7 @@ export const Hero: React.FC = () => {
 
     window.addEventListener('scroll', requestDraw, { passive: true });
     window.addEventListener('resize', onResize);
+    requestDraw();
 
     return () => {
       cancelled = true;
@@ -201,6 +260,9 @@ export const Hero: React.FC = () => {
       window.removeEventListener('load', start);
       window.removeEventListener('scroll', requestDraw);
       window.removeEventListener('resize', onResize);
+      text.style.opacity = '';
+      text.style.transform = '';
+      text.style.visibility = '';
     };
   }, []);
 
@@ -216,79 +278,88 @@ export const Hero: React.FC = () => {
       style={{
         '--hero-h-m': `${HERO_FRAMES.mobile.scrollVh}vh`,
         '--hero-h-d': `${HERO_FRAMES.desktop.scrollVh}vh`,
-        backgroundColor: 'var(--pg-bg)',
+        // prawie czarne jak tło klipu — brak widocznych krawędzi klatki
+        backgroundColor: '#09060B',
         color: 'var(--pg-text-primary)',
       } as React.CSSProperties}
     >
       <div
         ref={stickyRef}
-        className={`${scrub ? 'sticky top-20 motion-reduce:static' : ''} h-[calc(100svh-5rem)] min-h-[560px] overflow-hidden flex flex-col pb-16 lg:pb-0`}
+        className={`${scrub ? 'sticky top-20 motion-reduce:static' : ''} relative h-[calc(100svh-5rem)] min-h-[560px] overflow-hidden`}
         style={{
+          // wartości startowe przed hydracją; potem liczone w JS
+          '--hero-s': '0.55',
+          '--hero-ty': '24%',
           // tło, gdy brak klipu: sam gradient i tekst
-          backgroundImage: 'radial-gradient(ellipse at 75% 50%, rgba(233, 84, 32, 0.14), transparent 60%), radial-gradient(ellipse at 90% 90%, rgba(119, 33, 111, 0.18), transparent 55%)',
-        }}
+          backgroundImage: media === 'none'
+            ? 'radial-gradient(ellipse at 50% 70%, rgba(233, 84, 32, 0.12), transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(119, 33, 111, 0.2), transparent 55%)'
+            : undefined,
+        } as React.CSSProperties}
       >
         {/* Media: plakat od razu w HTML, canvas przejmuje po pierwszej klatce */}
         {media !== 'none' && (
-          <div className="order-2 lg:order-none relative flex-1 min-h-[200px] lg:absolute lg:inset-0 overflow-hidden bg-black">
-            <img
-              ref={posterRef}
-              src={HERO_FRAMES.poster}
-              width={HERO_FRAMES.width}
-              height={HERO_FRAMES.height}
-              alt=""
-              fetchPriority="high"
-              onError={() => {
-                setMedia('none');
-                setScrub(false);
+          <div ref={mediaRef} className="absolute inset-x-0 top-0 bottom-16 lg:bottom-0">
+            <div
+              className="absolute top-0 left-1/2 h-full will-change-transform"
+              style={{
+                aspectRatio: `${HERO_FRAMES.width} / ${HERO_FRAMES.height}`,
+                transform: 'translateX(-50%) translateY(var(--hero-ty)) scale(var(--hero-s))',
               }}
-              className={mediaClass}
-            />
-            <canvas
-              ref={canvasRef}
-              width={HERO_FRAMES.width}
-              height={HERO_FRAMES.height}
-              aria-hidden="true"
-              className={`${mediaClass} transition-opacity duration-300 motion-reduce:hidden ${media === 'canvas' ? 'opacity-100' : 'opacity-0'}`}
-            />
-
-            {/* Gradient pod tekstem (desktop: z lewej, mobile: łączy tekst z obrazem) + wyjście w kolejną sekcję */}
-            <div
-              className="absolute inset-0 pointer-events-none hidden lg:block"
-              style={{ background: 'linear-gradient(90deg, var(--pg-bg) 0%, var(--pg-bg) 45%, transparent 56%), linear-gradient(0deg, var(--pg-bg) 0%, transparent 14%)' }}
-            />
-            <div
-              className="absolute inset-x-0 top-0 h-16 pointer-events-none lg:hidden"
-              style={{ background: 'linear-gradient(180deg, var(--pg-bg), transparent)' }}
-            />
-
-            {/* Podpisy warstw przy obiekcie (xl+: jest miejsce między tekstem a laptopem) */}
-            {animated && (
-              <div aria-hidden="true" className={`${mediaClass} pointer-events-none hidden xl:block`} style={mediaRatio}>
-                {HERO_LAYERS.map((layer, k) => (
-                  <div
-                    key={layer.label}
-                    ref={(el) => { labelRefs.current[k] = el; }}
-                    data-visible="false"
-                    className="absolute -translate-x-full -translate-y-1/2 flex items-center opacity-0 transition-[opacity,margin] duration-500 data-[visible=true]:opacity-100 -ml-6 data-[visible=true]:ml-0"
-                  >
-                    <span className="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-black/60 border border-ubuntuOrange-50/60 backdrop-blur-sm shadow-pg-glow">
-                      {layer.label}
-                    </span>
-                    <span className="w-6 h-px bg-gradient-to-r from-ubuntuOrange-50/40 to-ubuntuOrange-40" />
-                    <span className="w-2 h-2 rounded-full bg-ubuntuOrange-40 shadow-[0_0_10px_2px_rgba(255,120,72,0.8)]" />
-                  </div>
-                ))}
+            >
+              <div className="absolute inset-0" style={frameMask}>
+                <img
+                  ref={posterRef}
+                  src={HERO_FRAMES.poster}
+                  width={HERO_FRAMES.width}
+                  height={HERO_FRAMES.height}
+                  alt=""
+                  fetchPriority="high"
+                  onError={() => {
+                    setMedia('none');
+                    setScrub(false);
+                  }}
+                  className="absolute inset-0 w-full h-full"
+                />
+                <canvas
+                  ref={canvasRef}
+                  width={HERO_FRAMES.width}
+                  height={HERO_FRAMES.height}
+                  aria-hidden="true"
+                  className={`absolute inset-0 w-full h-full transition-opacity duration-300 motion-reduce:hidden ${media === 'canvas' ? 'opacity-100' : 'opacity-0'}`}
+                />
               </div>
-            )}
 
-            {/* Ten sam komunikat jako podpis pod obrazem (mobile, tablet, małe laptopy) */}
+              {/* Podpisy warstw na przemian po obu stronach laptopa */}
+              {animated && (
+                <div aria-hidden="true" className="absolute inset-0 pointer-events-none hidden lg:block">
+                  {HERO_LAYERS.map((layer, n) => {
+                    const left = layer.side === 'left';
+                    return (
+                      <div
+                        key={layer.label}
+                        ref={(el) => { labelRefs.current[n] = el; }}
+                        data-visible="false"
+                        className={`absolute -translate-y-1/2 flex items-center opacity-0 transition-[opacity,margin] duration-500 data-[visible=true]:opacity-100 data-[visible=true]:mx-0 ${left ? '-translate-x-full flex-row -mx-6' : 'flex-row-reverse mx-6'}`}
+                      >
+                        <span className="whitespace-nowrap px-3.5 py-1.5 rounded-full text-sm font-semibold text-white bg-black/60 border border-ubuntuOrange-50/60 backdrop-blur-sm shadow-pg-glow">
+                          {layer.label}
+                        </span>
+                        <span className={`w-8 h-px ${left ? 'bg-gradient-to-r' : 'bg-gradient-to-l'} from-ubuntuOrange-50/40 to-ubuntuOrange-40`} />
+                        <span className="w-2 h-2 rounded-full bg-ubuntuOrange-40 shadow-[0_0_10px_2px_rgba(255,120,72,0.8)]" />
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Ten sam komunikat jako jeden podpis (telefon, tablet) */}
             {animated && (
               <div
                 ref={captionRef}
                 aria-hidden="true"
                 data-visible="false"
-                className="xl:hidden absolute bottom-3 left-1/2 -translate-x-1/2 lg:left-[72%] flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 border border-ubuntuOrange-50/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 data-[visible=true]:opacity-100"
+                className="lg:hidden absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 border border-ubuntuOrange-50/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 data-[visible=true]:opacity-100"
               >
                 <span className="flex gap-1">
                   {HERO_LAYERS.map((layer) => (
@@ -305,17 +376,34 @@ export const Hero: React.FC = () => {
                 ref={hintRef}
                 aria-hidden="true"
                 data-visible="true"
-                className="absolute bottom-3 lg:bottom-8 left-1/2 -translate-x-1/2 lg:left-[72%] flex items-center gap-1.5 text-xs font-medium text-white/80 transition-opacity duration-300 opacity-0 data-[visible=true]:opacity-100"
+                className="absolute bottom-3 lg:bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 whitespace-nowrap text-xs font-medium text-white/80 transition-opacity duration-300 opacity-0 data-[visible=true]:opacity-100"
               >
                 Przewiń, aby zobaczyć, jak to działa
                 <ChevronDown className="w-4 h-4 animate-bounce" />
               </div>
             )}
 
+            {/* Po obejrzeniu: następny krok */}
+            {animated && (
+              <div
+                ref={endCtaRef}
+                data-visible="false"
+                className="hidden lg:flex absolute bottom-5 left-1/2 -translate-x-1/2 opacity-0 translate-y-3 pointer-events-none transition-[opacity,transform] duration-500 data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0 data-[visible=true]:pointer-events-auto"
+              >
+                <a
+                  href={`tel:${CONTACT_PHONE}`}
+                  className="inline-flex items-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-full shadow-pg-glow transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  Umów darmową 20-min rozmowę
+                </a>
+              </div>
+            )}
+
             {loading && (
               <div
                 aria-hidden="true"
-                className="absolute top-3 right-3 lg:top-6 lg:right-6 px-3 py-1 rounded-full text-[11px] font-mono text-white/80 bg-black/50 backdrop-blur-sm"
+                className="absolute top-3 right-3 lg:top-5 lg:right-6 px-3 py-1 rounded-full text-[11px] font-mono text-white/80 bg-black/50 backdrop-blur-sm"
               >
                 Ładowanie animacji {loadPct}%
               </div>
@@ -323,69 +411,64 @@ export const Hero: React.FC = () => {
           </div>
         )}
 
-        {/* Tekst */}
-        <div className="order-1 lg:order-none relative z-10 lg:h-full lg:flex lg:items-center">
-          <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4 lg:py-0">
-            <div className="max-w-xl lg:max-w-[26rem] xl:max-w-lg space-y-4 lg:space-y-6">
-              <span
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-medium"
+        {/* Tekst — wyśrodkowany nad laptopem, znika przy przewijaniu */}
+        <div ref={textRef} className={`absolute inset-x-0 z-10 px-4 sm:px-6 will-change-transform ${media === 'none' ? 'inset-y-0 flex items-center' : 'top-0 pt-6 lg:pt-10'}`}>
+          <div className="w-full max-w-3xl mx-auto text-center space-y-4 lg:space-y-5">
+            <span
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-medium"
+              style={{
+                backgroundColor: 'var(--pg-badge-bg)',
+                borderColor: 'var(--pg-badge-border)',
+                color: 'var(--pg-badge-text)',
+              }}
+            >
+              Automatyzacja AI · sklepy i hurtownie · RODO
+            </span>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight leading-[1.12]">
+              Automatyzuję powtarzalną pracę w <span className="font-bold gradient-orange-aubergine">sklepach i hurtowniach</span>
+            </h1>
+
+            <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
+              AI na Twoim własnym serwerze obrabia zdjęcia produktów, sprawdza opisy i tłumaczy katalogi, a Twoje dane nie wychodzą z firmy.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+              <a
+                href={`tel:${CONTACT_PHONE}`}
+                className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-6 py-3.5 rounded-lg shadow-lg hover:shadow-pg-glow transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+                <span>Umów darmową 20-min rozmowę</span>
+              </a>
+              <a
+                href="/audyt"
+                className="inline-flex items-center justify-center gap-2 border font-medium text-sm px-5 py-3.5 rounded-lg transition-colors hover:border-ubuntuOrange-50"
                 style={{
-                  backgroundColor: 'var(--pg-badge-bg)',
-                  borderColor: 'var(--pg-badge-border)',
-                  color: 'var(--pg-badge-text)',
+                  backgroundColor: 'var(--pg-layer-01)',
+                  borderColor: 'var(--pg-border-strong)',
+                  color: 'var(--pg-text-primary)',
                 }}
               >
-                Automatyzacja AI · sklepy i hurtownie · RODO
-              </span>
-
-              <h1
-                className="text-3xl sm:text-4xl xl:text-5xl font-light tracking-tight leading-[1.15]"
-                style={{ color: 'var(--pg-text-primary)' }}
-              >
-                Automatyzuję powtarzalną pracę w <span className="font-bold gradient-orange-aubergine">sklepach i hurtowniach</span>
-              </h1>
-
-              <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                AI na Twoim własnym serwerze obrabia zdjęcia produktów, sprawdza opisy i tłumaczy katalogi, a Twoje dane nie wychodzą z firmy.
-              </p>
-
-              <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
-                <a
-                  href={`tel:${CONTACT_PHONE}`}
-                  className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-6 py-3.5 rounded-lg shadow-lg hover:shadow-pg-glow transition-colors"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>Umów darmową 20-min rozmowę</span>
-                </a>
-                <a
-                  href="/audyt"
-                  className="inline-flex items-center justify-center gap-2 border font-medium text-sm px-5 py-3.5 rounded-lg transition-colors hover:border-ubuntuOrange-50"
-                  style={{
-                    backgroundColor: 'var(--pg-layer-01)',
-                    borderColor: 'var(--pg-border-strong)',
-                    color: 'var(--pg-text-primary)',
-                  }}
-                >
-                  <ClipboardList className="w-4 h-4 text-ubuntuOrange-50" />
-                  <span>Audyt procesu · 3 500 zł netto</span>
-                </a>
-              </div>
-
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--pg-text-muted)' }}>
-                Tel. <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-40 hover:underline">{CONTACT_PHONE_DISPLAY}</a>
-                {' · '}
-                <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Darmowa 20-min rozmowa')}`} className="font-semibold text-ubuntuOrange-40 hover:underline break-all">{CONTACT_EMAIL}</a>
-              </p>
-
-              <ul className="hidden sm:flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm" style={{ color: 'var(--pg-text-secondary)' }}>
-                {facts.map(({ icon: Icon, text }) => (
-                  <li key={text} className="flex items-center gap-1.5">
-                    <Icon className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
-                    <span>{text}</span>
-                  </li>
-                ))}
-              </ul>
+                <ClipboardList className="w-4 h-4 text-ubuntuOrange-50" />
+                <span>Audyt procesu · 3 500 zł netto</span>
+              </a>
             </div>
+
+            <p className="text-xs sm:text-sm" style={{ color: 'var(--pg-text-muted)' }}>
+              Tel. <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-40 hover:underline">{CONTACT_PHONE_DISPLAY}</a>
+              {' · '}
+              <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Darmowa 20-min rozmowa')}`} className="font-semibold text-ubuntuOrange-40 hover:underline break-all">{CONTACT_EMAIL}</a>
+            </p>
+
+            <ul className="hidden sm:flex [@media(max-height:760px)]:hidden flex-wrap justify-center gap-x-5 gap-y-2 text-sm" style={{ color: 'var(--pg-text-secondary)' }}>
+              {facts.map(({ icon: Icon, text }) => (
+                <li key={text} className="flex items-center gap-1.5">
+                  <Icon className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

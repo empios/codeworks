@@ -143,7 +143,7 @@ export const DemoSection: React.FC = () => {
   return (
     <section id="demo" className="py-20 border-t transition-colors" style={{ backgroundColor: 'var(--pg-bg-subtle)', borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-10 space-y-3">
+        <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
           <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
             <FlaskConical className="w-3.5 h-3.5" />
             Demo na danych testowych
@@ -187,7 +187,7 @@ export const DemoSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <span className="text-sm" style={{ color: 'var(--pg-text-secondary)' }}>Chcesz zobaczyć to na swoich danych?</span>
           <a
             href={`tel:${CONTACT_PHONE}`}
