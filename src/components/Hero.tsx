@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Phone, ClipboardList, ShieldCheck, Unlock, MapPin } from 'lucide-react';
+import { Phone, ClipboardList, ShieldCheck, Unlock, MapPin, ChevronDown } from 'lucide-react';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../config/contact';
-import { HERO_FRAMES, heroFrameSrc } from '../config/hero';
+import { HERO_FRAMES, HERO_LAYERS, heroFrameSrc } from '../config/hero';
 
 const facts = [
   { icon: ShieldCheck, text: 'Dane zostają na Twoim serwerze' },
@@ -9,18 +9,35 @@ const facts = [
   { icon: MapPin, text: 'Elbląg · kontakt bezpośrednio ze mną' },
 ];
 
-// Plakat i canvas mają identyczną geometrię: wysokość boksu, proporcje klatki,
+// Plakat, canvas i warstwa podpisów mają identyczną geometrię: wysokość boksu, proporcje klatki,
 // środek obiektu przesunięty w prawo na desktopie (tekst po lewej), wyśrodkowany pod tekstem na mobile.
 const mediaClass =
   'absolute top-0 h-full w-auto max-w-none -translate-x-1/2 left-1/2 lg:left-[72%]';
+const mediaRatio = { aspectRatio: `${HERO_FRAMES.width} / ${HERO_FRAMES.height}` };
 
 type MediaState = 'poster' | 'canvas' | 'none';
+
+const layerPoint = (path: readonly (readonly number[])[], t: number) => {
+  if (t <= path[0][0]) return path[0];
+  for (let k = 1; k < path.length; k++) {
+    const [t1, x1, y1] = path[k];
+    const [t0, x0, y0] = path[k - 1];
+    if (t <= t1) {
+      const f = (t - t0) / (t1 - t0);
+      return [t, x0 + (x1 - x0) * f, y0 + (y1 - y0) * f];
+    }
+  }
+  return path[path.length - 1];
+};
 
 export const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const posterRef = useRef<HTMLImageElement>(null);
+  const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const captionRef = useRef<HTMLDivElement>(null);
+  const hintRef = useRef<HTMLDivElement>(null);
   const [media, setMedia] = useState<MediaState>('poster');
   const [loadPct, setLoadPct] = useState<number | null>(null);
   // false → bez przypinania (brak klipu, oszczędzanie danych, klatki nie doszły)
@@ -56,6 +73,7 @@ export const Hero: React.FC = () => {
     let loaded = 0;
     let failed = 0;
     let drawnIndex = -1;
+    let shownLayer = -2;
     let rafId = 0;
     let cancelled = false;
 
@@ -70,12 +88,11 @@ export const Hero: React.FC = () => {
       }
     };
 
-    const targetIndex = () => {
+    const scrollProgress = () => {
       const stickyTop = parseFloat(getComputedStyle(sticky).top) || 0;
       const total = section.offsetHeight - sticky.offsetHeight;
       if (total <= 0) return 0;
-      const progress = Math.min(1, Math.max(0, (stickyTop - section.getBoundingClientRect().top) / total));
-      return Math.round(progress * (set.count - 1));
+      return Math.min(1, Math.max(0, (stickyTop - section.getBoundingClientRect().top) / total));
     };
 
     const nearestLoaded = (i: number) => {
@@ -86,13 +103,45 @@ export const Hero: React.FC = () => {
       return -1;
     };
 
+    // Podpisy warstw: pozycja i widoczność wynikają z klatki, która faktycznie jest na ekranie.
+    const updateLayers = (t: number, p: number) => {
+      let current = -1;
+      HERO_LAYERS.forEach((layer, k) => {
+        const el = labelRefs.current[k];
+        const visible = t >= layer.at;
+        if (visible) current = k;
+        if (!el) return;
+        const [, x, y] = layerPoint(layer.path, t);
+        el.style.left = `${x * 100}%`;
+        el.style.top = `${y * 100}%`;
+        el.dataset.visible = String(visible);
+      });
+      if (hintRef.current) hintRef.current.dataset.visible = String(p < 0.03);
+      if (current !== shownLayer && captionRef.current) {
+        shownLayer = current;
+        captionRef.current.dataset.visible = String(current >= 0);
+        if (current >= 0) {
+          captionRef.current.querySelector('[data-text]')!.textContent = HERO_LAYERS[current].label;
+          captionRef.current.querySelectorAll('[data-dot]').forEach((dot, k) => {
+            (dot as HTMLElement).dataset.on = String(k <= current);
+          });
+        }
+      }
+    };
+
     const draw = () => {
       rafId = 0;
-      const i = nearestLoaded(targetIndex());
-      if (i < 0 || i === drawnIndex) return;
-      ctx.drawImage(frames[i]!, 0, 0, canvas.width, canvas.height);
-      if (drawnIndex === -1) setMedia('canvas');
-      drawnIndex = i;
+      const p = scrollProgress();
+      const target = Math.round(Math.min(1, p / (1 - HERO_FRAMES.holdEnd)) * (set.count - 1));
+      const i = nearestLoaded(target);
+      if (i < 0) return;
+      if (i !== drawnIndex) {
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(frames[i]!, 0, 0, canvas.width, canvas.height);
+        if (drawnIndex === -1) setMedia('canvas');
+        drawnIndex = i;
+      }
+      updateLayers(i / (set.count - 1), p);
     };
 
     const requestDraw = () => {
@@ -156,15 +205,19 @@ export const Hero: React.FC = () => {
   }, []);
 
   const loading = loadPct !== null && loadPct < 100 && media !== 'none';
+  const animated = scrub && media === 'canvas';
 
   return (
     <section
       ref={sectionRef}
+      // hero zawsze ciemne — klip ma ciemne tło, w jasnym motywie nie ma twardego podziału
+      data-theme="terminal"
       className={`relative ${scrub ? 'h-[var(--hero-h-m)] md:h-[var(--hero-h-d)] motion-reduce:h-auto' : ''}`}
       style={{
         '--hero-h-m': `${HERO_FRAMES.mobile.scrollVh}vh`,
         '--hero-h-d': `${HERO_FRAMES.desktop.scrollVh}vh`,
         backgroundColor: 'var(--pg-bg)',
+        color: 'var(--pg-text-primary)',
       } as React.CSSProperties}
     >
       <div
@@ -199,20 +252,70 @@ export const Hero: React.FC = () => {
               className={`${mediaClass} transition-opacity duration-300 motion-reduce:hidden ${media === 'canvas' ? 'opacity-100' : 'opacity-0'}`}
             />
 
-            {/* Gradient pod tekstem (desktop: z lewej, mobile: łączy tekst z obrazem) */}
+            {/* Gradient pod tekstem (desktop: z lewej, mobile: łączy tekst z obrazem) + wyjście w kolejną sekcję */}
             <div
               className="absolute inset-0 pointer-events-none hidden lg:block"
-              style={{ background: 'linear-gradient(90deg, var(--pg-bg) 0%, var(--pg-bg) 45%, transparent 56%)' }}
+              style={{ background: 'linear-gradient(90deg, var(--pg-bg) 0%, var(--pg-bg) 45%, transparent 56%), linear-gradient(0deg, var(--pg-bg) 0%, transparent 14%)' }}
             />
             <div
               className="absolute inset-x-0 top-0 h-16 pointer-events-none lg:hidden"
               style={{ background: 'linear-gradient(180deg, var(--pg-bg), transparent)' }}
             />
 
+            {/* Podpisy warstw przy obiekcie (xl+: jest miejsce między tekstem a laptopem) */}
+            {animated && (
+              <div aria-hidden="true" className={`${mediaClass} pointer-events-none hidden xl:block`} style={mediaRatio}>
+                {HERO_LAYERS.map((layer, k) => (
+                  <div
+                    key={layer.label}
+                    ref={(el) => { labelRefs.current[k] = el; }}
+                    data-visible="false"
+                    className="absolute -translate-x-full -translate-y-1/2 flex items-center opacity-0 transition-[opacity,margin] duration-500 data-[visible=true]:opacity-100 -ml-6 data-[visible=true]:ml-0"
+                  >
+                    <span className="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-black/60 border border-ubuntuOrange-50/60 backdrop-blur-sm shadow-pg-glow">
+                      {layer.label}
+                    </span>
+                    <span className="w-6 h-px bg-gradient-to-r from-ubuntuOrange-50/40 to-ubuntuOrange-40" />
+                    <span className="w-2 h-2 rounded-full bg-ubuntuOrange-40 shadow-[0_0_10px_2px_rgba(255,120,72,0.8)]" />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Ten sam komunikat jako podpis pod obrazem (mobile, tablet, małe laptopy) */}
+            {animated && (
+              <div
+                ref={captionRef}
+                aria-hidden="true"
+                data-visible="false"
+                className="xl:hidden absolute bottom-3 left-1/2 -translate-x-1/2 lg:left-[72%] flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 border border-ubuntuOrange-50/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 data-[visible=true]:opacity-100"
+              >
+                <span className="flex gap-1">
+                  {HERO_LAYERS.map((layer) => (
+                    <span key={layer.label} data-dot data-on="false" className="w-1.5 h-1.5 rounded-full bg-white/30 data-[on=true]:bg-ubuntuOrange-40" />
+                  ))}
+                </span>
+                <span data-text className="whitespace-nowrap text-xs font-semibold text-white" />
+              </div>
+            )}
+
+            {/* Podpowiedź: przewiń, żeby rozłożyć laptopa na warstwy */}
+            {animated && (
+              <div
+                ref={hintRef}
+                aria-hidden="true"
+                data-visible="true"
+                className="absolute bottom-3 lg:bottom-8 left-1/2 -translate-x-1/2 lg:left-[72%] flex items-center gap-1.5 text-xs font-medium text-white/80 transition-opacity duration-300 opacity-0 data-[visible=true]:opacity-100"
+              >
+                Przewiń, aby zobaczyć, jak to działa
+                <ChevronDown className="w-4 h-4 animate-bounce" />
+              </div>
+            )}
+
             {loading && (
               <div
                 aria-hidden="true"
-                className="absolute bottom-3 right-3 lg:bottom-6 lg:right-6 px-3 py-1 rounded-full text-[11px] font-mono text-white/80 bg-black/50 backdrop-blur-sm"
+                className="absolute top-3 right-3 lg:top-6 lg:right-6 px-3 py-1 rounded-full text-[11px] font-mono text-white/80 bg-black/50 backdrop-blur-sm"
               >
                 Ładowanie animacji {loadPct}%
               </div>
@@ -269,9 +372,9 @@ export const Hero: React.FC = () => {
               </div>
 
               <p className="text-xs sm:text-sm" style={{ color: 'var(--pg-text-muted)' }}>
-                Tel. <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-50 hover:underline">{CONTACT_PHONE_DISPLAY}</a>
+                Tel. <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-40 hover:underline">{CONTACT_PHONE_DISPLAY}</a>
                 {' · '}
-                <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Darmowa 20-min rozmowa')}`} className="font-semibold text-ubuntuOrange-50 hover:underline break-all">{CONTACT_EMAIL}</a>
+                <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Darmowa 20-min rozmowa')}`} className="font-semibold text-ubuntuOrange-40 hover:underline break-all">{CONTACT_EMAIL}</a>
               </p>
 
               <ul className="hidden sm:flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm" style={{ color: 'var(--pg-text-secondary)' }}>
