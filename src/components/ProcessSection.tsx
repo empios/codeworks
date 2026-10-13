@@ -1,14 +1,14 @@
 import React from 'react';
 
-const aiSteps = [
-  { title: 'Darmowa rozmowa', text: '20 minut: opowiadasz, co zabiera czas w firmie.' },
-  { title: 'Audyt procesu', text: '3 500 zł netto, w 100% odliczane od wdrożenia.' },
-  { title: 'Wdrożenie', text: 'Na Twoim serwerze — dane zostają w firmie.' },
-  { title: 'Utrzymanie', text: 'Opieka po wdrożeniu według cennika, bez opłat za API.' },
+const homeSteps = [
+  { title: 'Darmowa rozmowa', text: '20 minut: opowiadasz, czego potrzebujesz.' },
+  { title: 'Wycena', text: 'Zakres i stała cena przed startem prac.' },
+  { title: 'Realizacja', text: 'Projektuję, programuję i wdrażam.' },
+  { title: 'Przekazanie i opieka', text: 'Kod i prawa autorskie dla Ciebie, opieka opcjonalnie.' },
 ];
 
-export const ProcessSection: React.FC<{ variant?: 'ai' | 'webdev' }> = ({ variant = 'webdev' }) => {
-  if (variant === 'ai') {
+export const ProcessSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ variant = 'webdev' }) => {
+  if (variant === 'home') {
     return (
       <section id="proces" className="py-20 border-t" style={{ borderColor: 'var(--pg-border-subtle)' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +22,7 @@ export const ProcessSection: React.FC<{ variant?: 'ai' | 'webdev' }> = ({ varian
           </div>
 
           <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {aiSteps.map((step, i) => (
+            {homeSteps.map((step, i) => (
               <li key={step.title} className="pg-card p-5 rounded-2xl space-y-2 text-center">
                 <span className="w-8 h-8 mx-auto rounded-full bg-ubuntuOrange-50 text-white font-mono font-bold flex items-center justify-center text-sm">
                   {i + 1}

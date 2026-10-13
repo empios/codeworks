@@ -8,18 +8,22 @@ interface FaqItem {
   answer: string;
 }
 
-const aiFaqs: FaqItem[] = [
+const homeFaqs: FaqItem[] = [
   {
-    question: "Czy moje dane trafiają do zewnętrznej chmury?",
-    answer: "Nie. Model działa na Twoim serwerze, więc zdjęcia, katalogi i dokumenty zostają w firmie."
+    question: "Czy kod i prawa autorskie będą moje?",
+    answer: "Tak. Po opłaceniu końcowej faktury przekazuję pełny kod źródłowy i autorskie prawa majątkowe."
   },
   {
-    question: "Czy płacę za API lub tokeny?",
-    answer: "Nie. Płacisz za wdrożenie i utrzymanie według cennika, bez opłat za zewnętrzne API."
+    question: "Czy cena może się zmienić w trakcie?",
+    answer: "Nie. Po ustaleniu zakresu dostajesz stałą wycenę; zmienia się tylko, jeśli sam rozszerzysz zakres."
   },
   {
     question: "Ile kosztuje start?",
-    answer: "Rozmowa (20 min) jest bezpłatna. Audyt procesu kosztuje 3 500 zł netto i jest w 100% odliczany od wdrożenia."
+    answer: "Rozmowa (20 min) jest bezpłatna. Ceny startowe usług znajdziesz w cenniku powyżej."
+  },
+  {
+    question: "Czy muszę płacić abonament?",
+    answer: "Nie za strony i aplikacje — opieka techniczna jest opcjonalna. Wdrożenia AI mają osobne koszty utrzymania podane w cenniku."
   },
   {
     question: "Gdzie działasz?",
@@ -31,9 +35,9 @@ const aiFaqs: FaqItem[] = [
   }
 ];
 
-export const FaqSection: React.FC<{ variant?: 'ai' | 'webdev' }> = ({ variant = 'webdev' }) => {
+export const FaqSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ variant = 'webdev' }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const isAi = variant === 'ai';
+  const isHome = variant === 'home';
 
   const webdevFaqs: FaqItem[] = [
     {
@@ -62,7 +66,7 @@ export const FaqSection: React.FC<{ variant?: 'ai' | 'webdev' }> = ({ variant = 
     }
   ];
 
-  const faqs = isAi ? aiFaqs : webdevFaqs;
+  const faqs = isHome ? homeFaqs : webdevFaqs;
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -72,7 +76,7 @@ export const FaqSection: React.FC<{ variant?: 'ai' | 'webdev' }> = ({ variant = 
     <section id="faq" className="py-24 border-t transition-colors" style={{ borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {isAi ? (
+        {isHome ? (
           <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
             <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
               Najczęstsze <span className="font-semibold text-ubuntuOrange-50">pytania</span>

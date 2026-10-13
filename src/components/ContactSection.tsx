@@ -8,7 +8,7 @@ const OWNER_EMAIL = CONTACT_EMAIL;
 
 interface ContactSectionProps {
   initialMessage?: string;
-  variant?: 'ai' | 'webdev';
+  variant?: 'ai' | 'webdev' | 'general';
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, variant = 'ai' }) => {
@@ -50,7 +50,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
         body: JSON.stringify({
           _subject: variant === 'webdev' 
             ? `Nowy Audyt Wideo / Lead Strony WWW od: ${formData.name}`
-            : `Konsultacja AI od: ${formData.name}`,
+            : variant === 'general'
+              ? `Zapytanie ze strony od: ${formData.name}`
+              : `Konsultacja AI od: ${formData.name}`,
           _captcha: "false",
           _template: "table",
           Imię_Firma: formData.name,
@@ -105,7 +107,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
               {variant === 'webdev' ? (
                 'Nagram krótki, 2-minutowy materiał wideo, w którym wskażę błędy UX, SEO i szybkości ładowania obecnej strony Twojej firmy. Bez żadnych zobowiązań!'
               ) : (
-                'Zadzwoń, napisz albo zostaw wiadomość z opisem procesu, który chcesz zautomatyzować.'
+                variant === 'general'
+                  ? 'Zadzwoń, napisz albo zostaw wiadomość z krótkim opisem projektu.'
+                  : 'Zadzwoń, napisz albo zostaw wiadomość z opisem procesu, który chcesz zautomatyzować.'
               )}
             </p>
 
@@ -272,15 +276,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
 
                   <div>
                     <label htmlFor="message" className="block text-xs font-medium uppercase tracking-wider mb-2" style={{ color: 'var(--pg-text-secondary)' }}>
-                      {variant === 'webdev' ? 'Dodatkowe uwagi / Wycena z kalkulatora' : 'Opis procesu do automatyzacji *'}
+                      {variant === 'webdev' ? 'Dodatkowe uwagi / Wycena z kalkulatora' : variant === 'general' ? 'Opis projektu *' : 'Opis procesu do automatyzacji *'}
                     </label>
                     <textarea 
                       id="message" 
                       rows={5} 
-                      required={variant === 'ai'}
+                      required={variant !== 'webdev'}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder={variant === 'webdev' ? 'Napisz krótko, na czym najbardziej Ci zależy...' : 'Opisz krótko proces w Twojej firmie (np. wycinanie tła ze grafik, sprawdzanie specyfikacji PDF, tłumaczenia...)'} 
+                      placeholder={variant === 'webdev' ? 'Napisz krótko, na czym najbardziej Ci zależy...' : variant === 'general' ? 'Czego potrzebujesz? (np. strona firmowa, aplikacja, integracja systemów, wdrożenie AI)' : 'Opisz krótko proces w Twojej firmie (np. wycinanie tła ze grafik, sprawdzanie specyfikacji PDF, tłumaczenia...)'} 
                       className="w-full px-4 py-3 rounded-lg border focus:border-ubuntuOrange-50 focus:outline-none text-sm transition-colors font-mono text-xs leading-relaxed"
                       style={{
                         backgroundColor: 'var(--pg-input-bg)',

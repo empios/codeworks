@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Header } from '../components/Header';
 import { Hero } from '../components/Hero';
-import { ProblemSection } from '../components/ProblemSection';
+import { ServicesSection } from '../components/ServicesSection';
 import { DemoSection } from '../components/DemoSection';
 import { ProcessSection } from '../components/ProcessSection';
 import { PricingSection } from '../components/PricingSection';
@@ -37,7 +37,7 @@ const homeSchema = {
       "name": "Polska"
     }
   ],
-  "description": "Automatyzacja AI dla sklepów i hurtowni. Model działa na serwerze klienta, dane zostają w firmie.",
+  "description": "Software house i usługi IT z Elbląga: strony i sklepy internetowe, aplikacje webowe, integracje systemów i wdrożenia AI.",
   "priceRange": "$$"
 };
 
@@ -55,20 +55,20 @@ export const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col selection:bg-ubuntuOrange-50 selection:text-white pb-16 lg:pb-0">
       <Helmet>
-        <title>Automatyzacja AI dla sklepów i hurtowni — CodeWorks Elbląg</title>
-        <meta name="description" content="AI na Twoim serwerze obrabia zdjęcia produktów, sprawdza opisy i tłumaczy katalogi. Dane zostają w firmie, bez opłat za API. Elbląg, darmowa 20-min rozmowa." />
+        <title>CodeWorks — software house i usługi IT, Elbląg</title>
+        <meta name="description" content="Strony i sklepy internetowe, aplikacje webowe, integracje systemów i wdrożenia AI dla firm. Elbląg, Trójmiasto, zdalnie. Darmowa 20-min rozmowa." />
         <link rel="canonical" href="https://www.codeworks-it.pl" />
         
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CodeWorks Paweł Włodarczyk" />
         <meta property="og:url" content="https://www.codeworks-it.pl" />
-        <meta property="og:title" content="Automatyzacja AI dla sklepów i hurtowni — CodeWorks Elbląg" />
-        <meta property="og:description" content="AI na Twoim serwerze obrabia zdjęcia produktów, sprawdza opisy i tłumaczy katalogi. Dane zostają w firmie, bez opłat za API. Elbląg, darmowa 20-min rozmowa." />
+        <meta property="og:title" content="CodeWorks — software house i usługi IT, Elbląg" />
+        <meta property="og:description" content="Strony i sklepy internetowe, aplikacje webowe, integracje systemów i wdrożenia AI dla firm. Elbląg, Trójmiasto, zdalnie. Darmowa 20-min rozmowa." />
         <meta property="og:image" content="https://www.codeworks-it.pl/og.png" />
         
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Automatyzacja AI dla sklepów i hurtowni — CodeWorks Elbląg" />
-        <meta property="twitter:description" content="AI na Twoim serwerze obrabia zdjęcia produktów, sprawdza opisy i tłumaczy katalogi. Dane zostają w firmie, bez opłat za API. Elbląg, darmowa 20-min rozmowa." />
+        <meta property="twitter:title" content="CodeWorks — software house i usługi IT, Elbląg" />
+        <meta property="twitter:description" content="Strony i sklepy internetowe, aplikacje webowe, integracje systemów i wdrożenia AI dla firm. Elbląg, Trójmiasto, zdalnie. Darmowa 20-min rozmowa." />
         <meta property="twitter:image" content="https://www.codeworks-it.pl/og.png" />
 
         <script type="application/ld+json">
@@ -78,12 +78,12 @@ export const HomePage: React.FC = () => {
       <Header theme={theme} onToggleTheme={toggleTheme} />
       <main className="flex-grow">
         <Hero />
-        <ProblemSection />
+        <ServicesSection />
         <DemoSection />
-        <ProcessSection variant="ai" />
+        <ProcessSection variant="home" />
         <PricingSection />
-        <FaqSection variant="ai" />
-        <ContactSection variant="ai" />
+        <FaqSection variant="home" />
+        <ContactSection variant="general" />
       </main>
       <Footer />
       <FloatingMobileBar />

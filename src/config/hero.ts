@@ -30,10 +30,10 @@ export const heroFrameSrc = (dir: string, index: number) =>
 // `at`: postęp klipu (0–1), od którego podpis jest widoczny.
 // `path`: krawędź warstwy po stronie podpisu w ułamkach klatki [postęp, x, y] — interpolowana między punktami.
 export const HERO_LAYERS = [
-  { label: 'Twój sklep i katalog', side: 'left', at: 0.7, path: [[0.7, 0.354, 0.281], [1, 0.344, 0.244]] },
-  { label: 'Zdjęcia, opisy, tłumaczenia', side: 'right', at: 0.77, path: [[0.7, 0.671, 0.427], [1, 0.67, 0.402]] },
-  { label: 'AI na Twoim serwerze', side: 'left', at: 0.84, path: [[0.7, 0.376, 0.585], [1, 0.37, 0.579]] },
-  { label: 'Dane zostają w firmie', side: 'right', at: 0.91, path: [[0.7, 0.688, 0.771], [1, 0.689, 0.788]] },
+  { label: 'Strona i aplikacja', side: 'left', at: 0.7, path: [[0.7, 0.354, 0.281], [1, 0.344, 0.244]] },
+  { label: 'Panel i integracje', side: 'right', at: 0.77, path: [[0.7, 0.671, 0.427], [1, 0.67, 0.402]] },
+  { label: 'Automatyzacje i AI', side: 'left', at: 0.84, path: [[0.7, 0.376, 0.585], [1, 0.37, 0.579]] },
+  { label: 'Twój serwer, Twój kod', side: 'right', at: 0.91, path: [[0.7, 0.688, 0.771], [1, 0.689, 0.788]] },
 ] as const;
 
 // Część klatki zajmowana przez zamknięty laptop (pierwsza klatka) — do ułożenia go pod tekstem na starcie.

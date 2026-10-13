@@ -149,7 +149,7 @@ export const DemoSection: React.FC = () => {
             Demo na danych testowych
           </span>
           <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-            Zobacz, <span className="font-semibold text-ubuntuOrange-50">jak to działa</span>
+            Przykład: <span className="font-semibold text-ubuntuOrange-50">automatyzacja AI</span>
           </h2>
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
             Przesuń suwak: po lewej materiał od dostawcy, po prawej wynik automatyzacji.

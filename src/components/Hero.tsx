@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Phone, ClipboardList, ShieldCheck, Unlock, MapPin, ChevronDown } from 'lucide-react';
+import { Phone, LayoutGrid, FileCode2, BadgeCheck, MapPin, ChevronDown } from 'lucide-react';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../config/contact';
 import { HERO_FRAMES, HERO_LAYERS, HERO_OBJECT, heroFrameSrc } from '../config/hero';
 
 const facts = [
-  { icon: ShieldCheck, text: 'Dane zostają na Twoim serwerze' },
-  { icon: Unlock, text: 'Bez opłat za API' },
+  { icon: FileCode2, text: 'Kod i prawa autorskie przekazuję Tobie' },
+  { icon: BadgeCheck, text: 'Stała cena po wycenie' },
   { icon: MapPin, text: 'Elbląg · kontakt bezpośrednio ze mną' },
 ];
 
@@ -422,15 +422,15 @@ export const Hero: React.FC = () => {
                 color: 'var(--pg-badge-text)',
               }}
             >
-              Automatyzacja AI · sklepy i hurtownie · RODO
+              CodeWorks · software house z Elbląga
             </span>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight leading-[1.12]">
-              Automatyzuję powtarzalną pracę w <span className="font-bold gradient-orange-aubergine">sklepach i hurtowniach</span>
+              Strony, aplikacje i automatyzacje <span className="font-bold gradient-orange-aubergine">dla Twojej firmy</span>
             </h1>
 
             <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-              AI na Twoim własnym serwerze obrabia zdjęcia produktów, sprawdza opisy i tłumaczy katalogi, a Twoje dane nie wychodzą z firmy.
+              Projektuję i programuję strony, sklepy, aplikacje webowe, integracje i rozwiązania AI — od pomysłu do wdrożenia, bez pośredników.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
@@ -442,7 +442,7 @@ export const Hero: React.FC = () => {
                 <span>Umów darmową 20-min rozmowę</span>
               </a>
               <a
-                href="/audyt"
+                href="#uslugi"
                 className="inline-flex items-center justify-center gap-2 border font-medium text-sm px-5 py-3.5 rounded-lg transition-colors hover:border-ubuntuOrange-50"
                 style={{
                   backgroundColor: 'var(--pg-layer-01)',
@@ -450,8 +450,8 @@ export const Hero: React.FC = () => {
                   color: 'var(--pg-text-primary)',
                 }}
               >
-                <ClipboardList className="w-4 h-4 text-ubuntuOrange-50" />
-                <span>Audyt procesu · 3 500 zł netto</span>
+                <LayoutGrid className="w-4 h-4 text-ubuntuOrange-50" />
+                <span>Zobacz usługi</span>
               </a>
             </div>
 

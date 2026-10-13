@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code2, Sun, Moon, Video, Menu, X, Calculator } from 'lucide-react';
+import { Code2, Sun, Moon, Phone, Menu, X } from 'lucide-react';
 import { ThemeMode } from '../types';
 
 interface HeaderProps {
@@ -29,19 +29,18 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
             <span className="font-bold text-base sm:text-lg tracking-tight flex items-center gap-1" style={{ color: 'var(--pg-text-primary)' }}>
               Code<span className="text-ubuntuOrange-50">Works</span>
             </span>
-            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-medium whitespace-nowrap" style={{ color: 'var(--pg-text-muted)' }}>Automatyzacja AI · Elbląg</span>
+            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-medium whitespace-nowrap" style={{ color: 'var(--pg-text-muted)' }}>Software house · Elbląg</span>
           </div>
         </a>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-2 xl:space-x-3.5 2xl:space-x-5 text-xs xl:text-sm font-medium">
           <a href="/" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Strona główna</a>
-          <a href="/automatyzacja-zdjec-produktowych" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Zdjęcia AI</a>
-          <a href="/walidacja-opisow-produktow" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Walidacja PDF</a>
-          <a href="/tlumaczenie-katalogu-produktowego" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Translacje AI</a>
-          <a href="/chatbot-ai-on-premise" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Chatbot RAG</a>
-          <a href="#kontakt" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Kontakt</a>
+          <a href="/#uslugi" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Usługi</a>
           <a href="/strony-www" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Strony WWW</a>
+          <a href="/automatyzacja-zdjec-produktowych" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Wdrożenia AI</a>
+          <a href="/#cennik" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Cennik</a>
+          <a href="/#kontakt" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Kontakt</a>
         </nav>
 
         {/* Right Controls */}
@@ -59,11 +58,11 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           </button>
 
           <a 
-            href="/audyt" 
+            href="/#kontakt" 
             className="inline-flex items-center gap-1.5 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs xl:text-sm px-3.5 xl:px-4 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap shrink-0"
           >
-            <Video className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
-            <span>Audyt (3 500 zł)</span>
+            <Phone className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
+            <span>Darmowa rozmowa</span>
           </a>
         </div>
 
@@ -96,16 +95,18 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           }}
         >
           <a href="/" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Strona główna</a>
-          <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-bold text-ubuntuOrange-50">Audyt Procesu (3 500 zł)</a>
-          <a href="/automatyzacja-zdjec-produktowych" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Obróbka zdjęć produktowych</a>
-          <a href="/walidacja-opisow-produktow" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Walidacja opisów z PDF</a>
-          <a href="/tlumaczenie-katalogu-produktowego" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Automatyzacja translacji katalogów</a>
-          <a href="/chatbot-ai-on-premise" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Chatbot AI on-premise (RAG)</a>
-          <a href="#kontakt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Kontakt</a>
-          <a href="/strony-www" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Strony WWW</a>
-          <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="w-full flex items-center justify-center gap-2 bg-ubuntuOrange-50 text-white font-bold py-3 rounded-md">
-            <Video className="w-5 h-5" />
-            <span>Zamów Audyt Procesu (3 500 zł)</span>
+          <a href="/#uslugi" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Usługi</a>
+          <a href="/strony-www" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Strony i sklepy WWW</a>
+          <a href="/automatyzacja-zdjec-produktowych" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: obróbka zdjęć produktowych</a>
+          <a href="/walidacja-opisow-produktow" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: walidacja opisów z PDF</a>
+          <a href="/tlumaczenie-katalogu-produktowego" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: tłumaczenie katalogów</a>
+          <a href="/chatbot-ai-on-premise" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: chatbot na dokumentach</a>
+          <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Audyt procesu AI (3 500 zł)</a>
+          <a href="/#cennik" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Cennik</a>
+          <a href="/#kontakt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Kontakt</a>
+          <a href="/#kontakt" onClick={() => setMobileMenuOpen(false)} className="w-full flex items-center justify-center gap-2 bg-ubuntuOrange-50 text-white font-bold py-3 rounded-md">
+            <Phone className="w-5 h-5" />
+            <span>Umów darmową 20-min rozmowę</span>
           </a>
         </div>
       )}
