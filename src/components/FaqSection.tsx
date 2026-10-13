@@ -1,16 +1,45 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../config/contact';
 
 interface FaqItem {
   question: string;
   answer: string;
 }
 
-export const FaqSection: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+const homeFaqs: FaqItem[] = [
+  {
+    question: "Czy kod i prawa autorskie będą moje?",
+    answer: "Tak. Po opłaceniu końcowej faktury przekazuję pełny kod źródłowy i autorskie prawa majątkowe."
+  },
+  {
+    question: "Czy cena może się zmienić w trakcie?",
+    answer: "Nie. Po ustaleniu zakresu dostajesz stałą wycenę; zmienia się tylko, jeśli sam rozszerzysz zakres."
+  },
+  {
+    question: "Ile kosztuje start?",
+    answer: "Rozmowa (20 min) jest bezpłatna. Ceny startowe usług znajdziesz w cenniku powyżej."
+  },
+  {
+    question: "Czy muszę płacić abonament?",
+    answer: "Nie za strony i aplikacje — opieka techniczna jest opcjonalna. Wdrożenia AI mają osobne koszty utrzymania podane w cenniku."
+  },
+  {
+    question: "Gdzie działasz?",
+    answer: "Siedziba w Elblągu, dojazd do Trójmiasta, zdalnie w całej Polsce."
+  },
+  {
+    question: "Z kim rozmawiam?",
+    answer: "Bezpośrednio ze mną — Paweł Włodarczyk, właściciel CodeWorks."
+  }
+];
 
-  const faqs: FaqItem[] = [
+export const FaqSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ variant = 'webdev' }) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const isHome = variant === 'home';
+
+  const webdevFaqs: FaqItem[] = [
     {
       question: "Czy po wdrożeniu strona staje się w 100% moją własnością?",
       answer: "Tak, absolutnie! Po uregulowaniu końcowej faktury przekazuję Ci pełne kody źródłowe oraz umowę przeniesienia autorskich praw majątkowych. Nie stosuję żadnych uwięzień w autorskich CMS (Zero Vendor Lock-in). Strona jest Twoja i masz do niej 100% dostępu."
@@ -37,6 +66,8 @@ export const FaqSection: React.FC = () => {
     }
   ];
 
+  const faqs = isHome ? homeFaqs : webdevFaqs;
+
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -45,6 +76,16 @@ export const FaqSection: React.FC = () => {
     <section id="faq" className="py-24 border-t transition-colors" style={{ borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
+        {isHome ? (
+          <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
+              Najczęstsze <span className="font-semibold text-ubuntuOrange-50">pytania</span>
+            </h2>
+            <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
+              Nie ma tu Twojego pytania? Zadzwoń: <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-50 hover:underline whitespace-nowrap">{CONTACT_PHONE_DISPLAY}</a>
+            </p>
+          </div>
+        ) : (
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
             <HelpCircle className="w-4 h-4 text-ubuntuOrange-50" />
@@ -57,6 +98,7 @@ export const FaqSection: React.FC = () => {
             Wszystko, co musisz wiedzieć przed rozpoczęciem współpracy z CodeWorks.
           </p>
         </div>
+        )}
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
@@ -66,6 +108,7 @@ export const FaqSection: React.FC = () => {
             >
               <button
                 onClick={() => toggleFaq(idx)}
+                aria-expanded={openIndex === idx}
                 className="w-full p-6 text-left flex justify-between items-center gap-4 focus:outline-none cursor-pointer"
               >
                 <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--pg-text-primary)' }}>

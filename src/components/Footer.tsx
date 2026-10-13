@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
               <span>{COMPANY_NAME}</span>
             </div>
             <p className="text-xs leading-relaxed max-w-md" style={{ color: 'var(--pg-footer-text)' }}>
-              CodeWorks – Automatyzacja procesów AI dla e-commerce, dystrybutorów i hurtowni. Przetwarzanie zdjęć produktowych, walidacja specyfikacji z kartami PDF, automatyzacja translacji katalogów oraz firmowy chatbot RAG 100% on-premise.
+              CodeWorks – software house i usługi IT z Elbląga. Strony i sklepy internetowe, aplikacje webowe, integracje systemów oraz wdrożenia AI na serwerze klienta.
             </p>
             <div className="space-y-1 font-mono text-[11px] text-ubuntuOrange-40">
               <p className="flex items-center gap-2">
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
                 <Mail className="w-3.5 h-3.5" />
                 <a href={`mailto:${CONTACT_EMAIL}`} className="hover:underline">{CONTACT_EMAIL}</a>
               </p>
-              <p>📍 Elbląg (siedziba firmy) · Wdrożenia on-premise i zdalne w całej Polsce</p>
+              <p>📍 Elbląg (siedziba firmy) · Trójmiasto · zdalnie w całej Polsce</p>
             </div>
           </div>
 
@@ -49,7 +49,8 @@ export const Footer: React.FC = () => {
               <li><a href="/tlumaczenie-katalogu-produktowego" className="hover:text-ubuntuOrange-40 transition-colors">Automatyzacja translacji</a></li>
               <li><a href="/chatbot-ai-on-premise" className="hover:text-ubuntuOrange-40 transition-colors">Chatbot AI (RAG)</a></li>
               <li><a href="/strony-www" className="hover:text-ubuntuOrange-40 transition-colors">Strony WWW</a></li>
-              <li><a href="/#o-firmie" className="hover:text-ubuntuOrange-40 transition-colors">Kto za tym stoi</a></li>
+              <li><a href="/#uslugi" className="hover:text-ubuntuOrange-40 transition-colors">Usługi</a></li>
+              <li><a href="/#kontakt" className="hover:text-ubuntuOrange-40 transition-colors">Kontakt</a></li>
               <li className="pt-2">
                 <a 
                   href="https://www.pawelvlodarczyk.pl/" 
