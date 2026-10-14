@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FlaskConical, MoveHorizontal, Phone } from 'lucide-react';
+import { MoveHorizontal, Phone } from 'lucide-react';
 import { CONTACT_PHONE } from '../config/contact';
 import { Reveal } from './motion/Reveal';
+import { SectionHeading } from './SectionHeading';
 
 // DANE TESTOWE, nie realizacja dla klienta.
 // Zdjęcia: wstaw własne pliki do public/demo/ i podaj ścieżki w `src` — wtedy zastąpią ilustrację.
@@ -110,7 +111,7 @@ const BeforeAfterSlider: React.FC = () => {
   const { before, after } = DEMO.photo;
 
   return (
-    <div ref={ref} className="relative aspect-square rounded-xl overflow-hidden select-none">
+    <div ref={ref} className="relative aspect-square rounded overflow-hidden select-none">
       <div className="absolute inset-0">
         {before.src ? <img src={before.src} alt={before.alt} loading="lazy" className="w-full h-full object-cover" /> : <BeforeShot />}
       </div>
@@ -142,29 +143,18 @@ const BeforeAfterSlider: React.FC = () => {
 
 export const DemoSection: React.FC = () => {
   return (
-    <section id="demo" className="py-20 border-t transition-colors" style={{ backgroundColor: 'var(--pg-bg-subtle)', borderColor: 'var(--pg-border-subtle)' }}>
+    <section id="demo" className="py-20 border-t transition-colors pg-grid-bg" style={{ backgroundColor: 'var(--pg-bg-subtle)', borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal className="max-w-2xl mx-auto text-center mb-10 space-y-3">
-          <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
-            <FlaskConical className="w-3.5 h-3.5" />
-            Demo na danych testowych
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-            Jak to wygląda <span className="font-semibold text-ubuntuOrange-50">w praktyce</span>
-          </h2>
-          <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-            Przesuń suwak. Po lewej zdjęcie od dostawcy, po prawej to samo zdjęcie po automatycznej obróbce.
-          </p>
-        </Reveal>
+        <SectionHeading overline="Demo na danych testowych" title={<>Jak to wygląda <span className="font-medium">w praktyce</span></>} lede="Przesuń suwak. Po lewej zdjęcie od dostawcy, po prawej to samo zdjęcie po automatycznej obróbce." />
 
         <div className="grid md:grid-cols-2 gap-6 items-start">
-          <Reveal className="pg-card p-5 rounded-2xl space-y-3">
+          <Reveal className="pg-card p-5 rounded-lg space-y-3">
             <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Zdjęcie produktu</h3>
             <BeforeAfterSlider />
             <p className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>Tło usunięte, produkt wyprostowany, wyśrodkowany i wykadrowany do kwadratu.</p>
           </Reveal>
 
-          <Reveal index={1} step={0.05} className="pg-card p-5 rounded-2xl space-y-4">
+          <Reveal index={1} step={0.05} className="pg-card p-5 rounded-lg space-y-4">
             <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Opis produktu sprawdzony z kartą PDF</h3>
             <dl className="space-y-3 text-sm">
               <div className="p-4 rounded-lg border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
@@ -192,7 +182,7 @@ export const DemoSection: React.FC = () => {
           <span className="text-sm" style={{ color: 'var(--pg-text-secondary)' }}>Chcesz zobaczyć to na swoich danych?</span>
           <a
             href={`tel:${CONTACT_PHONE}`}
-            className="press inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-lg transition-colors"
+            className="press inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-md transition-colors"
           >
             <Phone className="w-4 h-4" />
             Zadzwoń: bezpłatna rozmowa

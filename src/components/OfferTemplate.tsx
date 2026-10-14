@@ -6,7 +6,7 @@ import { ContactSection } from './ContactSection';
 import { ThemeMode } from '../types';
 import { ShieldCheck, ArrowRight, Check, Cpu } from 'lucide-react';
 import { FloatingMobileBar } from './FloatingMobileBar';
-import { applyTheme } from '../utils/theme';
+import { useTheme } from '../utils/theme';
 
 export interface StepItem {
   number: string;
@@ -48,15 +48,7 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
   priceTypical,
   initialFormMessage,
 }) => {
-  const [theme, setTheme] = useState<ThemeMode>('terminal');
-
-  useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'terminal' ? 'paper' : 'terminal'));
-  };
+  const { theme, toggleTheme } = useTheme();
 
   const canonicalUrl = `https://www.codeworks-it.pl${slug}`;
 

@@ -44,6 +44,8 @@
   --pg-brand-aubergine: #2C001E;
   --pg-accent-orange: #E95420;
   
+  --pg-grid-line: rgba(44, 0, 30, 0.045);
+
   color-scheme: light;
 }
 
@@ -84,13 +86,15 @@
   --pg-brand-aubergine: #E95420;
   --pg-accent-orange: #FF7848;
   
+  --pg-grid-line: rgba(255, 255, 255, 0.035);
+
   color-scheme: dark;
 }
 
 body {
   background-color: var(--pg-bg);
   color: var(--pg-text-primary);
-  font-family: 'Ubuntu Sans', sans-serif;
+  font-family: 'Ubuntu Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -171,4 +175,13 @@ body {
 .theme-switching,
 .theme-switching * {
   transition: none !important;
+}
+
+/* Delikatna siatka 32px (Pangolin: techniczny, „inżynierski” charakter powierzchni) */
+.pg-grid-bg {
+  background-image:
+    linear-gradient(var(--pg-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pg-grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center top;
 }

@@ -12,7 +12,7 @@ import { Footer } from '../components/Footer';
 import { FloatingMobileBar } from '../components/FloatingMobileBar';
 import { ThemeMode } from '../types';
 import { CONTACT_EMAIL, CONTACT_PHONE, COMPANY_NAME } from '../config/contact';
-import { applyTheme } from '../utils/theme';
+import { useTheme } from '../utils/theme';
 import { ScrollProgress } from '../components/motion/ScrollProgress';
 
 const homeSchema = {
@@ -44,15 +44,7 @@ const homeSchema = {
 };
 
 export const HomePage: React.FC = () => {
-  const [theme, setTheme] = useState<ThemeMode>('terminal');
-
-  useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'terminal' ? 'paper' : 'terminal'));
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-ubuntuOrange-50 selection:text-white pb-16 lg:pb-0">

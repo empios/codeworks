@@ -1,5 +1,6 @@
 import React from 'react';
 import { Reveal } from './motion/Reveal';
+import { SectionHeading } from './SectionHeading';
 
 const homeSteps = [
   { title: 'Darmowa rozmowa', text: '20 minut: opowiadasz, czego potrzebujesz.' },
@@ -20,18 +21,11 @@ export const ProcessSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ vari
     return (
       <section id="proces" className="py-20 border-t" style={{ borderColor: 'var(--pg-border-subtle)' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="max-w-2xl mx-auto text-center mb-10 space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-              Jak wygląda <span className="font-semibold text-ubuntuOrange-50">współpraca</span>?
-            </h2>
-            <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-              Od pierwszej rozmowy do działającego systemu.
-            </p>
-          </Reveal>
+          <SectionHeading overline="Współpraca" title={<>Jak wygląda <span className="font-medium">współpraca</span>?</>} lede="Od pierwszej rozmowy do działającego systemu." />
 
           <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {homeSteps.map((step, i) => (
-              <Reveal as="li" key={step.title} index={i} step={0.05} className="pg-card p-5 rounded-2xl space-y-2 text-center">
+              <Reveal as="li" key={step.title} index={i} step={0.05} className="pg-card p-5 rounded-lg space-y-2 text-center">
                 <span className="w-8 h-8 mx-auto rounded-full bg-ubuntuOrange-50 text-white font-mono font-bold flex items-center justify-center text-sm">
                   {i + 1}
                 </span>
@@ -60,7 +54,7 @@ export const ProcessSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ vari
 
         <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {webdevSteps.map((step, i) => (
-            <li key={step.title} className="pg-card p-5 rounded-2xl space-y-2">
+            <li key={step.title} className="pg-card p-5 rounded-lg space-y-2">
               <span className="w-8 h-8 rounded-full bg-ubuntuOrange-50 text-white font-mono font-bold flex items-center justify-center text-sm">
                 {i + 1}
               </span>
