@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, ClipboardList } from 'lucide-react';
+import { Reveal } from './motion/Reveal';
 
 // Ceny „od” — strony i aplikacje z kalkulatora na /strony-www, wdrożenia AI z podstron ofert.
 const webServices = [
@@ -39,18 +40,18 @@ export const PricingSection: React.FC = () => {
   return (
     <section id="cennik" className="py-20 border-t" style={{ borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
+        <Reveal className="max-w-2xl mx-auto text-center mb-10 space-y-3">
           <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
             <span className="font-semibold text-ubuntuOrange-50">Cennik</span> (kwoty netto)
           </h2>
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
             Ceny startowe. Dokładną kwotę podaję po rozmowie i wpisuję do umowy.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid lg:grid-cols-2 gap-5 items-start">
-          <PriceList title="Strony, sklepy i aplikacje" rows={webServices} />
-          <div className="space-y-5">
+          <Reveal><PriceList title="Strony, sklepy i aplikacje" rows={webServices} /></Reveal>
+          <Reveal index={1} step={0.05} className="space-y-5">
             <PriceList title="Wdrożenia AI na Twoim serwerze" rows={aiServices} />
             <div className="pg-card p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="flex-1">
@@ -59,14 +60,14 @@ export const PricingSection: React.FC = () => {
               </div>
               <a
                 href="/audyt"
-                className="inline-flex items-center justify-center gap-2 border font-bold text-sm px-4 py-2.5 rounded-lg transition-colors hover:border-ubuntuOrange-50"
+                className="press inline-flex items-center justify-center gap-2 border font-bold text-sm px-4 py-2.5 rounded-lg transition-colors hover:border-ubuntuOrange-50"
                 style={{ backgroundColor: 'var(--pg-layer-01)', borderColor: 'var(--pg-border-strong)', color: 'var(--pg-text-primary)' }}
               >
                 <ClipboardList className="w-4 h-4 text-ubuntuOrange-50" />
                 Zamów audyt
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
 
           <a 
             href="/#kontakt" 
-            className="inline-flex items-center gap-1.5 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs xl:text-sm px-3.5 xl:px-4 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap shrink-0"
+            className="press inline-flex items-center gap-1.5 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs xl:text-sm px-3.5 xl:px-4 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap shrink-0"
           >
             <Phone className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
             <span>Darmowa rozmowa</span>

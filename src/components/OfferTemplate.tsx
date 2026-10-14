@@ -6,6 +6,7 @@ import { ContactSection } from './ContactSection';
 import { ThemeMode } from '../types';
 import { ShieldCheck, ArrowRight, Check, Cpu } from 'lucide-react';
 import { FloatingMobileBar } from './FloatingMobileBar';
+import { applyTheme } from '../utils/theme';
 
 export interface StepItem {
   number: string;
@@ -50,7 +51,7 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
   const [theme, setTheme] = useState<ThemeMode>('terminal');
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    applyTheme(theme);
   }, [theme]);
 
   const toggleTheme = () => {

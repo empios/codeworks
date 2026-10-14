@@ -5,6 +5,8 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: ['selector', '[data-theme="terminal"]'],
+  // hover tylko na urządzeniach ze wskaźnikiem (na dotyku :hover „zawisa” po tapnięciu)
+  future: { hoverOnlyWhenSupported: true },
   theme: {
     extend: {
       colors: {

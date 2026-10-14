@@ -12,6 +12,8 @@ import { Footer } from '../components/Footer';
 import { FloatingMobileBar } from '../components/FloatingMobileBar';
 import { ThemeMode } from '../types';
 import { CONTACT_EMAIL, CONTACT_PHONE, COMPANY_NAME } from '../config/contact';
+import { applyTheme } from '../utils/theme';
+import { ScrollProgress } from '../components/motion/ScrollProgress';
 
 const homeSchema = {
   "@context": "https://schema.org",
@@ -45,7 +47,7 @@ export const HomePage: React.FC = () => {
   const [theme, setTheme] = useState<ThemeMode>('terminal');
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    applyTheme(theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -80,6 +82,7 @@ export const HomePage: React.FC = () => {
         </script>
       </Helmet>
       <Header theme={theme} onToggleTheme={toggleTheme} />
+      <ScrollProgress />
       <main className="flex-grow">
         <Hero />
         <ServicesSection />

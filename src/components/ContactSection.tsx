@@ -297,7 +297,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-lg bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base shadow-lg hover:shadow-pg-glow transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
+                    className="press w-full py-4 rounded-lg bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base shadow-lg hover:shadow-pg-glow transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>

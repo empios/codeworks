@@ -13,7 +13,7 @@ export const FloatingMobileBar: React.FC = () => {
       <div className="max-w-md mx-auto grid grid-cols-3 gap-2">
         <a 
           href={`tel:${CONTACT_PHONE}`}
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-lg border text-center transition-all"
+          className="press flex flex-col items-center justify-center py-2 px-1 rounded-lg border text-center transition-all"
           style={{
             backgroundColor: 'var(--pg-layer-01)',
             borderColor: 'var(--pg-border-subtle)',
@@ -26,7 +26,7 @@ export const FloatingMobileBar: React.FC = () => {
 
         <a 
           href={`mailto:${CONTACT_EMAIL}`}
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-lg border text-center transition-all"
+          className="press flex flex-col items-center justify-center py-2 px-1 rounded-lg border text-center transition-all"
           style={{
             backgroundColor: 'var(--pg-layer-01)',
             borderColor: 'var(--pg-border-subtle)',
@@ -39,7 +39,7 @@ export const FloatingMobileBar: React.FC = () => {
 
         <a 
           href="#kontakt"
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-ubuntuOrange-50 text-white font-bold text-center shadow-sm"
+          className="press flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-ubuntuOrange-50 text-white font-bold text-center shadow-sm"
         >
           <MessageSquare className="w-4 h-4 mb-0.5" />
           <span className="text-xs">Napisz</span>
