@@ -11,13 +11,14 @@ import { Footer } from '../components/Footer';
 import { FloatingMobileBar } from '../components/FloatingMobileBar';
 import { ThemeMode } from '../types';
 import { Globe, Zap, Code, CheckCircle } from 'lucide-react';
+import { applyTheme } from '../utils/theme';
 
 export const WebsitesPage: React.FC = () => {
   const [theme, setTheme] = useState<ThemeMode>('terminal');
   const [quoteSummary, setQuoteSummary] = useState<string>('');
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    applyTheme(theme);
   }, [theme]);
 
   const toggleTheme = () => {

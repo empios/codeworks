@@ -99,12 +99,20 @@ body {
   background-color: var(--pg-card-bg);
   border: 1px solid var(--pg-card-border);
   color: var(--pg-text-primary);
-  transition: all 0.25s cubic-bezier(0.2, 0, 0.38, 0.9);
+  transition-property: border-color, box-shadow, transform, background-color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
 }
-.pg-card:hover {
-  border-color: #E95420;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px -10px rgba(233, 84, 32, 0.15);
+@media (hover: hover) {
+  .pg-card:hover {
+    border-color: #E95420;
+    box-shadow: 0 10px 30px -10px rgba(233, 84, 32, 0.15);
+  }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pg-card:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .gradient-orange-aubergine {
@@ -116,4 +124,51 @@ body {
   background: linear-gradient(135deg, #E95420 0%, #FF7848 50%, #E0BFD6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* =============================================================
+   MOTION (zasady: ui-skills better-ui / 12 principles of animation)
+   ============================================================= */
+
+/* Naciśnięcie przycisku: scale 0.96, 150ms ease-out */
+.press {
+  -webkit-tap-highlight-color: transparent;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .press {
+    transition-property: transform, background-color, border-color, box-shadow, color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+  }
+  .press:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+}
+
+/* Jednorazowe wejście hero przy pierwszym renderze (CSS, działa bez czekania na JS).
+   Kolejne fragmenty co 100ms: opacity, blur 4px, translateY 12px, 300ms ease-out. */
+@media (prefers-reduced-motion: no-preference) {
+  .enter {
+    animation: enter 300ms ease-out both;
+    animation-delay: calc(var(--i, 0) * 100ms + 100ms);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .enter {
+    animation: enter-fade 300ms ease-out both;
+  }
+}
+@keyframes enter {
+  from { opacity: 0; filter: blur(4px); transform: translateY(12px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+@keyframes enter-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Zmiana motywu bez „rozmazanego” przejścia wszystkich kolorów naraz */
+.theme-switching,
+.theme-switching * {
+  transition: none !important;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Reveal } from './motion/Reveal';
 import { CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../config/contact';
 
 interface FaqItem {
@@ -76,20 +77,20 @@ export const FaqSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ variant 
     <section id="faq" className="py-20 border-t transition-colors" style={{ borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
+        <Reveal className="max-w-2xl mx-auto text-center mb-10 space-y-3">
           <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
             Częste <span className="font-semibold text-ubuntuOrange-50">pytania</span>
           </h2>
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
             Nie ma tu Twojego pytania? Zadzwoń: <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-50 hover:underline whitespace-nowrap">{CONTACT_PHONE_DISPLAY}</a>
           </p>
-        </div>
+        </Reveal>
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
             <div 
               key={idx}
-              className="pg-card rounded-2xl overflow-hidden transition-all"
+              className="pg-card rounded-2xl overflow-hidden"
             >
               <button
                 onClick={() => toggleFaq(idx)}

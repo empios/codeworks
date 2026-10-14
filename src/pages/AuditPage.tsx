@@ -6,12 +6,13 @@ import { ContactSection } from '../components/ContactSection';
 import { ThemeMode } from '../types';
 import { ShieldCheck, ArrowRight, ClipboardList, FileText, Clock, Zap } from 'lucide-react';
 import { FloatingMobileBar } from '../components/FloatingMobileBar';
+import { applyTheme } from '../utils/theme';
 
 export const AuditPage: React.FC = () => {
   const [theme, setTheme] = useState<ThemeMode>('terminal');
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    applyTheme(theme);
   }, [theme]);
 
   const toggleTheme = () => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FlaskConical, MoveHorizontal, Phone } from 'lucide-react';
 import { CONTACT_PHONE } from '../config/contact';
+import { Reveal } from './motion/Reveal';
 
 // DANE TESTOWE, nie realizacja dla klienta.
 // Zdjęcia: wstaw własne pliki do public/demo/ i podaj ścieżki w `src` — wtedy zastąpią ilustrację.
@@ -143,7 +144,7 @@ export const DemoSection: React.FC = () => {
   return (
     <section id="demo" className="py-20 border-t transition-colors" style={{ backgroundColor: 'var(--pg-bg-subtle)', borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
+        <Reveal className="max-w-2xl mx-auto text-center mb-10 space-y-3">
           <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
             <FlaskConical className="w-3.5 h-3.5" />
             Demo na danych testowych
@@ -154,16 +155,16 @@ export const DemoSection: React.FC = () => {
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
             Przesuń suwak. Po lewej zdjęcie od dostawcy, po prawej to samo zdjęcie po automatycznej obróbce.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 gap-6 items-start">
-          <div className="pg-card p-5 rounded-2xl space-y-3">
+          <Reveal className="pg-card p-5 rounded-2xl space-y-3">
             <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Zdjęcie produktu</h3>
             <BeforeAfterSlider />
             <p className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>Tło usunięte, produkt wyprostowany, wyśrodkowany i wykadrowany do kwadratu.</p>
-          </div>
+          </Reveal>
 
-          <div className="pg-card p-5 rounded-2xl space-y-4">
+          <Reveal index={1} step={0.05} className="pg-card p-5 rounded-2xl space-y-4">
             <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Opis produktu sprawdzony z kartą PDF</h3>
             <dl className="space-y-3 text-sm">
               <div className="p-4 rounded-lg border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
@@ -184,14 +185,14 @@ export const DemoSection: React.FC = () => {
               </div>
             </dl>
             <p className="text-xs font-medium text-ubuntuOrange-50">{DEMO.description.note}</p>
-          </div>
+          </Reveal>
         </div>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <span className="text-sm" style={{ color: 'var(--pg-text-secondary)' }}>Chcesz zobaczyć to na swoich danych?</span>
           <a
             href={`tel:${CONTACT_PHONE}`}
-            className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-lg transition-colors"
+            className="press inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-lg transition-colors"
           >
             <Phone className="w-4 h-4" />
             Zadzwoń: bezpłatna rozmowa

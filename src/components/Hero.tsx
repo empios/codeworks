@@ -260,7 +260,7 @@ export const Hero: React.FC = () => {
           >
             <a
               href={`tel:${CONTACT_PHONE}`}
-              className="inline-flex items-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-full shadow-pg-glow transition-colors"
+              className="press inline-flex items-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-full shadow-pg-glow transition-colors"
             >
               <Phone className="w-4 h-4" />
               Zadzwoń: bezpłatna rozmowa
@@ -271,25 +271,25 @@ export const Hero: React.FC = () => {
         {/* Tekst nad sceną, znika przy przewijaniu */}
         <div ref={textRef} className="absolute inset-x-0 top-0 z-10 px-4 sm:px-6 pt-8 lg:pt-12 will-change-transform">
           <div className="w-full max-w-3xl mx-auto text-center space-y-5">
-            <h1 className="text-[2rem] sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.1]">
+            <h1 className="enter text-[2rem] sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.1] text-balance" style={{ '--i': 0 } as React.CSSProperties}>
               Strona, sklep albo system, <span className="font-bold gradient-orange-aubergine">który należy do Ciebie</span>
             </h1>
 
-            <p className="text-base sm:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
+            <p className="enter text-base sm:text-lg max-w-xl mx-auto leading-relaxed text-pretty" style={{ color: 'var(--pg-text-secondary)', '--i': 1 } as React.CSSProperties}>
               Projektuję i programuję sam, od pierwszej rozmowy do uruchomienia. Stała cena, bez abonamentu.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+            <div className="enter flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3" style={{ '--i': 2 } as React.CSSProperties}>
               <a
                 href={`tel:${CONTACT_PHONE}`}
-                className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-6 py-3.5 rounded-lg shadow-lg hover:shadow-pg-glow transition-colors"
+                className="press inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-6 py-3.5 rounded-lg shadow-lg hover:shadow-pg-glow transition-colors"
               >
                 <Phone className="w-5 h-5" />
                 <span>Zadzwoń: bezpłatna rozmowa</span>
               </a>
               <a
                 href="#uslugi"
-                className="hidden sm:inline-flex items-center justify-center gap-2 border font-medium text-sm px-5 py-3.5 rounded-lg transition-colors hover:border-ubuntuOrange-50"
+                className="press hidden sm:inline-flex items-center justify-center gap-2 border font-medium text-sm px-5 py-3.5 rounded-lg transition-colors hover:border-ubuntuOrange-50"
                 style={{ backgroundColor: 'var(--pg-layer-01)', borderColor: 'var(--pg-border-strong)', color: 'var(--pg-text-primary)' }}
               >
                 <LayoutGrid className="w-4 h-4 text-ubuntuOrange-50" />
@@ -297,7 +297,7 @@ export const Hero: React.FC = () => {
               </a>
             </div>
 
-            <ul className="hidden sm:flex [@media(max-height:760px)]:hidden flex-wrap justify-center gap-x-5 gap-y-2 text-sm" style={{ color: 'var(--pg-text-secondary)' }}>
+            <ul className="enter hidden sm:flex [@media(max-height:760px)]:hidden flex-wrap justify-center gap-x-5 gap-y-2 text-sm" style={{ color: 'var(--pg-text-secondary)', '--i': 3 } as React.CSSProperties}>
               {facts.map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-center gap-1.5">
                   <Icon className="w-4 h-4 text-ubuntuOrange-50 shrink-0" />
