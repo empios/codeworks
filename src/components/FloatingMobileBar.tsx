@@ -21,7 +21,7 @@ export const FloatingMobileBar: React.FC = () => {
           }}
         >
           <Phone className="w-4 h-4 text-ubuntuOrange-50 mb-0.5" />
-          <span className="text-[10px] font-bold">Zadzwoń</span>
+          <span className="text-xs font-bold">Zadzwoń</span>
         </a>
 
         <a 
@@ -34,7 +34,7 @@ export const FloatingMobileBar: React.FC = () => {
           }}
         >
           <Mail className="w-4 h-4 text-ubuntuOrange-50 mb-0.5" />
-          <span className="text-[10px] font-bold">E-mail</span>
+          <span className="text-xs font-bold">E-mail</span>
         </a>
 
         <a 
@@ -42,7 +42,7 @@ export const FloatingMobileBar: React.FC = () => {
           className="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-ubuntuOrange-50 text-white font-bold text-center shadow-sm"
         >
           <MessageSquare className="w-4 h-4 mb-0.5" />
-          <span className="text-[10px]">Napisz do mnie</span>
+          <span className="text-xs">Napisz</span>
         </a>
       </div>
     </div>

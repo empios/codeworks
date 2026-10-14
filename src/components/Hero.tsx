@@ -395,7 +395,7 @@ export const Hero: React.FC = () => {
                   className="inline-flex items-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-full shadow-pg-glow transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  Umów darmową 20-min rozmowę
+                  Zadzwoń: bezpłatna rozmowa
                 </a>
               </div>
             )}
@@ -430,7 +430,7 @@ export const Hero: React.FC = () => {
             </h1>
 
             <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-              Projektuję i programuję strony, sklepy, aplikacje webowe, integracje i rozwiązania AI — od pomysłu do wdrożenia, bez pośredników.
+              Projektuję i programuję strony, sklepy, aplikacje webowe, integracje i rozwiązania AI. Od pierwszej rozmowy do uruchomienia pracujesz bezpośrednio ze mną.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
@@ -439,7 +439,7 @@ export const Hero: React.FC = () => {
                 className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-6 py-3.5 rounded-lg shadow-lg hover:shadow-pg-glow transition-colors"
               >
                 <Phone className="w-5 h-5" />
-                <span>Umów darmową 20-min rozmowę</span>
+                <span>Zadzwoń: bezpłatna rozmowa</span>
               </a>
               <a
                 href="#uslugi"
@@ -458,7 +458,7 @@ export const Hero: React.FC = () => {
             <p className="text-xs sm:text-sm" style={{ color: 'var(--pg-text-muted)' }}>
               Tel. <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-40 hover:underline">{CONTACT_PHONE_DISPLAY}</a>
               {' · '}
-              <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Darmowa 20-min rozmowa')}`} className="font-semibold text-ubuntuOrange-40 hover:underline break-all">{CONTACT_EMAIL}</a>
+              <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Rozmowa o projekcie')}`} className="font-semibold text-ubuntuOrange-40 hover:underline break-all">{CONTACT_EMAIL}</a>
             </p>
 
             <ul className="hidden sm:flex [@media(max-height:760px)]:hidden flex-wrap justify-center gap-x-5 gap-y-2 text-sm" style={{ color: 'var(--pg-text-secondary)' }}>

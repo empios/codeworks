@@ -34,7 +34,7 @@ export const WebsitesPage: React.FC = () => {
 
   const canonicalUrl = "https://www.codeworks-it.pl/strony-www";
   const title = "Strony WWW i sklepy WooCommerce — CodeWorks Elbląg";
-  const metaDescription = "Nowoczesne strony internetowe i sklepy WooCommerce. Otwarty kod, wysoka szybkość i brak abonentowych opłat. Sprawdź cennik i wycenę.";
+  const metaDescription = "Strony firmowe i sklepy WooCommerce z Elbląga. Stała cena, kod i prawa autorskie dla Ciebie, bez abonamentu. Policz koszt w kalkulatorze.";
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-ubuntuOrange-50 selection:text-white pb-16 lg:pb-0">
@@ -64,26 +64,26 @@ export const WebsitesPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1.5 rounded-full bg-ubuntuOrange-50/10 border border-ubuntuOrange-50/20">
               <Globe className="w-4 h-4 text-ubuntuOrange-50" />
-              <span>Strony WWW &amp; Sklepy WooCommerce — Elbląg i Trójmiasto</span>
+              <span>Strony i sklepy · Elbląg i Trójmiasto</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-light tracking-tight max-w-4xl mx-auto" style={{ color: 'var(--pg-text-primary)' }}>
-              Nowoczesne Strony WWW z <span className="font-semibold text-ubuntuOrange-50">100% Praw Autorskich</span>
+              Strona albo sklep, <span className="font-semibold text-ubuntuOrange-50">które należą do Ciebie</span>
             </h1>
 
             <p className="text-base sm:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-              Tworzę szybkie strony internetowe i sklepy e-commerce pozbawione abonamentowych opłat. Wylicz orientacyjny koszt w poniższym kalkulatorze.
+              Płacisz raz, dostajesz kod i prawa autorskie, a treści zmieniasz sam. Orientacyjny koszt policzysz w kalkulatorze poniżej.
             </p>
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-semibold" style={{ color: 'var(--pg-text-muted)' }}>
               <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-ubuntuOrange-50" /> Ładowanie &lt; 1.5s
+                <CheckCircle className="w-4 h-4 text-ubuntuOrange-50" /> Stała cena w umowie
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-ubuntuOrange-50" /> Bez abonamentów
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-ubuntuOrange-50" /> Otwarty kod źródłowy
+                <CheckCircle className="w-4 h-4 text-ubuntuOrange-50" /> Kod i prawa autorskie dla Ciebie
               </span>
             </div>
           </div>

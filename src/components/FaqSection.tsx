@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../config/contact';
 
@@ -19,7 +19,7 @@ const homeFaqs: FaqItem[] = [
   },
   {
     question: "Ile kosztuje start?",
-    answer: "Rozmowa (20 min) jest bezpłatna. Ceny startowe usług znajdziesz w cenniku powyżej."
+    answer: "Pierwsza rozmowa (ok. 20 minut) jest bezpłatna. Ceny startowe znajdziesz w cenniku powyżej."
   },
   {
     question: "Czy muszę płacić abonament?",
@@ -41,28 +41,28 @@ export const FaqSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ variant 
 
   const webdevFaqs: FaqItem[] = [
     {
-      question: "Czy po wdrożeniu strona staje się w 100% moją własnością?",
-      answer: "Tak, absolutnie! Po uregulowaniu końcowej faktury przekazuję Ci pełne kody źródłowe oraz umowę przeniesienia autorskich praw majątkowych. Nie stosuję żadnych uwięzień w autorskich CMS (Zero Vendor Lock-in). Strona jest Twoja i masz do niej 100% dostępu."
+      question: "Czy strona będzie moją własnością?",
+      answer: "Tak. Po opłaceniu końcowej faktury dostajesz cały kod, dostępy i umowę przeniesienia autorskich praw majątkowych. Możesz potem pracować z kimkolwiek, nie tylko ze mną."
     },
     {
-      question: "Jak wygląda wycena i płatność? Czy ustalona cena może się zmienić?",
-      answer: "Działam w oparciu o zasadę Fixed Price. Po omówieniu zakresu prac otrzymujesz wiążącą wycenę końcową. Cena nie ulega zmianie, chyba że w trakcie prac sam zdecydujesz o rozszerzeniu zakresu o zupełnie nowe funkcjonalności."
+      question: "Czy cena może się zmienić w trakcie?",
+      answer: "Nie. Po ustaleniu zakresu wpisuję kwotę do umowy. Zmienia się tylko wtedy, gdy sam zechcesz dodać coś nowego, i wtedy najpierw podaję cenę dopłaty."
     },
     {
-      question: "Nie mam własnych tekstów ani profesjonalnych zdjęć – czy pomożesz mi z tym?",
-      answer: "Tak! Jako UX Writer i B2B Copywriter pomagam przygotować zwięzłe, przekonujące teksty nastawione na sprzedaż i zdobywanie klientów z Elbląga. Dobieram również spójne materiały graficzne i ikony."
+      question: "Nie mam tekstów ani zdjęć. Pomożesz?",
+      answer: "Tak. Mogę napisać teksty na podstawie rozmowy z Tobą (to dodatek w kalkulatorze) i dobrać zdjęcia z legalnych banków zdjęć."
     },
     {
-      question: "Dlaczego warto wybrać CodeWorks zamiast dużej agencji reklamowej?",
-      answer: "Przede wszystkim ze względu na bezpośredni kontakt i brak narzutu korporacyjnego. W agencji płacisz za marżę handlowców, menedżerów i biuro. U nas współpracujesz bezpośrednio z inżynierem IT, który odpowiada na Twoje pytania w kilka godzin i dojeżdża stacjonarnie na spotkania w Elblągu i powiecie."
+      question: "Dlaczego nie agencja?",
+      answer: "Agencja ma większy zespół, ale też handlowców i kierowników projektu, za których płacisz. U mnie rozmawiasz bezpośrednio z osobą, która pisze kod. W Elblągu i okolicy mogę też przyjechać na spotkanie."
     },
     {
-      question: "Czy muszę płacić stały miesięczny abonament?",
-      answer: "Nie! Płacisz jednorazowo za wykonanie strony. Opieka techniczna (Maintenance SLA od 250 PLN netto/msc) jest w 100% opcjonalna. Jeśli chcesz sam decydować o aktualizacjach, przekazuję Ci instrukcję i masz pełną swobodę."
+      question: "Czy muszę płacić abonament?",
+      answer: "Nie. Za stronę płacisz raz. Opieka techniczna (od 250 zł netto miesięcznie) jest opcjonalna. Jeśli wolisz dbać o stronę sam, dostaniesz instrukcję."
     },
     {
-      question: "Ile czasu trwa wykonanie strony lub sklepu?",
-      answer: "Strona typu Wizytówka Smart zajmuje zazwyczaj od 7 do 14 dni roboczych od momentu akceptacji projektu. Sklep e-commerce WooCommerce realizuję w ciągu 14-28 dni roboczych."
+      question: "Ile to trwa?",
+      answer: "Strona firmowa zwykle 7–14 dni roboczych od akceptacji projektu, sklep WooCommerce 14–28 dni roboczych."
     }
   ];
 
@@ -73,32 +73,17 @@ export const FaqSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ variant 
   };
 
   return (
-    <section id="faq" className="py-24 border-t transition-colors" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+    <section id="faq" className="py-20 border-t transition-colors" style={{ borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {isHome ? (
-          <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-              Najczęstsze <span className="font-semibold text-ubuntuOrange-50">pytania</span>
-            </h2>
-            <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-              Nie ma tu Twojego pytania? Zadzwoń: <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-50 hover:underline whitespace-nowrap">{CONTACT_PHONE_DISPLAY}</a>
-            </p>
-          </div>
-        ) : (
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1 rounded bg-ubuntuOrange-50/10">
-            <HelpCircle className="w-4 h-4 text-ubuntuOrange-50" />
-            <span>Odpowiedzi na Twoje pytania</span>
-          </div>
+        <div className="max-w-2xl mx-auto text-center mb-10 space-y-3">
           <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-            Najczęściej Zadawane <span className="font-semibold text-ubuntuOrange-50">Pytania (FAQ)</span>
+            Częste <span className="font-semibold text-ubuntuOrange-50">pytania</span>
           </h2>
-          <p className="text-base" style={{ color: 'var(--pg-text-secondary)' }}>
-            Wszystko, co musisz wiedzieć przed rozpoczęciem współpracy z CodeWorks.
+          <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
+            Nie ma tu Twojego pytania? Zadzwoń: <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-50 hover:underline whitespace-nowrap">{CONTACT_PHONE_DISPLAY}</a>
           </p>
         </div>
-        )}
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
@@ -109,7 +94,7 @@ export const FaqSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ variant 
               <button
                 onClick={() => toggleFaq(idx)}
                 aria-expanded={openIndex === idx}
-                className="w-full p-6 text-left flex justify-between items-center gap-4 focus:outline-none cursor-pointer"
+                className="w-full p-5 sm:p-6 text-left flex justify-between items-center gap-4 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-ubuntuOrange-50 rounded-2xl"
               >
                 <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--pg-text-primary)' }}>
                   {faq.question}

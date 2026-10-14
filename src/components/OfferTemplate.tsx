@@ -4,7 +4,8 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { ContactSection } from './ContactSection';
 import { ThemeMode } from '../types';
-import { CheckCircle2, ShieldCheck, ArrowRight, Clock, AlertTriangle, TrendingUp, Cpu } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Check, Cpu } from 'lucide-react';
+import { FloatingMobileBar } from './FloatingMobileBar';
 
 export interface StepItem {
   number: string;
@@ -99,7 +100,7 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
               <div className="p-4 rounded-xl border bg-ubuntuOrange-50/5 border-ubuntuOrange-50/30 max-w-2xl mx-auto flex items-center justify-center gap-3 text-xs sm:text-sm">
                 <ShieldCheck className="w-5 h-5 text-ubuntuOrange-50 shrink-0" />
                 <span style={{ color: 'var(--pg-text-secondary)' }}>
-                  Model działa w 100% lokalnie u klienta (on-premise). Dane nie wychodzą na zewnątrz i nie trafiają do chmury (zgodność z RODO).
+                  Model AI działa na Twoim serwerze. Pliki i dane nie trafiają do zewnętrznych usług w chmurze, co ułatwia spełnienie wymogów RODO.
                 </span>
               </div>
 
@@ -108,7 +109,7 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
                   href="#kontakt" 
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-6 py-3.5 rounded-lg shadow-md transition-all"
                 >
-                  <span>Skonsultuj Wdrożenie</span>
+                  <span>Porozmawiajmy o wdrożeniu</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
 
@@ -116,7 +117,7 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
                   href="/audyt" 
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-bold text-sm px-6 py-3.5 rounded-lg transition-all text-ubuntuOrange-50 border-ubuntuOrange-50/40 bg-ubuntuOrange-50/10"
                 >
-                  <span>Audyt Procesu (3 500 zł netto)</span>
+                  <span>Zacznij od audytu</span>
                 </a>
               </div>
 
@@ -127,14 +128,10 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
         {/* Problem Section */}
         <section className="py-16 transition-colors border-b" style={{ backgroundColor: 'var(--pg-bg-subtle)', borderColor: 'var(--pg-border-subtle)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <div className="flex items-center gap-2 text-rose-500 font-bold text-xs uppercase tracking-wider">
-              <AlertTriangle className="w-4 h-4 shrink-0" />
-              <span>Problem Biznesowy</span>
-            </div>
             <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>
-              Co paraliżuje pracę w sklepach i hurtowniach?
+              Jak jest teraz
             </h2>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
+            <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
               {problem}
             </p>
           </div>
@@ -143,41 +140,39 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
         {/* How It Works Section */}
         <section className="py-20 transition-colors border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50">Prosty obieg pracy</span>
-              <h2 className="text-3xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Jak to działa?</h2>
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Jak to działa</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {steps.map((step, idx) => (
-                <div key={idx} className="pg-card p-6 rounded-xl space-y-3 relative border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
-                  <div className="w-8 h-8 rounded-lg bg-ubuntuOrange-50/10 text-ubuntuOrange-50 font-mono font-bold flex items-center justify-center text-sm">
-                    {step.number}
-                  </div>
-                  <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>{step.title}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-muted)' }}>{step.description}</p>
-                </div>
+                <li key={idx} className="pg-card p-6 rounded-xl space-y-3 border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
+                  <span className="w-8 h-8 rounded-full bg-ubuntuOrange-50 text-white font-mono font-bold flex items-center justify-center text-sm">
+                    {idx + 1}
+                  </span>
+                  <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>{step.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>{step.description}</p>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </section>
 
         {/* Benefits Section */}
         <section className="py-20 transition-colors border-b" style={{ backgroundColor: 'var(--pg-bg-subtle)', borderColor: 'var(--pg-border-subtle)' }}>
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50">Mierzalne korzyści</span>
-              <h2 className="text-3xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Co zyskujesz?</h2>
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Co się zmienia</h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {benefits.map((benefit, idx) => (
                 <div key={idx} className="pg-card p-6 rounded-xl space-y-3 border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
                   <div className="p-2 rounded-lg bg-ubuntuOrange-50/10 text-ubuntuOrange-50 w-fit">
-                    <TrendingUp className="w-5 h-5" />
+                    <Check className="w-5 h-5" />
                   </div>
                   <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>{benefit.title}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>{benefit.description}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>{benefit.description}</p>
                 </div>
               ))}
             </div>
@@ -191,28 +186,28 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
               
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b" style={{ borderColor: 'var(--pg-border-subtle)' }}>
                 <div>
-                  <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50">Wycena wdrożenia</span>
-                  <h3 className="text-2xl font-bold mt-1" style={{ color: 'var(--pg-text-primary)' }}>Cennik usługi</h3>
+                  <h2 className="text-2xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Ile to kosztuje</h2>
+                  <p className="text-sm mt-1" style={{ color: 'var(--pg-text-muted)' }}>Kwoty netto. Dokładną cenę podaję po rozmowie.</p>
                 </div>
                 <div className="text-left sm:text-right">
                   <div className="text-3xl font-extrabold text-ubuntuOrange-50">{priceImplementation}</div>
-                  <div className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>Utrzymanie: {priceMaintenance}</div>
-                  <div className="text-xs font-semibold text-ubuntuOrange-50 mt-1">Typowy projekt: {priceTypical}</div>
+                  <div className="text-sm" style={{ color: 'var(--pg-text-secondary)' }}>Typowo: {priceTypical}</div>
+                  <div className="text-sm" style={{ color: 'var(--pg-text-muted)' }}>Utrzymanie: {priceMaintenance}</div>
                 </div>
               </div>
 
               <div className="p-4 rounded-xl bg-ubuntuOrange-50/10 border border-ubuntuOrange-50/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="space-y-1">
-                  <span className="text-xs font-bold uppercase tracking-wider text-ubuntuOrange-50">Produkt wejściowy — Audyt Procesu (3 500 zł netto)</span>
-                  <p className="text-xs" style={{ color: 'var(--pg-text-secondary)' }}>
-                    Rozpocznij od audytu. Kwota 3 500 zł netto jest w 100% odliczana od wyceny wdrożenia.
+                  <h3 className="text-base font-bold" style={{ color: 'var(--pg-text-primary)' }}>Nie wiesz, czy to się opłaci?</h3>
+                  <p className="text-sm" style={{ color: 'var(--pg-text-secondary)' }}>
+                    Zacznij od audytu za 3 500 zł netto. Jeśli potem zdecydujesz się na wdrożenie, odejmę tę kwotę od jego ceny.
                   </p>
                 </div>
                 <a 
                   href="/audyt" 
-                  className="px-4 py-2.5 rounded-lg bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs shrink-0 transition-colors"
+                  className="px-4 py-2.5 rounded-lg bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm shrink-0 transition-colors"
                 >
-                  Zamów Audyt (3 500 zł)
+                  Więcej o audycie
                 </a>
               </div>
 
@@ -225,6 +220,7 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
       </main>
 
       <Footer />
+      <FloatingMobileBar />
     </div>
   );
 };

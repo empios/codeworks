@@ -149,10 +149,10 @@ export const DemoSection: React.FC = () => {
             Demo na danych testowych
           </span>
           <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-            Przykład: <span className="font-semibold text-ubuntuOrange-50">automatyzacja AI</span>
+            Jak to wygląda <span className="font-semibold text-ubuntuOrange-50">w praktyce</span>
           </h2>
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-            Przesuń suwak: po lewej materiał od dostawcy, po prawej wynik automatyzacji.
+            Przesuń suwak. Po lewej zdjęcie od dostawcy, po prawej to samo zdjęcie po automatycznej obróbce.
           </p>
         </div>
 
@@ -194,7 +194,7 @@ export const DemoSection: React.FC = () => {
             className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-lg transition-colors"
           >
             <Phone className="w-4 h-4" />
-            Umów darmową 20-min rozmowę
+            Zadzwoń: bezpłatna rozmowa
           </a>
         </div>
       </div>

@@ -4,7 +4,8 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
 import { ThemeMode } from '../types';
-import { ShieldCheck, CheckCircle2, ArrowRight, Video, FileText, Clock, Zap } from 'lucide-react';
+import { ShieldCheck, ArrowRight, ClipboardList, FileText, Clock, Zap } from 'lucide-react';
+import { FloatingMobileBar } from '../components/FloatingMobileBar';
 
 export const AuditPage: React.FC = () => {
   const [theme, setTheme] = useState<ThemeMode>('terminal');
@@ -22,18 +23,18 @@ export const AuditPage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col selection:bg-ubuntuOrange-50 selection:text-white pb-16 lg:pb-0">
       <Helmet>
-        <title>Audyt procesu automatyzacji AI — CodeWorks Elbląg</title>
-        <meta name="description" content="Zamów audyt procesów w sklepach i hurtowniach za 3 500 zł netto. Weryfikacja potencjału AI z 100% odliczeniem od wdrożenia. Sprawdź." />
+        <title>Audyt: co w firmie warto zautomatyzować — CodeWorks Elbląg</title>
+        <meta name="description" content="Sprawdzę, które powtarzalne zadania w Twoim sklepie lub hurtowni da się przekazać AI i ile to zaoszczędzi. 3 500 zł netto, odliczane od ceny wdrożenia." />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CodeWorks Paweł Włodarczyk" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:title" content="Audyt procesu automatyzacji AI — CodeWorks Elbląg" />
-        <meta property="og:description" content="Zamów audyt procesów w sklepach i hurtowniach za 3 500 zł netto. Weryfikacja potencjału AI z 100% odliczeniem od wdrożenia. Sprawdź." />
+        <meta property="og:title" content="Audyt: co w firmie warto zautomatyzować — CodeWorks Elbląg" />
+        <meta property="og:description" content="Sprawdzę, które powtarzalne zadania w Twoim sklepie lub hurtowni da się przekazać AI i ile to zaoszczędzi. 3 500 zł netto, odliczane od ceny wdrożenia." />
         <meta property="og:image" content="https://www.codeworks-it.pl/og.png" />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Audyt procesu automatyzacji AI — CodeWorks Elbląg" />
-        <meta property="twitter:description" content="Zamów audyt procesów w sklepach i hurtowniach za 3 500 zł netto. Weryfikacja potencjału AI z 100% odliczeniem od wdrożenia. Sprawdź." />
+        <meta property="twitter:title" content="Audyt: co w firmie warto zautomatyzować — CodeWorks Elbląg" />
+        <meta property="twitter:description" content="Sprawdzę, które powtarzalne zadania w Twoim sklepie lub hurtowni da się przekazać AI i ile to zaoszczędzi. 3 500 zł netto, odliczane od ceny wdrożenia." />
         <meta property="twitter:image" content="https://www.codeworks-it.pl/og.png" />
       </Helmet>
 
@@ -47,30 +48,30 @@ export const AuditPage: React.FC = () => {
               
               <div>
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-mono font-bold uppercase text-ubuntuOrange-50 bg-ubuntuOrange-50/10 border-ubuntuOrange-50/20">
-                  <Video className="w-4 h-4 text-ubuntuOrange-50" />
-                  <span>Produkt Wejściowy CodeWorks</span>
+                  <ClipboardList className="w-4 h-4 text-ubuntuOrange-50" />
+                  <span>Audyt przed wdrożeniem AI</span>
                 </span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.15]" style={{ color: 'var(--pg-text-primary)' }}>
-                Audyt procesu automatyzacji AI — <span className="font-bold text-ubuntuOrange-50">3 500 zł netto</span>
+                Sprawdzę, co w Twojej firmie <span className="font-bold text-ubuntuOrange-50">warto zautomatyzować</span>
               </h1>
 
               <p className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                Przeprowadzamy dogłębną analizę techniczną Twoich procesów e-commerce, dystrybucji i hurtowni. Wskazujemy miejsca, w których lokalne modele AI eliminują pracę ręczną oraz obniżają koszty operacyjne.
+                Przyglądam się, jak w Twoim sklepie lub hurtowni wygląda praca ze zdjęciami, opisami, tłumaczeniami i dokumentami. Pokazuję, gdzie AI realnie oszczędzi czas, a gdzie nie ma sensu w nie inwestować.
               </p>
 
               {/* 100% Deductible Highlight */}
               <div className="p-6 rounded-2xl border-2 border-ubuntuOrange-50 bg-ubuntuOrange-50/10 shadow-pg-glow max-w-2xl mx-auto space-y-2">
                 <div className="flex items-center justify-center gap-2 text-ubuntuOrange-50 font-mono font-bold uppercase text-xs">
                   <ShieldCheck className="w-5 h-5" />
-                  <span>Gwarancja 100% Odliczenia</span>
+                  <span>3 500 zł netto</span>
                 </div>
                 <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>
-                  Kwota 3 500 zł netto jest w 100% odliczana od wdrożenia
+                  Jeśli zdecydujesz się na wdrożenie, koszt audytu odejmę od jego ceny
                 </h3>
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Gdy po audycie zdecydujesz się na wdrożenie systemu automatyzacji, pełny koszt audytu (3 500 zł netto) odejmujemy od wyceny końcowej projektu.
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
+                  Jeśli nie, zostajesz z raportem, który możesz wykorzystać sam albo z innym wykonawcą.
                 </p>
               </div>
 
@@ -79,7 +80,7 @@ export const AuditPage: React.FC = () => {
                   href="#kontakt" 
                   className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-8 py-4 rounded-lg shadow-lg hover:shadow-pg-glow transition-all"
                 >
-                  <span>Zamów Audyt Procesu (3 500 zł netto)</span>
+                  <span>Zamów audyt</span>
                   <ArrowRight className="w-5 h-5" />
                 </a>
               </div>
@@ -92,8 +93,7 @@ export const AuditPage: React.FC = () => {
         <section className="py-20 transition-colors border-b" style={{ backgroundColor: 'var(--pg-bg-subtle)', borderColor: 'var(--pg-border-subtle)' }}>
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="text-xs font-mono font-bold uppercase text-ubuntuOrange-50">Zakres Prpracowania</span>
-              <h2 className="text-3xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Co otrzymujesz w ramach Audytu?</h2>
+              <h2 className="text-3xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>Co dostajesz</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -102,9 +102,9 @@ export const AuditPage: React.FC = () => {
                 <div className="p-2 rounded-lg bg-ubuntuOrange-50/10 text-ubuntuOrange-50 w-fit">
                   <FileText className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>1. Mapa Procesów i Wąskich Gardeł</h3>
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Szczegółowa inwentaryzacja zadań powtarzalnych (zdjęcia, weryfikacja PDF, tłumaczenia, obsługa pytań) z wyliczeniem czasochłonności.
+                <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>1. Listę zadań, które zjadają czas</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
+                  Spisuję powtarzalne zadania (zdjęcia, opisy, tłumaczenia, odpowiadanie na pytania) i liczę, ile godzin miesięcznie na nie idzie.
                 </p>
               </div>
 
@@ -112,9 +112,9 @@ export const AuditPage: React.FC = () => {
                 <div className="p-2 rounded-lg bg-ubuntuOrange-50/10 text-ubuntuOrange-50 w-fit">
                   <Zap className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>2. Dobór Modelu On-Premise</h3>
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Rekomendacja infrastruktury sprzętowej i modeli AI uruchamianych w 100% u klienta z gwarancją bezpieczeństwa RODO.
+                <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>2. Propozycję sprzętu i modeli AI</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
+                  Podpowiadam, jaki serwer i jakie modele wystarczą, żeby wszystko działało u Ciebie, bez wysyłania danych do chmury.
                 </p>
               </div>
 
@@ -122,9 +122,9 @@ export const AuditPage: React.FC = () => {
                 <div className="p-2 rounded-lg bg-ubuntuOrange-50/10 text-ubuntuOrange-50 w-fit">
                   <Clock className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>3. Estymacja Oszczędności Czasu i Kosztów</h3>
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Wyliczenie czasu reakcji, redukcji błędów oraz realnych oszczędności finansowych w ujęciu miesięcznym i rocznym.
+                <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>3. Wyliczenie oszczędności</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
+                  Ile czasu i pieniędzy zaoszczędzisz w miesiącu i w roku. Liczę ostrożnie, na Twoich danych.
                 </p>
               </div>
 
@@ -132,9 +132,9 @@ export const AuditPage: React.FC = () => {
                 <div className="p-2 rounded-lg bg-ubuntuOrange-50/10 text-ubuntuOrange-50 w-fit">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>4. Dokładny Harmonogram i Kosztorys</h3>
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                  Przejrzysta wycena wdrożenia typu Fixed Price wraz z odliczeniem kwoty 3 500 zł netto wydanej na audyt.
+                <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>4. Harmonogram i stałą cenę wdrożenia</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
+                  Plan prac i kwota, która się nie zmieni. Od razu z odjętymi 3 500 zł za audyt.
                 </p>
               </div>
 
@@ -143,10 +143,11 @@ export const AuditPage: React.FC = () => {
         </section>
 
         {/* Contact Form */}
-        <ContactSection initialMessage="Dzień dobry, chcę zamówić Audyt procesu automatyzacji AI za 3 500 zł netto (z opcją 100% odliczenia od wdrożenia)." />
+        <ContactSection initialMessage="Dzień dobry, chcę zamówić audyt przed wdrożeniem AI (3 500 zł netto)." />
       </main>
 
       <Footer />
+      <FloatingMobileBar />
     </div>
   );
 };
