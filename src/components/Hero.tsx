@@ -140,13 +140,11 @@ export const Hero: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      // hero zawsze ciemne, także w jasnym motywie
-      data-theme="terminal"
       className={`relative ${scrub ? 'h-[var(--hero-h-m)] md:h-[var(--hero-h-d)]' : ''}`}
       style={{
         '--hero-h-m': `${HERO_SCENE.scrollVh.mobile}vh`,
         '--hero-h-d': `${HERO_SCENE.scrollVh.desktop}vh`,
-        backgroundColor: '#0B060C',
+        backgroundColor: 'var(--pg-bg)',
         color: 'var(--pg-text-primary)',
       } as React.CSSProperties}
     >
@@ -189,7 +187,7 @@ export const Hero: React.FC = () => {
                     top: center.y - PLANE_H / 2,
                     zIndex: HERO_LAYERS.length - n,
                     transform: `translateY(${y}) rotateX(62deg) rotateZ(calc(-44deg + var(--hero-k) * 6deg))`,
-                    filter: 'drop-shadow(0 18px 30px rgba(0,0,0,0.55))',
+                    filter: 'drop-shadow(0 18px 30px rgba(44,0,30,0.4))',
                   }}
                 >
                   <View />
@@ -214,7 +212,7 @@ export const Hero: React.FC = () => {
                       translate: '0 -50%',
                     }}
                   >
-                    <span className="whitespace-nowrap px-4 py-2 rounded-full text-base font-semibold text-white bg-black/70 border border-ubuntuOrange-50/60 backdrop-blur-sm shadow-pg-glow">
+                    <span className="whitespace-nowrap px-4 py-2 rounded-full text-base font-semibold border border-ubuntuOrange-50/60 shadow-pg-md" style={{ backgroundColor: 'var(--pg-layer-01)', color: 'var(--pg-text-primary)' }}>
                       {layer.label}
                     </span>
                     <span className={`w-16 h-px ${left ? 'bg-gradient-to-r' : 'bg-gradient-to-l'} from-ubuntuOrange-50/30 to-ubuntuOrange-40`} />
@@ -229,24 +227,26 @@ export const Hero: React.FC = () => {
           <div
             ref={captionRef}
             data-visible={scrub ? 'false' : 'true'}
-            className="lg:hidden absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 border border-ubuntuOrange-50/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 data-[visible=true]:opacity-100"
+            className="lg:hidden absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-1.5 rounded-full border border-ubuntuOrange-50/60 shadow-pg-md opacity-0 transition-opacity duration-300 data-[visible=true]:opacity-100"
+            style={{ backgroundColor: 'var(--pg-layer-01)' }}
           >
             <span className="flex gap-1">
               {HERO_LAYERS.map((layer) => (
-                <span key={layer.id} data-dot data-on="false" className="w-1.5 h-1.5 rounded-full bg-white/30 data-[on=true]:bg-ubuntuOrange-40" />
+                <span key={layer.id} data-dot data-on="false" className="w-1.5 h-1.5 rounded-full bg-pgWarm-50/50 data-[on=true]:bg-ubuntuOrange-50" />
               ))}
             </span>
-            <span data-text className="whitespace-nowrap text-xs font-semibold text-white" />
+            <span data-text className="whitespace-nowrap text-xs font-semibold" style={{ color: 'var(--pg-text-primary)' }} />
           </div>
 
           {scrub && (
             <div
               ref={hintRef}
               data-visible="true"
-              className="absolute bottom-3 lg:bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 whitespace-nowrap text-xs font-medium text-white/80 transition-opacity duration-300 opacity-0 data-[visible=true]:opacity-100"
+              className="absolute bottom-3 lg:bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 whitespace-nowrap text-xs font-medium transition-opacity duration-300 opacity-0 data-[visible=true]:opacity-100"
+              style={{ color: 'var(--pg-text-secondary)' }}
             >
               Przewiń i zobacz, z czego składa się projekt
-              <ChevronDown className="w-4 h-4 animate-bounce" />
+              <ChevronDown className="w-4 h-4" />
             </div>
           )}
         </div>
@@ -282,14 +282,14 @@ export const Hero: React.FC = () => {
             <div className="enter flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3" style={{ '--i': 2 } as React.CSSProperties}>
               <a
                 href={`tel:${CONTACT_PHONE}`}
-                className="press inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-6 py-3.5 rounded-lg shadow-lg hover:shadow-pg-glow transition-colors"
+                className="press inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-6 py-3.5 rounded-md shadow-lg hover:shadow-pg-glow transition-colors"
               >
                 <Phone className="w-5 h-5" />
                 <span>Zadzwoń: bezpłatna rozmowa</span>
               </a>
               <a
                 href="#uslugi"
-                className="press hidden sm:inline-flex items-center justify-center gap-2 border font-medium text-sm px-5 py-3.5 rounded-lg transition-colors hover:border-ubuntuOrange-50"
+                className="press hidden sm:inline-flex items-center justify-center gap-2 border font-medium text-sm px-5 py-3.5 rounded-md transition-colors hover:border-ubuntuOrange-50"
                 style={{ backgroundColor: 'var(--pg-layer-01)', borderColor: 'var(--pg-border-strong)', color: 'var(--pg-text-primary)' }}
               >
                 <LayoutGrid className="w-4 h-4 text-ubuntuOrange-50" />

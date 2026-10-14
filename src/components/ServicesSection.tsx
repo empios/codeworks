@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Globe, AppWindow, Workflow, Cpu } from 'lucide-react';
 import { Reveal } from './motion/Reveal';
+import { SectionHeading } from './SectionHeading';
 
 // Usługi CodeWorks — ceny „od” pochodzą z cennika i kalkulatora na stronie.
 const services = [
@@ -42,21 +43,14 @@ export const ServicesSection: React.FC = () => {
   return (
     <section id="uslugi" className="py-20 transition-colors" style={{ backgroundColor: 'var(--pg-bg)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal className="max-w-2xl mx-auto text-center mb-10 space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-            W czym mogę <span className="font-semibold text-ubuntuOrange-50">pomóc Twojej firmie?</span>
-          </h2>
-          <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-            Od prostej strony po system na zamówienie. Projektuję, programuję i wdrażam sam.
-          </p>
-        </Reveal>
+        <SectionHeading overline="Usługi" title={<>W czym mogę <span className="font-medium">pomóc Twojej firmie</span>?</>} lede="Od prostej strony po system na zamówienie. Projektuję, programuję i wdrażam sam." />
 
         <div className="grid sm:grid-cols-2 gap-5">
           {services.map(({ icon: Icon, title, text, items, href, cta }, i) => (
             <Reveal key={title} index={i} step={0.05} className="flex">
-            <a href={href} className="group pg-card p-6 rounded-2xl flex flex-col gap-4 w-full">
+            <a href={href} className="group pg-card p-6 rounded-lg flex flex-col gap-4 w-full">
               <div className="flex items-center gap-3">
-                <span className="p-2.5 rounded-xl bg-ubuntuOrange-50/10 text-ubuntuOrange-50">
+                <span className="p-2.5 rounded-md bg-ubuntuOrange-50/10 text-ubuntuOrange-50">
                   <Icon className="w-5 h-5" />
                 </span>
                 <h3 className="text-lg font-bold" style={{ color: 'var(--pg-text-primary)' }}>{title}</h3>

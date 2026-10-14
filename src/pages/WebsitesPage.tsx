@@ -11,19 +11,11 @@ import { Footer } from '../components/Footer';
 import { FloatingMobileBar } from '../components/FloatingMobileBar';
 import { ThemeMode } from '../types';
 import { Globe, Zap, Code, CheckCircle } from 'lucide-react';
-import { applyTheme } from '../utils/theme';
+import { useTheme } from '../utils/theme';
 
 export const WebsitesPage: React.FC = () => {
-  const [theme, setTheme] = useState<ThemeMode>('terminal');
+  const { theme, toggleTheme } = useTheme();
   const [quoteSummary, setQuoteSummary] = useState<string>('');
-
-  useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'terminal' ? 'paper' : 'terminal'));
-  };
 
   const handleSendQuoteToForm = (summaryText: string) => {
     setQuoteSummary(summaryText);

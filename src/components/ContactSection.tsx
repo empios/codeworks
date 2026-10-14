@@ -177,7 +177,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
 
           {/* Form Right */}
           <div className="lg:col-span-7">
-            <div className="pg-card p-8 rounded-2xl shadow-xl border-2 border-ubuntuOrange-50/30">
+            <div className="pg-card p-8 rounded-lg shadow-xl border-2 border-ubuntuOrange-50/30">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   
@@ -297,7 +297,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="press w-full py-4 rounded-lg bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base shadow-lg hover:shadow-pg-glow transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
+                    className="press w-full py-4 rounded-md bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base shadow-lg hover:shadow-pg-glow transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>

@@ -3,6 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal } from './motion/Reveal';
 import { CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../config/contact';
+import { SectionHeading } from './SectionHeading';
 
 interface FaqItem {
   question: string;
@@ -77,25 +78,18 @@ export const FaqSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ variant 
     <section id="faq" className="py-20 border-t transition-colors" style={{ borderColor: 'var(--pg-border-subtle)' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <Reveal className="max-w-2xl mx-auto text-center mb-10 space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-light" style={{ color: 'var(--pg-text-primary)' }}>
-            Częste <span className="font-semibold text-ubuntuOrange-50">pytania</span>
-          </h2>
-          <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-            Nie ma tu Twojego pytania? Zadzwoń: <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-50 hover:underline whitespace-nowrap">{CONTACT_PHONE_DISPLAY}</a>
-          </p>
-        </Reveal>
+        <SectionHeading overline="FAQ" title={<>Częste <span className="font-medium">pytania</span></>} lede={<>Nie ma tu Twojego pytania? Zadzwoń: <a href={`tel:${CONTACT_PHONE}`} className="font-semibold text-ubuntuOrange-50 hover:underline whitespace-nowrap">{CONTACT_PHONE_DISPLAY}</a></>} />
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
             <div 
               key={idx}
-              className="pg-card rounded-2xl overflow-hidden"
+              className="pg-card rounded-lg overflow-hidden"
             >
               <button
                 onClick={() => toggleFaq(idx)}
                 aria-expanded={openIndex === idx}
-                className="w-full p-5 sm:p-6 text-left flex justify-between items-center gap-4 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-ubuntuOrange-50 rounded-2xl"
+                className="w-full p-5 sm:p-6 text-left flex justify-between items-center gap-4 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-ubuntuOrange-50 rounded-lg"
               >
                 <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--pg-text-primary)' }}>
                   {faq.question}
