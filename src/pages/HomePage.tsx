@@ -55,23 +55,23 @@ export const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col selection:bg-ubuntuOrange-50 selection:text-white pb-16 lg:pb-0">
       <Helmet>
-        <title>CodeWorks — software house i usługi IT, Elbląg</title>
+        <title>CodeWorks | Software house z Elbląga</title>
         <meta name="description" content="Strony i sklepy internetowe, aplikacje webowe, integracje systemów i wdrożenia AI dla firm. Elbląg, Trójmiasto, zdalnie. Pierwsza rozmowa bezpłatnie." />
         <link rel="canonical" href="https://www.codeworks-it.pl" />
         
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CodeWorks Paweł Włodarczyk" />
         <meta property="og:url" content="https://www.codeworks-it.pl" />
-        <meta property="og:title" content="CodeWorks — software house i usługi IT, Elbląg" />
+        <meta property="og:title" content="CodeWorks | Software house z Elbląga" />
         <meta property="og:description" content="Strony i sklepy internetowe, aplikacje webowe, integracje systemów i wdrożenia AI dla firm. Elbląg, Trójmiasto, zdalnie. Pierwsza rozmowa bezpłatnie." />
         <meta property="og:image" content="https://www.codeworks-it.pl/og.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="CodeWorks — strony, sklepy, aplikacje i wdrożenia AI. Elbląg." />
+        <meta property="og:image:alt" content="CodeWorks: strony, sklepy, aplikacje i wdrożenia AI z Elbląga" />
         <meta property="og:locale" content="pl_PL" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="CodeWorks — software house i usługi IT, Elbląg" />
+        <meta name="twitter:title" content="CodeWorks | Software house z Elbląga" />
         <meta name="twitter:description" content="Strony i sklepy internetowe, aplikacje webowe, integracje systemów i wdrożenia AI dla firm. Elbląg, Trójmiasto, zdalnie. Pierwsza rozmowa bezpłatnie." />
         <meta name="twitter:image" content="https://www.codeworks-it.pl/og.png" />
 

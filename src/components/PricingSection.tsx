@@ -54,7 +54,7 @@ export const PricingSection: React.FC = () => {
             <PriceList title="Wdrożenia AI na Twoim serwerze" rows={aiServices} />
             <div className="pg-card p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="flex-1">
-                <h3 className="text-sm font-bold" style={{ color: 'var(--pg-text-primary)' }}>Audyt przed wdrożeniem AI · 3 500 zł</h3>
+                <h3 className="text-sm font-bold" style={{ color: 'var(--pg-text-primary)' }}>Audyt przed wdrożeniem AI: 3 500 zł</h3>
                 <p className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>Jeśli zamówisz wdrożenie, odejmę tę kwotę od jego ceny.</p>
               </div>
               <a

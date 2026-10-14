@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
             <span className="font-bold text-base sm:text-lg tracking-tight flex items-center gap-1" style={{ color: 'var(--pg-text-primary)' }}>
               Code<span className="text-ubuntuOrange-50">Works</span>
             </span>
-            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-medium whitespace-nowrap" style={{ color: 'var(--pg-text-muted)' }}>Software house · Elbląg</span>
+            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-medium whitespace-nowrap" style={{ color: 'var(--pg-text-muted)' }}>Software house, Elbląg</span>
           </div>
         </a>
 

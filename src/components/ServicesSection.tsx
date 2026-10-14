@@ -30,7 +30,7 @@ const services = [
   {
     icon: Cpu,
     title: 'AI dla firm',
-    text: 'Modele AI uruchamiane na Twoim serwerze — dane nie wychodzą z firmy.',
+    text: 'Modele AI działają na Twoim serwerze, więc dane nie wychodzą z firmy.',
     items: ['Obróbka zdjęć produktów', 'Sprawdzanie opisów z kartami PDF', 'Tłumaczenie katalogów i chatbot na dokumentach'],
     href: '#cennik',
     cta: 'Zobacz ceny wdrożeń AI',
@@ -46,7 +46,7 @@ export const ServicesSection: React.FC = () => {
             W czym mogę <span className="font-semibold text-ubuntuOrange-50">pomóc Twojej firmie?</span>
           </h2>
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-            Od prostej strony po system na zamówienie — projektuję, programuję i wdrażam sam.
+            Od prostej strony po system na zamówienie. Projektuję, programuję i wdrażam sam.
           </p>
         </div>
 

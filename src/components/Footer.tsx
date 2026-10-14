@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
 
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           <p>© {new Date().getFullYear()} CodeWorks Paweł Włodarczyk</p>
-          <p>Elbląg · Trójmiasto · zdalnie w całej Polsce</p>
+          <p>Elbląg, Trójmiasto i zdalnie w całej Polsce</p>
         </div>
 
       </div>

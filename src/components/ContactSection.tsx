@@ -284,7 +284,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                       required={variant !== 'webdev'}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder={variant === 'webdev' ? 'Na czym najbardziej Ci zależy? Wycena z kalkulatora wpisze się tu sama.' : variant === 'general' ? 'Np. nowa strona firmowa, sklep, panel dla pracowników, połączenie sklepu z magazynem…' : 'Np. ręcznie wycinamy tło na zdjęciach produktów, porównujemy opisy z kartami PDF, tłumaczymy katalog…'} 
+                      placeholder={variant === 'webdev' ? 'Na czym najbardziej Ci zależy? Wycena z kalkulatora wpisze się tu sama.' : variant === 'general' ? 'Np. nowa strona firmowa, sklep, panel dla pracowników, połączenie sklepu z magazynem...' : 'Np. ręcznie wycinamy tło na zdjęciach produktów, porównujemy opisy z kartami PDF, tłumaczymy katalog...'} 
                       className="w-full px-4 py-3 rounded-lg border focus:border-ubuntuOrange-50 focus:outline-none text-sm transition-colors leading-relaxed"
                       style={{
                         backgroundColor: 'var(--pg-input-bg)',
@@ -302,7 +302,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin" />
-                        <span>Wysyłam…</span>
+                        <span>Wysyłam...</span>
                       </>
                     ) : (
                       <>
