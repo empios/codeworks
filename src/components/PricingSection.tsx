@@ -12,7 +12,7 @@ const aiServices = [
   { name: 'Obróbka zdjęć produktowych', from: '12 000', note: 'utrzymanie od 500 zł/mies.', href: '/automatyzacja-zdjec-produktowych' },
   { name: 'Walidacja opisów z kartami PDF', from: '15 000', note: 'utrzymanie od 800 zł/mies.', href: '/walidacja-opisow-produktow' },
   { name: 'Tłumaczenie katalogów', from: '10 000', note: 'utrzymanie od 500 zł/mies.', href: '/tlumaczenie-katalogu-produktowego' },
-  { name: 'Chatbot na firmowych dokumentach', from: '25 000', note: 'utrzymanie od 1 500 zł/mies.', href: '/chatbot-ai-on-premise' },
+  { name: 'Asystent na firmowych dokumentach', from: '25 000', note: 'utrzymanie od 1 500 zł/mies.', href: '/chatbot-ai-on-premise' },
 ];
 
 const PriceList: React.FC<{ title: string; rows: typeof webServices }> = ({ title, rows }) => (
@@ -44,7 +44,7 @@ export const PricingSection: React.FC = () => {
             <span className="font-semibold text-ubuntuOrange-50">Cennik</span> (kwoty netto)
           </h2>
           <p className="text-base sm:text-lg" style={{ color: 'var(--pg-text-secondary)' }}>
-            Ceny startowe; dokładną, stałą kwotę dostajesz po rozmowie.
+            Ceny startowe. Dokładną kwotę podaję po rozmowie i wpisuję do umowy.
           </p>
         </div>
 
@@ -54,8 +54,8 @@ export const PricingSection: React.FC = () => {
             <PriceList title="Wdrożenia AI na Twoim serwerze" rows={aiServices} />
             <div className="pg-card p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="flex-1">
-                <h3 className="text-sm font-bold" style={{ color: 'var(--pg-text-primary)' }}>Audyt procesu AI · 3 500 zł</h3>
-                <p className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>W 100% odliczany od późniejszego wdrożenia AI.</p>
+                <h3 className="text-sm font-bold" style={{ color: 'var(--pg-text-primary)' }}>Audyt przed wdrożeniem AI · 3 500 zł</h3>
+                <p className="text-xs" style={{ color: 'var(--pg-text-muted)' }}>Jeśli zamówisz wdrożenie, odejmę tę kwotę od jego ceny.</p>
               </div>
               <a
                 href="/audyt"

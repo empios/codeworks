@@ -5,51 +5,26 @@ export const TranslationPage: React.FC = () => {
   return (
     <OfferTemplate
       slug="/tlumaczenie-katalogu-produktowego"
-      title="Tłumaczenie katalogów produktowych AI — CodeWorks Elbląg"
-      metaDescription="Lokalne tłumaczenie AI dla katalogów e-commerce. Bezpiecznie, szybko i bez opłat za tokeny w chmurze. Sprawdź wycenę."
-      h1="Automatyczne tłumaczenie katalogów produktowych AI"
-      badge="Automatyzacja Translacji Katalogów"
-      problem="Przekład wielotysięcznych katalogów produktów na rynki zagraniczne generuje ogromne koszty przy korzystaniu z biur tłumaczeń. Z kolei chmurowe usługi API naliczają wysokie opłaty za każdy milion tokenów i często niszczą strukturę znaczników HTML w opisach."
+      title="Tłumaczenie katalogu produktów przez AI — CodeWorks Elbląg"
+      metaDescription="Tłumaczenie tysięcy opisów produktów przez model AI na Twoim serwerze. Bez opłat za każde słowo, z zachowaniem formatowania."
+      h1="Tłumaczenie katalogu produktów na inne języki"
+      badge="AI · tłumaczenia"
+      problem="Biuro tłumaczeń liczy za każdą stronę, a przy kilku tysiącach produktów rachunek szybko rośnie. Usługi w chmurze liczą za każde słowo i potrafią rozjechać formatowanie opisów albo przetłumaczyć nazwy, które powinny zostać bez zmian."
       steps={[
-        {
-          number: "01",
-          title: "Import katalogu produktów",
-          description: "Pobranie danych produktowych z bazy e-commerce lub pliku CSV/XML."
-        },
-        {
-          number: "02",
-          title: "Słownik pojęć branżowych",
-          description: "Wdrożenie bazy pojęć i nazw technicznych specyficznych dla Twojego asortymentu."
-        },
-        {
-          number: "03",
-          title: "Przetwarzanie lokalnym modelem",
-          description: "Lokalny model AI tłumaczy opisy, nazwy i atrybuty przy nienaruszonej strukturze kodów HTML."
-        },
-        {
-          number: "04",
-          title: "Zapis w nowej wersji językowej",
-          description: "Automatyczne zasilenie bazy sklepu gotową wersją językową gotową do publikacji."
-        }
+        { number: "01", title: "Import katalogu", description: "Pobieram produkty ze sklepu albo z pliku CSV lub XML." },
+        { number: "02", title: "Słownik branżowy", description: "Ustalamy, jak tłumaczyć nazwy techniczne i czego nie tłumaczyć wcale." },
+        { number: "03", title: "Tłumaczenie", description: "Model AI na Twoim serwerze tłumaczy nazwy, opisy i atrybuty, nie ruszając formatowania." },
+        { number: "04", title: "Nowa wersja językowa", description: "Tłumaczenia trafiają do sklepu, gotowe do sprawdzenia i publikacji." }
       ]}
       benefits={[
-        {
-          title: "Skalowanie Wielkich Baz",
-          description: "Wydajna infrastruktura radzi sobie z obszernymi bazami produktów hurtowni i dystrybutorów."
-        },
-        {
-          title: "Zero Opłat za Tokeny API",
-          description: "Lokalny model eliminuje abonamentowe i powierzchniowe opłaty za chmurowe translatory."
-        },
-        {
-          title: "Zachowanie Kodów HTML i Nazw",
-          description: "Układ graficzny opisów oraz specyficzne pojęcia techniczne pozostają w 100% poprawne."
-        }
+        { title: "Duże katalogi bez problemu", description: "Kilka czy kilkadziesiąt tysięcy produktów to tylko kwestia czasu pracy serwera." },
+        { title: "Bez opłat za każde słowo", description: "Płacisz za wdrożenie i utrzymanie, a nie za objętość tekstu." },
+        { title: "Formatowanie i nazwy bez zmian", description: "Pogrubienia, tabele i nazwy własne zostają tam, gdzie były." }
       ]}
       priceImplementation="od 10 000 zł netto"
-      priceMaintenance="od 500 zł/mies"
+      priceMaintenance="od 500 zł/mies."
       priceTypical="10 000 – 22 000 zł netto"
-      initialFormMessage="Dzień dobry, jestem zainteresowany automatycznym tłumaczeniem katalogu produktowego lokalnym modelem AI."
+      initialFormMessage="Dzień dobry, interesuje mnie tłumaczenie katalogu produktów przez AI."
     />
   );
 };

@@ -47,7 +47,8 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
         <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 shrink-0">
           <button 
             onClick={onToggleTheme}
-            title={`Zmień motyw na ${theme === 'terminal' ? 'Paper (Jasny)' : 'Terminal (Ciemny)'}`} 
+            title={theme === 'terminal' ? 'Włącz jasny motyw' : 'Włącz ciemny motyw'}
+            aria-label={theme === 'terminal' ? 'Włącz jasny motyw' : 'Włącz ciemny motyw'}
             className="p-2 rounded-full border text-ubuntuOrange-50 hover:scale-105 transition-all cursor-pointer shrink-0"
             style={{
               backgroundColor: 'var(--pg-layer-01)',
@@ -70,6 +71,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
         <div className="flex items-center space-x-2 lg:hidden">
           <button 
             onClick={onToggleTheme}
+            aria-label={theme === 'terminal' ? 'Włącz jasny motyw' : 'Włącz ciemny motyw'}
             className="p-2 rounded-full border text-ubuntuOrange-50"
             style={{ borderColor: 'var(--pg-border-strong)' }}
           >
@@ -77,7 +79,9 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           </button>
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 focus:outline-none"
+            aria-label={mobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
+            aria-expanded={mobileMenuOpen}
+            className="p-2"
             style={{ color: 'var(--pg-text-primary)' }}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -97,16 +101,16 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           <a href="/" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Strona główna</a>
           <a href="/#uslugi" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Usługi</a>
           <a href="/strony-www" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Strony i sklepy WWW</a>
-          <a href="/automatyzacja-zdjec-produktowych" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: obróbka zdjęć produktowych</a>
-          <a href="/walidacja-opisow-produktow" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: walidacja opisów z PDF</a>
+          <a href="/automatyzacja-zdjec-produktowych" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: zdjęcia produktów</a>
+          <a href="/walidacja-opisow-produktow" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: opisy zgodne z kartami PDF</a>
           <a href="/tlumaczenie-katalogu-produktowego" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: tłumaczenie katalogów</a>
-          <a href="/chatbot-ai-on-premise" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: chatbot na dokumentach</a>
-          <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Audyt procesu AI (3 500 zł)</a>
+          <a href="/chatbot-ai-on-premise" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: asystent na firmowych dokumentach</a>
+          <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: audyt przed wdrożeniem</a>
           <a href="/#cennik" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Cennik</a>
           <a href="/#kontakt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Kontakt</a>
           <a href="/#kontakt" onClick={() => setMobileMenuOpen(false)} className="w-full flex items-center justify-center gap-2 bg-ubuntuOrange-50 text-white font-bold py-3 rounded-md">
             <Phone className="w-5 h-5" />
-            <span>Umów darmową 20-min rozmowę</span>
+            <span>Umów bezpłatną rozmowę</span>
           </a>
         </div>
       )}

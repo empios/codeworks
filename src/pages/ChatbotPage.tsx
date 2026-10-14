@@ -5,51 +5,26 @@ export const ChatbotPage: React.FC = () => {
   return (
     <OfferTemplate
       slug="/chatbot-ai-on-premise"
-      title="Chatbot AI on-premise z RAG — CodeWorks Elbląg"
-      metaDescription="Własny chatbot AI przeszukujący firmowe dokumenty bez wysyłania danych do chmury. Pełna prywatność i RODO. Zobacz szczegóły."
-      h1="Chatbot AI i RAG na dokumentacji firmowej on-premise"
-      badge="Baza Wiedzy Firmowej On-Premise"
-      problem="Odnajdywanie potrzebnych informacji w bogatej dokumentacji, procedurach czy kartach technicznych wymaga czasochłonnego przeszukiwania folderów. Przesyłanie wewnętrznych materiałów do publicznych narzędzi chmurowych rodzi ryzyko naruszenia prywatności i zasad RODO."
+      title="Chatbot AI na firmowych dokumentach — CodeWorks Elbląg"
+      metaDescription="Asystent AI, który odpowiada na pytania pracowników na podstawie firmowych dokumentów i podaje źródło. Działa na Twoim serwerze."
+      h1="Asystent, który zna Twoje firmowe dokumenty"
+      badge="AI · baza wiedzy"
+      problem="Procedury, instrukcje i karty techniczne leżą w dziesiątkach folderów. Znalezienie jednej informacji zajmuje kwadrans albo kończy się pytaniem kolegi. Wklejanie firmowych dokumentów do publicznych czatów AI to z kolei ryzyko wycieku danych."
       steps={[
-        {
-          number: "01",
-          title: "Indeksowanie bazy wiedzy",
-          description: "Przetwarzanie wewnętrznych plików i dokumentów firmowych."
-        },
-        {
-          number: "02",
-          title: "Lokalna baza RAG",
-          description: "Stworzenie bezpiecznego indeksu wiedzy na wewnętrznym serwerze."
-        },
-        {
-          number: "03",
-          title: "Interfejs asystenta",
-          description: "Wygodne okno wyszukiwania i komunikacji dla uprawnionych pracowników."
-        },
-        {
-          number: "04",
-          title: "Odpowiedzi ze źródłami",
-          description: "Szybka odpowiedź na zapytanie z bezpośrednim wskazaniem dokumentu źródłowego."
-        }
+        { number: "01", title: "Zebranie dokumentów", description: "Wskazujesz foldery z plikami, z których asystent ma korzystać." },
+        { number: "02", title: "Indeks na Twoim serwerze", description: "Dokumenty są przetwarzane i indeksowane lokalnie, w Twojej sieci." },
+        { number: "03", title: "Okno czatu", description: "Pracownicy zadają pytania zwykłym językiem, w przeglądarce." },
+        { number: "04", title: "Odpowiedź ze źródłem", description: "Asystent odpowiada i pokazuje, z którego dokumentu wziął informację." }
       ]}
       benefits={[
-        {
-          title: "Prywatność & RODO",
-          description: "Wszystkie dane i zapytania pozostają wyłącznie w obrębie sieci firmowej."
-        },
-        {
-          title: "Szybki Dostęp do Wiedzy",
-          description: "Błyskawiczne odnajdywanie informacji w firmowej dokumentacji."
-        },
-        {
-          title: "Bezpieczeństwo Danych",
-          description: "Brak wysyłania materiałów do zewnętrznych serwisów i chmur."
-        }
+        { title: "Szybciej do informacji", description: "Odpowiedź w kilka sekund zamiast przeszukiwania folderów." },
+        { title: "Można sprawdzić źródło", description: "Każda odpowiedź ma link do dokumentu, więc łatwo ją zweryfikować." },
+        { title: "Dokumenty nie wychodzą z firmy", description: "Pytania i pliki zostają na Twoim serwerze." }
       ]}
       priceImplementation="od 25 000 zł netto"
-      priceMaintenance="od 1 500 zł/mies"
+      priceMaintenance="od 1 500 zł/mies."
       priceTypical="25 000 – 50 000 zł netto"
-      initialFormMessage="Dzień dobry, jestem zainteresowany wdrożeniem firmowego chatbota AI (RAG) on-premise."
+      initialFormMessage="Dzień dobry, interesuje mnie asystent AI na firmowych dokumentach."
     />
   );
 };
