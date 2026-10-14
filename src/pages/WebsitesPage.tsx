@@ -33,7 +33,7 @@ export const WebsitesPage: React.FC = () => {
   };
 
   const canonicalUrl = "https://www.codeworks-it.pl/strony-www";
-  const title = "Strony WWW i sklepy WooCommerce — CodeWorks Elbląg";
+  const title = "Strony WWW i sklepy WooCommerce | CodeWorks Elbląg";
   const metaDescription = "Strony firmowe i sklepy WooCommerce z Elbląga. Stała cena, kod i prawa autorskie dla Ciebie, bez abonamentu. Policz koszt w kalkulatorze.";
 
   return (
@@ -51,7 +51,7 @@ export const WebsitesPage: React.FC = () => {
         <meta property="og:image" content="https://www.codeworks-it.pl/og.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="CodeWorks — strony, sklepy, aplikacje i wdrożenia AI. Elbląg." />
+        <meta property="og:image:alt" content="CodeWorks: strony, sklepy, aplikacje i wdrożenia AI z Elbląga" />
         <meta property="og:locale" content="pl_PL" />
         
         <meta name="twitter:card" content="summary_large_image" />
@@ -68,7 +68,7 @@ export const WebsitesPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase text-ubuntuOrange-50 px-3 py-1.5 rounded-full bg-ubuntuOrange-50/10 border border-ubuntuOrange-50/20">
               <Globe className="w-4 h-4 text-ubuntuOrange-50" />
-              <span>Strony i sklepy · Elbląg i Trójmiasto</span>
+              <span>Strony i sklepy w Elblągu i Trójmieście</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-light tracking-tight max-w-4xl mx-auto" style={{ color: 'var(--pg-text-primary)' }}>

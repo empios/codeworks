@@ -5,10 +5,10 @@ export const DescriptionValidationPage: React.FC = () => {
   return (
     <OfferTemplate
       slug="/walidacja-opisow-produktow"
-      title="Sprawdzanie opisów produktów z kartami PDF — CodeWorks Elbląg"
+      title="Sprawdzanie opisów produktów z kartami PDF | CodeWorks Elbląg"
       metaDescription="Automatyczne porównanie opisów w sklepie z kartami technicznymi PDF producenta. Raport rozbieżności, działa na Twoim serwerze."
       h1="Opisy produktów zgodne z kartami PDF producenta"
-      badge="AI · opisy produktów"
+      badge="AI: opisy produktów"
       problem="W opisie w sklepie stoi 400 ml, a w karcie producenta 350 ml. Takie różnice kończą się zwrotami i reklamacjami, a ręczne porównywanie tysięcy opisów z plikami PDF zajmuje dni i łatwo coś przeoczyć."
       steps={[
         { number: "01", title: "Czytanie kart PDF", description: "Program wyciąga parametry z kart technicznych producenta." },
@@ -23,7 +23,7 @@ export const DescriptionValidationPage: React.FC = () => {
       ]}
       priceImplementation="od 15 000 zł netto"
       priceMaintenance="od 800 zł/mies."
-      priceTypical="15 000 – 30 000 zł netto"
+      priceTypical="od 15 000 do 30 000 zł netto"
       initialFormMessage="Dzień dobry, interesuje mnie automatyczne sprawdzanie opisów produktów z kartami PDF."
     />
   );

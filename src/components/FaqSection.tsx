@@ -23,7 +23,7 @@ const homeFaqs: FaqItem[] = [
   },
   {
     question: "Czy muszę płacić abonament?",
-    answer: "Nie za strony i aplikacje — opieka techniczna jest opcjonalna. Wdrożenia AI mają osobne koszty utrzymania podane w cenniku."
+    answer: "Za strony i aplikacje nie. Opieka techniczna jest opcjonalna. Wdrożenia AI mają osobne koszty utrzymania podane w cenniku."
   },
   {
     question: "Gdzie działasz?",
@@ -31,7 +31,7 @@ const homeFaqs: FaqItem[] = [
   },
   {
     question: "Z kim rozmawiam?",
-    answer: "Bezpośrednio ze mną — Paweł Włodarczyk, właściciel CodeWorks."
+    answer: "Bezpośrednio ze mną, Pawłem Włodarczykiem. Prowadzę CodeWorks."
   }
 ];
 
@@ -62,7 +62,7 @@ export const FaqSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ variant 
     },
     {
       question: "Ile to trwa?",
-      answer: "Strona firmowa zwykle 7–14 dni roboczych od akceptacji projektu, sklep WooCommerce 14–28 dni roboczych."
+      answer: "Strona firmowa zwykle od 7 do 14 dni roboczych od akceptacji projektu, sklep WooCommerce od 14 do 28 dni roboczych."
     }
   ];
 

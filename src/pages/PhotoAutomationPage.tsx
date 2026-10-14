@@ -5,10 +5,10 @@ export const PhotoAutomationPage: React.FC = () => {
   return (
     <OfferTemplate
       slug="/automatyzacja-zdjec-produktowych"
-      title="Automatyczna obróbka zdjęć produktów — CodeWorks Elbląg"
+      title="Automatyczna obróbka zdjęć produktów | CodeWorks Elbląg"
       metaDescription="Usuwanie tła, kadrowanie i ujednolicanie zdjęć produktów bez ręcznej pracy grafika. Działa na Twoim serwerze. Sprawdź ceny."
       h1="Zdjęcia produktów gotowe do sklepu, bez ręcznej obróbki"
-      badge="AI · zdjęcia produktów"
+      badge="AI: zdjęcia produktów"
       problem="Dostawcy przysyłają zdjęcia na różnym tle, krzywo wykadrowane, w różnych rozmiarach. Ktoś w firmie poprawia je ręcznie, jedno po drugim, a nowe produkty czekają na publikację, aż zdjęcia będą gotowe."
       steps={[
         { number: "01", title: "Wrzucasz zdjęcia", description: "Do folderu albo przez prosty formularz, tak jak dostajesz je od dostawcy." },
@@ -23,7 +23,7 @@ export const PhotoAutomationPage: React.FC = () => {
       ]}
       priceImplementation="od 12 000 zł netto"
       priceMaintenance="od 500 zł/mies."
-      priceTypical="12 000 – 25 000 zł netto"
+      priceTypical="od 12 000 do 25 000 zł netto"
       initialFormMessage="Dzień dobry, interesuje mnie automatyczna obróbka zdjęć produktów."
     />
   );

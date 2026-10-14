@@ -5,10 +5,10 @@ export const ChatbotPage: React.FC = () => {
   return (
     <OfferTemplate
       slug="/chatbot-ai-on-premise"
-      title="Chatbot AI na firmowych dokumentach — CodeWorks Elbląg"
+      title="Chatbot AI na firmowych dokumentach | CodeWorks Elbląg"
       metaDescription="Asystent AI, który odpowiada na pytania pracowników na podstawie firmowych dokumentów i podaje źródło. Działa na Twoim serwerze."
       h1="Asystent, który zna Twoje firmowe dokumenty"
-      badge="AI · baza wiedzy"
+      badge="AI: baza wiedzy"
       problem="Procedury, instrukcje i karty techniczne leżą w dziesiątkach folderów. Znalezienie jednej informacji zajmuje kwadrans albo kończy się pytaniem kolegi. Wklejanie firmowych dokumentów do publicznych czatów AI to z kolei ryzyko wycieku danych."
       steps={[
         { number: "01", title: "Zebranie dokumentów", description: "Wskazujesz foldery z plikami, z których asystent ma korzystać." },
@@ -23,7 +23,7 @@ export const ChatbotPage: React.FC = () => {
       ]}
       priceImplementation="od 25 000 zł netto"
       priceMaintenance="od 1 500 zł/mies."
-      priceTypical="25 000 – 50 000 zł netto"
+      priceTypical="od 25 000 do 50 000 zł netto"
       initialFormMessage="Dzień dobry, interesuje mnie asystent AI na firmowych dokumentach."
     />
   );

@@ -5,10 +5,10 @@ export const TranslationPage: React.FC = () => {
   return (
     <OfferTemplate
       slug="/tlumaczenie-katalogu-produktowego"
-      title="Tłumaczenie katalogu produktów przez AI — CodeWorks Elbląg"
+      title="Tłumaczenie katalogu produktów przez AI | CodeWorks Elbląg"
       metaDescription="Tłumaczenie tysięcy opisów produktów przez model AI na Twoim serwerze. Bez opłat za każde słowo, z zachowaniem formatowania."
       h1="Tłumaczenie katalogu produktów na inne języki"
-      badge="AI · tłumaczenia"
+      badge="AI: tłumaczenia"
       problem="Biuro tłumaczeń liczy za każdą stronę, a przy kilku tysiącach produktów rachunek szybko rośnie. Usługi w chmurze liczą za każde słowo i potrafią rozjechać formatowanie opisów albo przetłumaczyć nazwy, które powinny zostać bez zmian."
       steps={[
         { number: "01", title: "Import katalogu", description: "Pobieram produkty ze sklepu albo z pliku CSV lub XML." },
@@ -23,7 +23,7 @@ export const TranslationPage: React.FC = () => {
       ]}
       priceImplementation="od 10 000 zł netto"
       priceMaintenance="od 500 zł/mies."
-      priceTypical="10 000 – 22 000 zł netto"
+      priceTypical="od 10 000 do 22 000 zł netto"
       initialFormMessage="Dzień dobry, interesuje mnie tłumaczenie katalogu produktów przez AI."
     />
   );
