@@ -11,26 +11,47 @@ const bar = (w: string, c = 'rgba(255,255,255,0.18)') => (
   <span className="block h-2 rounded-full" style={{ width: w, background: c }} />
 );
 
-// 1. Strona firmowa w oknie przeglądarki
+// 1. Gotowa strona klienta z wynikami PageSpeed
+const Score: React.FC<{ value: number; label: string }> = ({ value, label }) => (
+  <div className="flex flex-col items-center gap-1.5">
+    <div className="relative w-[54px] h-[54px]">
+      <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+        <circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(40,200,64,0.2)" strokeWidth="3" />
+        <circle cx="18" cy="18" r="15.5" fill="none" stroke="#28c840" strokeWidth="3" strokeLinecap="round" strokeDasharray={`${value * 0.974} 100`} />
+      </svg>
+      <span className="absolute inset-0 flex items-center justify-center text-[15px] font-bold text-[#5ee37a]">{value}</span>
+    </div>
+    <span className="text-[10px] font-semibold text-white/70">{label}</span>
+  </div>
+);
+
 const WebLayer: React.FC = () => (
   <div className={plane} style={{ background: 'linear-gradient(160deg,#2a1230,#140814)', border: '1px solid rgba(255,140,90,0.35)' }}>
     <div className="flex items-center gap-1.5 px-4 h-9" style={{ background: 'rgba(255,255,255,0.06)' }}>
       <i className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
       <i className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
       <i className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-      <span className="ml-4 px-3 py-0.5 rounded-full text-[11px] font-mono text-white/70" style={{ background: 'rgba(255,255,255,0.08)' }}>twojafirma.pl</span>
+      <span className="ml-4 px-3 py-0.5 rounded-full text-[11px] font-mono text-white/70" style={{ background: 'rgba(255,255,255,0.08)' }}>🔒 twojafirma.pl</span>
     </div>
     <div className="p-6 flex gap-6">
-      <div className="flex-1 space-y-3 pt-2">
-        <span className="block text-[22px] font-bold leading-tight text-white">Świeże pieczywo<br />codziennie od 6:00</span>
+      <div className="flex-1 space-y-3 pt-1">
+        <span className="block text-[11px] font-mono text-[#FF8A5C]">{'<'}nowa strona{' />'}</span>
+        <span className="block text-[22px] font-bold leading-tight text-white">Twoja firma,<br />dobrze widoczna w sieci</span>
         {bar('85%')}
         {bar('60%')}
-        <span className="inline-block mt-2 px-4 py-2 rounded-lg text-[12px] font-bold text-white" style={{ background: '#E95420' }}>Zamów online</span>
+        <span className="inline-block mt-2 px-4 py-2 rounded-lg text-[12px] font-bold text-white" style={{ background: '#E95420' }}>Wyślij zapytanie</span>
       </div>
-      <div className="w-[170px] h-[130px] rounded-xl" style={{ background: 'radial-gradient(circle at 35% 35%,#ffb38a,#E95420 45%,#77216F)' }} />
+      <div className="w-[190px] rounded-xl p-3 space-y-2" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+        <span className="block text-[10px] font-semibold text-white/60">PageSpeed</span>
+        <div className="flex justify-between">
+          <Score value={98} label="Wydajność" />
+          <Score value={100} label="SEO" />
+          <Score value={100} label="Dostępność" />
+        </div>
+      </div>
     </div>
     <div className="px-6 grid grid-cols-3 gap-3">
-      {['Oferta', 'Cennik', 'Kontakt'].map((t) => (
+      {['Usługi', 'Realizacje', 'Kontakt'].map((t) => (
         <div key={t} className="rounded-lg p-3 space-y-2" style={{ background: 'rgba(255,255,255,0.06)' }}>
           <span className="block text-[11px] font-semibold text-white/85">{t}</span>
           {bar('80%', 'rgba(255,255,255,0.12)')}

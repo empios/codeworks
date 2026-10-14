@@ -58,10 +58,13 @@ export const Hero: React.FC = () => {
       const s1 = Math.min(1.1, (W * 0.96) / needW, (H * 0.94) / (HERO_SCENE.openHalf * 2));
       const half = scrub ? HERO_SCENE.closedHalf : HERO_SCENE.openHalf;
       const textBottom = text.offsetTop + text.offsetHeight + 16;
-      const s0 = Math.min(s1, Math.max(0.3, (H - 40 - textBottom) / (half * 2)));
+      const free = H - 40 - textBottom;
+      // zamknięty stos jest węższy niż rozsunięty z podpisami, więc może startować większy
+      const s0 = Math.min(scrub ? (W * 0.97) / 620 : s1, 1, Math.max(0.3, free / (half * 2)));
       layout.s0 = s0;
       layout.s1 = s1;
-      layout.ty0 = textBottom + half * s0 - H / 2;
+      // stos na środku wolnego miejsca pod tekstem (na telefonie nie zostaje pusty dół)
+      layout.ty0 = textBottom + free / 2 - H / 2;
       requestDraw();
     };
 

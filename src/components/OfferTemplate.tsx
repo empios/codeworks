@@ -71,10 +71,14 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
         <meta property="og:title" content={title} />
         <meta property="og:description" content={metaDescription} />
         <meta property="og:image" content="https://www.codeworks-it.pl/og.png" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={metaDescription} />
-        <meta property="twitter:image" content="https://www.codeworks-it.pl/og.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="CodeWorks — strony, sklepy, aplikacje i wdrożenia AI. Elbląg." />
+        <meta property="og:locale" content="pl_PL" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content="https://www.codeworks-it.pl/og.png" />
       </Helmet>
 
       <Header theme={theme} onToggleTheme={toggleTheme} />
