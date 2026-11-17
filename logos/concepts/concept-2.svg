@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 512">
+  <g id="icon">
+    <rect x="56" y="116" width="280" height="280" rx="72" fill="#2C001E"/>
+    <path d="M178 216 A50 50 0 1 0 178 296" fill="none" stroke="#FFFFFF" stroke-width="36" stroke-linecap="round"/>
+    <path d="M204 222 L228 296 L254 246 L280 296 L304 222" fill="none" stroke="#E95420" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g id="wordmark">
+    <text x="380" y="292" font-family="'Ubuntu Sans', Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="112" font-weight="500" letter-spacing="-3" fill="#2C001E">code<tspan fill="#E95420">works</tspan></text>
+  </g>
+</svg>
