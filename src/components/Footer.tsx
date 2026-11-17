@@ -1,5 +1,6 @@
 import React from 'react';
-import { Code2, Phone, Mail, ExternalLink } from 'lucide-react';
+import { Phone, Mail, ExternalLink } from 'lucide-react';
+import { LogoMark } from './Logo';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY, COMPANY_NAME } from '../config/contact';
 
 export const Footer: React.FC = () => {
@@ -19,7 +20,7 @@ export const Footer: React.FC = () => {
           {/* Brand & Bio */}
           <div className="space-y-3 md:col-span-2">
             <div className="flex items-center gap-2 font-bold text-base" style={{ color: 'var(--pg-footer-heading)' }}>
-              <Code2 className="w-5 h-5 text-ubuntuOrange-50" />
+              <LogoMark className="w-6 h-6 shrink-0" />
               <span>{COMPANY_NAME}</span>
             </div>
             <p className="text-xs leading-relaxed max-w-md" style={{ color: 'var(--pg-footer-text)' }}>

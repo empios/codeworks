@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Code2, Sun, Moon, Phone, Menu, X } from 'lucide-react';
+import { Sun, Moon, Phone, Menu, X } from 'lucide-react';
+import { LogoMark, LogoWordmark } from './Logo';
 import { ThemeMode } from '../types';
 
 interface HeaderProps {
@@ -22,13 +23,9 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
         
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 group shrink-0">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-ubuntuOrange-50 to-aubergine-60 flex items-center justify-center text-white shadow-pg-sm group-hover:scale-105 transition-transform">
-            <Code2 className="w-5 h-5 sm:w-6 sm:h-6" />
-          </div>
+          <LogoMark className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 group-hover:scale-105 transition-transform" />
           <div className="flex flex-col">
-            <span className="font-bold text-base sm:text-lg tracking-tight flex items-center gap-1" style={{ color: 'var(--pg-text-primary)' }}>
-              Code<span className="text-ubuntuOrange-50">Works</span>
-            </span>
+            <LogoWordmark className="text-base sm:text-lg" />
             <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-medium whitespace-nowrap" style={{ color: 'var(--pg-text-muted)' }}>Software house, Elbląg</span>
           </div>
         </a>
