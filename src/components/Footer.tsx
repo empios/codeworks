@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
 
           {/* Nav */}
           <div className="space-y-2">
-            <h4 className="font-bold text-xs uppercase tracking-wider mb-3" style={{ color: 'var(--pg-footer-heading)' }}>Nawigacja</h4>
+            <h3 className="font-bold text-xs uppercase tracking-wider mb-3" style={{ color: 'var(--pg-footer-heading)' }}>Nawigacja</h3>
             <ul className="space-y-2">
               <li><a href="/" className="hover:text-ubuntuOrange-40 transition-colors">Strona główna</a></li>
               <li><a href="/strony-www" className="hover:text-ubuntuOrange-40 transition-colors">Strony i sklepy WWW</a></li>
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
               <li><a href="/tlumaczenie-katalogu-produktowego" className="hover:text-ubuntuOrange-40 transition-colors">Tłumaczenie katalogu</a></li>
               <li><a href="/chatbot-ai-on-premise" className="hover:text-ubuntuOrange-40 transition-colors">Asystent na dokumentach</a></li>
               <li><a href="/#uslugi" className="hover:text-ubuntuOrange-40 transition-colors">Usługi</a></li>
-              <li><a href="/#kontakt" className="hover:text-ubuntuOrange-40 transition-colors">Kontakt</a></li>
+              <li><a href="#kontakt" className="hover:text-ubuntuOrange-40 transition-colors">Kontakt</a></li>
               <li className="pt-2">
                 <a 
                   href="https://www.pawelvlodarczyk.pl/" 

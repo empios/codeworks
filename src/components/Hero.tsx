@@ -259,11 +259,11 @@ export const Hero: React.FC = () => {
             className="hidden lg:flex absolute bottom-5 left-1/2 -translate-x-1/2 z-20 opacity-0 translate-y-3 pointer-events-none transition-[opacity,transform] duration-500 data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0 data-[visible=true]:pointer-events-auto"
           >
             <a
-              href={`tel:${CONTACT_PHONE}`}
-              className="press inline-flex items-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-full shadow-pg-glow transition-colors"
+              href="#kontakt"
+              className="press inline-flex items-center gap-2 bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-sm px-5 py-3 rounded-full shadow-pg-glow transition-colors"
             >
               <Phone className="w-4 h-4" />
-              Zadzwoń: bezpłatna rozmowa
+              Umów bezpłatną rozmowę
             </a>
           </div>
         )}
@@ -282,10 +282,17 @@ export const Hero: React.FC = () => {
             <div className="enter flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3" style={{ '--i': 2 } as React.CSSProperties}>
               <a
                 href={`tel:${CONTACT_PHONE}`}
-                className="press inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-6 py-3.5 rounded-md shadow-lg hover:shadow-pg-glow transition-colors"
+                className="press inline-flex lg:hidden items-center justify-center gap-2 bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-base px-6 py-3.5 rounded-md shadow-lg hover:shadow-pg-glow transition-colors"
               >
                 <Phone className="w-5 h-5" />
                 <span>Zadzwoń: bezpłatna rozmowa</span>
+              </a>
+              <a
+                href="#kontakt"
+                className="press hidden lg:inline-flex items-center justify-center gap-2 bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-base px-6 py-3.5 rounded-md shadow-lg hover:shadow-pg-glow transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+                <span>Umów bezpłatną rozmowę</span>
               </a>
               <a
                 href="#uslugi"

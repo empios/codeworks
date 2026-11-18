@@ -72,6 +72,17 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:image" content="https://www.codeworks-it.pl/og.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": h1,
+            "description": metaDescription,
+            "url": canonicalUrl,
+            "provider": { "@id": "https://www.codeworks-it.pl/#organization" },
+            "areaServed": { "@type": "Country", "name": "Polska" }
+          })}
+        </script>
       </Helmet>
 
       <Header theme={theme} onToggleTheme={toggleTheme} />
@@ -104,7 +115,7 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a 
                   href="#kontakt" 
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-6 py-3.5 rounded-lg shadow-md transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-sm px-6 py-3.5 rounded-lg shadow-md transition-all"
                 >
                   <span>Porozmawiajmy o wdrożeniu</span>
                   <ArrowRight className="w-4 h-4" />
@@ -144,7 +155,7 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
             <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {steps.map((step, idx) => (
                 <li key={idx} className="pg-card p-6 rounded-xl space-y-3 border" style={{ borderColor: 'var(--pg-border-subtle)' }}>
-                  <span className="w-8 h-8 rounded-full bg-ubuntuOrange-50 text-white font-mono font-bold flex items-center justify-center text-sm">
+                  <span className="w-8 h-8 rounded-full bg-ubuntuOrange-60 text-white font-mono font-bold flex items-center justify-center text-sm">
                     {idx + 1}
                   </span>
                   <h3 className="font-bold text-base" style={{ color: 'var(--pg-text-primary)' }}>{step.title}</h3>
@@ -202,7 +213,7 @@ export const OfferTemplate: React.FC<OfferTemplateProps> = ({
                 </div>
                 <a 
                   href="/audyt" 
-                  className="px-4 py-2.5 rounded-lg bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm shrink-0 transition-colors"
+                  className="px-4 py-2.5 rounded-lg bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-sm shrink-0 transition-colors"
                 >
                   Więcej o audycie
                 </a>

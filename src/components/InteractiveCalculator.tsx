@@ -124,7 +124,7 @@ export const InteractiveCalculator: React.FC<InteractiveCalculatorProps> = ({ on
                       style={{ backgroundColor: 'var(--pg-layer-01)', borderColor: on ? undefined : 'var(--pg-border-subtle)' }}
                     >
                       <span className="flex items-center gap-3">
-                        <span className={`w-5 h-5 shrink-0 rounded flex items-center justify-center border ${on ? 'bg-ubuntuOrange-50 border-ubuntuOrange-50 text-white' : 'border-gray-400'}`}>
+                        <span className={`w-5 h-5 shrink-0 rounded flex items-center justify-center border ${on ? 'bg-ubuntuOrange-60 border-ubuntuOrange-60 text-white' : 'border-gray-400'}`}>
                           {on && <Check className="w-3.5 h-3.5" />}
                         </span>
                         <span>
@@ -173,7 +173,7 @@ export const InteractiveCalculator: React.FC<InteractiveCalculatorProps> = ({ on
                 <button
                   type="button"
                   onClick={handleSendToContact}
-                  className="w-full py-4 rounded-xl bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm shadow-lg hover:shadow-pg-glow transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-4 rounded-xl bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-sm shadow-lg hover:shadow-pg-glow transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Wyślij mi tę wycenę</span>
                   <ArrowRight className="w-4 h-4" />

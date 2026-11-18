@@ -8,7 +8,7 @@ const OWNER_EMAIL = CONTACT_EMAIL;
 
 interface ContactSectionProps {
   initialMessage?: string;
-  variant?: 'ai' | 'webdev' | 'general';
+  variant?: 'ai' | 'webdev' | 'general' | 'audit';
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, variant = 'ai' }) => {
@@ -52,6 +52,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
             ? `Nowy Audyt Wideo / Lead Strony WWW od: ${formData.name}`
             : variant === 'general'
               ? `Zapytanie ze strony od: ${formData.name}`
+              : variant === 'audit'
+              ? `Zamówienie audytu od: ${formData.name}`
               : `Konsultacja AI od: ${formData.name}`,
           _captcha: "false",
           _template: "table",
@@ -98,6 +100,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
             <h2 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ color: 'var(--pg-text-primary)' }}>
               {variant === 'webdev' ? (
                 <>Podeślij adres strony, a w ciągu <span className="text-ubuntuOrange-50">24 godzin</span> nagram Ci jej przegląd</>
+              ) : variant === 'audit' ? (
+                <>Zamów <span className="text-ubuntuOrange-50">audyt przed wdrożeniem AI</span></>
               ) : (
                 <>Porozmawiajmy <span className="text-ubuntuOrange-50">o Twoim projekcie</span></>
               )}
@@ -107,7 +111,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
               {variant === 'webdev' ? (
                 'Dostaniesz ok. 2-minutowe nagranie: co na stronie przeszkadza klientom, co spowalnia ładowanie i czego brakuje pod Google. Nic Cię to nie zobowiązuje. Nie masz jeszcze strony? Opisz, czego potrzebujesz.'
               ) : (
-                variant === 'general'
+                variant === 'audit'
+                  ? '3 500 zł netto, odliczane od ceny wdrożenia. Napisz, czym zajmuje się firma, a odezwę się w ciągu 24 godzin i ustalimy termin.'
+                  : variant === 'general'
                   ? 'Pierwsza rozmowa trwa ok. 20 minut i jest bezpłatna. Zadzwoń, napisz albo zostaw kilka zdań o projekcie.'
                   : 'Pierwsza rozmowa trwa ok. 20 minut i jest bezpłatna. Opisz, jaką pracę w firmie chcesz zautomatyzować.'
               )}
@@ -119,8 +125,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <User className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Z kim rozmawiasz</h4>
-                  <p className="text-xs mt-0.5 font-medium" style={{ color: 'var(--pg-text-secondary)' }}>{COMPANY_NAME}</p>
+                  <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Z kim rozmawiasz</h3>
+                  <p className="text-sm mt-0.5 font-medium" style={{ color: 'var(--pg-text-secondary)' }}>{COMPANY_NAME}</p>
                 </div>
               </div>
 
@@ -129,7 +135,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div className="space-y-2">
-                  <h4 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Gdzie działam</h4>
+                  <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Gdzie działam</h3>
                   <div className="flex flex-wrap gap-1.5 pt-1">
                     {locations.map((loc, i) => (
                       <span 
@@ -148,8 +154,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <Coffee className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Gdzie się spotykamy</h4>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--pg-text-secondary)' }}>W Elblągu, w kawiarni w Trójmieście albo online</p>
+                  <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Gdzie się spotykamy</h3>
+                  <p className="text-sm mt-0.5" style={{ color: 'var(--pg-text-secondary)' }}>W Elblągu, w kawiarni w Trójmieście albo online</p>
                 </div>
               </div>
 
@@ -158,7 +164,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <Phone className="w-5 h-5 text-ubuntuOrange-50" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Telefon</h4>
+                  <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>Telefon</h3>
                   <a href={`tel:${CONTACT_PHONE}`} className="text-base font-bold text-ubuntuOrange-50 hover:underline">{CONTACT_PHONE_DISPLAY}</a>
                 </div>
               </div>
@@ -168,7 +174,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>E-mail</h4>
+                  <h3 className="font-bold text-sm" style={{ color: 'var(--pg-text-primary)' }}>E-mail</h3>
                   <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm font-semibold text-ubuntuOrange-50 hover:underline">{CONTACT_EMAIL}</a>
                 </div>
               </div>
@@ -297,7 +303,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="press w-full py-4 rounded-md bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base shadow-lg hover:shadow-pg-glow transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
+                    className="press w-full py-4 rounded-md bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-base shadow-lg hover:shadow-pg-glow transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>
@@ -307,12 +313,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        <span>{variant === 'webdev' ? 'Poproś o przegląd strony' : 'Wyślij wiadomość'}</span>
+                        <span>{variant === 'webdev' ? 'Poproś o przegląd strony' : variant === 'audit' ? 'Zamów audyt' : 'Wyślij wiadomość'}</span>
                       </>
                     )}
                   </button>
 
-                  <p className="text-[11px] text-center" style={{ color: 'var(--pg-text-muted)' }}>
+                  <p className="text-sm text-center" style={{ color: 'var(--pg-text-muted)' }}>
                     Odpowiadam w ciągu 24 godzin. Twoich danych używam tylko do odpowiedzi na tę wiadomość.
                   </p>
                 </form>
@@ -321,7 +327,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                   <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-500 mx-auto flex items-center justify-center">
                     <CheckCircle className="w-6 h-6" />
                   </div>
-                  <h4 className="font-bold text-lg" style={{ color: 'var(--pg-text-primary)' }}>Dziękuję, wiadomość dotarła</h4>
+                  <h3 className="font-bold text-lg" style={{ color: 'var(--pg-text-primary)' }}>Dziękuję, wiadomość dotarła</h3>
                   <p className="text-xs leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
                     Odezwę się w ciągu 24 godzin na podany telefon lub e-mail.
                   </p>
@@ -330,7 +336,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage, 
                       setIsSubmitted(false);
                       setFormData({ name: '', contact: '', website: '', meetingLocation: 'client', message: '' });
                     }}
-                    className="mt-4 px-4 py-2 text-xs font-semibold rounded bg-ubuntuOrange-50 text-white hover:bg-ubuntuOrange-60 transition-colors"
+                    className="mt-4 px-4 py-2 text-xs font-semibold rounded bg-ubuntuOrange-60 text-white hover:bg-ubuntuOrange-70 transition-colors"
                   >
                     Wyślij kolejną wiadomość
                   </button>

@@ -26,7 +26,7 @@ export const ProcessSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ vari
           <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {homeSteps.map((step, i) => (
               <Reveal as="li" key={step.title} index={i} step={0.05} className="pg-card p-5 rounded-lg space-y-2 text-center">
-                <span className="w-8 h-8 mx-auto rounded-full bg-ubuntuOrange-50 text-white font-mono font-bold flex items-center justify-center text-sm">
+                <span className="w-8 h-8 mx-auto rounded-full bg-ubuntuOrange-60 text-white font-mono font-bold flex items-center justify-center text-sm">
                   {i + 1}
                 </span>
                 <h3 className="text-base font-bold" style={{ color: 'var(--pg-text-primary)' }}>{step.title}</h3>
@@ -55,7 +55,7 @@ export const ProcessSection: React.FC<{ variant?: 'home' | 'webdev' }> = ({ vari
         <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {webdevSteps.map((step, i) => (
             <li key={step.title} className="pg-card p-5 rounded-lg space-y-2">
-              <span className="w-8 h-8 rounded-full bg-ubuntuOrange-50 text-white font-mono font-bold flex items-center justify-center text-sm">
+              <span className="w-8 h-8 rounded-full bg-ubuntuOrange-60 text-white font-mono font-bold flex items-center justify-center text-sm">
                 {i + 1}
               </span>
               <h3 className="text-base font-bold" style={{ color: 'var(--pg-text-primary)' }}>{step.title}</h3>
