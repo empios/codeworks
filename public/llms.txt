@@ -1,0 +1,17 @@
+# CodeWorks Paweł Włodarczyk
+
+> Jednoosobowa firma programistyczna z Elbląga: strony i sklepy internetowe, aplikacje webowe, integracje systemów oraz wdrożenia AI działające na serwerze klienta. Stała cena, bez abonamentu.
+
+## Usługi
+
+- [Strona główna](https://www.codeworks-it.pl/): oferta, cennik, FAQ i kontakt
+- [Strony WWW](https://www.codeworks-it.pl/strony-www): projektowanie i programowanie stron internetowych
+- [Audyt przed wdrożeniem AI](https://www.codeworks-it.pl/audyt): analiza, co w firmie warto zautomatyzować (3 500 zł netto, odliczane od ceny wdrożenia)
+- [Automatyzacja zdjęć produktowych](https://www.codeworks-it.pl/automatyzacja-zdjec-produktowych)
+- [Walidacja opisów produktów](https://www.codeworks-it.pl/walidacja-opisow-produktow)
+- [Tłumaczenie katalogu produktowego](https://www.codeworks-it.pl/tlumaczenie-katalogu-produktowego)
+- [Chatbot AI on-premise](https://www.codeworks-it.pl/chatbot-ai-on-premise)
+
+## Kontakt
+
+- Telefon: +48 534 140 682

@@ -37,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           <a href="/strony-www" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Strony WWW</a>
           <a href="/automatyzacja-zdjec-produktowych" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Wdrożenia AI</a>
           <a href="/#cennik" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Cennik</a>
-          <a href="/#kontakt" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Kontakt</a>
+          <a href="#kontakt" className="transition-colors hover:text-ubuntuOrange-50 whitespace-nowrap" style={{ color: 'var(--pg-text-secondary)' }}>Kontakt</a>
         </nav>
 
         {/* Right Controls */}
@@ -56,8 +56,8 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           </button>
 
           <a 
-            href="/#kontakt" 
-            className="press inline-flex items-center gap-1.5 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs xl:text-sm px-3.5 xl:px-4 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap shrink-0"
+            href="#kontakt" 
+            className="press inline-flex items-center gap-1.5 bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-xs xl:text-sm px-3.5 xl:px-4 py-2 rounded-md shadow-pg-sm hover:shadow-pg-glow transition-all whitespace-nowrap shrink-0"
           >
             <Phone className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
             <span>Darmowa rozmowa</span>
@@ -104,8 +104,8 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           <a href="/chatbot-ai-on-premise" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: asystent na firmowych dokumentach</a>
           <a href="/audyt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>AI: audyt przed wdrożeniem</a>
           <a href="/#cennik" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Cennik</a>
-          <a href="/#kontakt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Kontakt</a>
-          <a href="/#kontakt" onClick={() => setMobileMenuOpen(false)} className="w-full flex items-center justify-center gap-2 bg-ubuntuOrange-50 text-white font-bold py-3 rounded-md">
+          <a href="#kontakt" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-medium hover:text-ubuntuOrange-50" style={{ color: 'var(--pg-text-primary)' }}>Kontakt</a>
+          <a href="#kontakt" onClick={() => setMobileMenuOpen(false)} className="w-full flex items-center justify-center gap-2 bg-ubuntuOrange-60 text-white font-bold py-3 rounded-md">
             <Phone className="w-5 h-5" />
             <span>Umów bezpłatną rozmowę</span>
           </a>

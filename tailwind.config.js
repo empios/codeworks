@@ -45,8 +45,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Ubuntu Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        mono: ['"Ubuntu Sans Mono"', 'monospace'],
+        sans: ['"Ubuntu Sans Variable"', '"Ubuntu Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['"Ubuntu Sans Mono Variable"', '"Ubuntu Sans Mono"', 'monospace'],
       },
       boxShadow: {
         'pg-sm': '0 1px 2px rgba(44, 0, 30, 0.06), 0 1px 1px rgba(44, 0, 30, 0.04)',

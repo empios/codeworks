@@ -120,7 +120,7 @@ const BeforeAfterSlider: React.FC = () => {
       </div>
 
       <span className="absolute top-3 left-3 px-2 py-0.5 rounded text-[11px] font-mono font-bold uppercase bg-black/60 text-white">Przed</span>
-      <span className="absolute top-3 right-3 px-2 py-0.5 rounded text-[11px] font-mono font-bold uppercase bg-ubuntuOrange-50 text-white">Po</span>
+      <span className="absolute top-3 right-3 px-2 py-0.5 rounded text-[11px] font-mono font-bold uppercase bg-ubuntuOrange-60 text-white">Po</span>
 
       <div className="absolute inset-y-0 w-0.5 bg-white shadow-[0_0_12px_rgba(0,0,0,0.5)] pointer-events-none" style={{ left: `${pos}%` }}>
         <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white text-ubuntuOrange-50 shadow-lg flex items-center justify-center">
@@ -182,7 +182,7 @@ export const DemoSection: React.FC = () => {
           <span className="text-sm" style={{ color: 'var(--pg-text-secondary)' }}>Chcesz zobaczyć to na swoich danych?</span>
           <a
             href={`tel:${CONTACT_PHONE}`}
-            className="press inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-sm px-5 py-3 rounded-md transition-colors"
+            className="press inline-flex items-center justify-center gap-2 bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-sm px-5 py-3 rounded-md transition-colors"
           >
             <Phone className="w-4 h-4" />
             Zadzwoń: bezpłatna rozmowa

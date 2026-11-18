@@ -33,6 +33,17 @@ export const AuditPage: React.FC = () => {
         <meta name="twitter:title" content="Audyt: co w firmie warto zautomatyzować | CodeWorks Elbląg" />
         <meta name="twitter:description" content="Sprawdzę, które powtarzalne zadania w Twoim sklepie lub hurtowni da się przekazać AI i ile to zaoszczędzi. 3 500 zł netto, odliczane od ceny wdrożenia." />
         <meta name="twitter:image" content="https://www.codeworks-it.pl/og.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Audyt przed wdrożeniem AI",
+            "url": canonicalUrl,
+            "provider": { "@id": "https://www.codeworks-it.pl/#organization" },
+            "areaServed": { "@type": "Country", "name": "Polska" },
+            "offers": { "@type": "Offer", "price": "3500", "priceCurrency": "PLN" }
+          })}
+        </script>
       </Helmet>
 
       <Header theme={theme} onToggleTheme={toggleTheme} />
@@ -55,8 +66,18 @@ export const AuditPage: React.FC = () => {
               </h1>
 
               <p className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
-                Przyglądam się, jak w Twoim sklepie lub hurtowni wygląda praca ze zdjęciami, opisami, tłumaczeniami i dokumentami. Pokazuję, gdzie AI realnie oszczędzi czas, a gdzie nie ma sensu w nie inwestować.
+                Pokazuję, gdzie AI realnie oszczędzi czas w Twoim sklepie lub hurtowni, a gdzie nie warto w nie inwestować.
               </p>
+
+              <div className="pt-0">
+                <a 
+                  href="#kontakt" 
+                  className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-base px-8 py-4 rounded-lg shadow-lg hover:shadow-pg-glow transition-all"
+                >
+                  <span>Zamów audyt</span>
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
 
               {/* 100% Deductible Highlight */}
               <div className="p-6 rounded-2xl border-2 border-ubuntuOrange-50 bg-ubuntuOrange-50/10 shadow-pg-glow max-w-2xl mx-auto space-y-2">
@@ -64,23 +85,14 @@ export const AuditPage: React.FC = () => {
                   <ShieldCheck className="w-5 h-5" />
                   <span>3 500 zł netto</span>
                 </div>
-                <h3 className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>
+                <p className="text-xl font-bold" style={{ color: 'var(--pg-text-primary)' }}>
                   Jeśli zdecydujesz się na wdrożenie, koszt audytu odejmę od jego ceny
-                </h3>
+                </p>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--pg-text-secondary)' }}>
                   Jeśli nie, zostajesz z raportem, który możesz wykorzystać sam albo z innym wykonawcą.
                 </p>
               </div>
 
-              <div className="pt-2">
-                <a 
-                  href="#kontakt" 
-                  className="inline-flex items-center justify-center gap-2 bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-base px-8 py-4 rounded-lg shadow-lg hover:shadow-pg-glow transition-all"
-                >
-                  <span>Zamów audyt</span>
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-              </div>
 
             </div>
           </div>
@@ -140,7 +152,7 @@ export const AuditPage: React.FC = () => {
         </section>
 
         {/* Contact Form */}
-        <ContactSection initialMessage="Dzień dobry, chcę zamówić audyt przed wdrożeniem AI (3 500 zł netto)." />
+        <ContactSection variant="audit" initialMessage="Dzień dobry, chcę zamówić audyt przed wdrożeniem AI (3 500 zł netto)." />
       </main>
 
       <Footer />

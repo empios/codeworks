@@ -39,7 +39,7 @@ export const FloatingMobileBar: React.FC = () => {
 
         <a 
           href="#kontakt"
-          className="press flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-ubuntuOrange-50 text-white font-bold text-center shadow-sm"
+          className="press flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-ubuntuOrange-60 text-white font-bold text-center shadow-sm"
         >
           <MessageSquare className="w-4 h-4 mb-0.5" />
           <span className="text-xs">Napisz</span>

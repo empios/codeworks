@@ -5,7 +5,7 @@ export const DescriptionValidationPage: React.FC = () => {
   return (
     <OfferTemplate
       slug="/walidacja-opisow-produktow"
-      title="Sprawdzanie opisów produktów z kartami PDF | CodeWorks Elbląg"
+      title="Sprawdzanie opisów produktów z PDF | CodeWorks Elbląg"
       metaDescription="Automatyczne porównanie opisów w sklepie z kartami technicznymi PDF producenta. Raport rozbieżności, działa na Twoim serwerze."
       h1="Opisy produktów zgodne z kartami PDF producenta"
       badge="AI: opisy produktów"

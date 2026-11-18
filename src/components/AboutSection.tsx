@@ -60,7 +60,7 @@ export const AboutSection: React.FC = () => {
                   href="https://www.pawelvlodarczyk.pl/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-ubuntuOrange-50 text-white font-semibold text-xs shrink-0 hover:bg-ubuntuOrange-60 transition-colors shadow-sm"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-ubuntuOrange-60 text-white font-semibold text-xs shrink-0 hover:bg-ubuntuOrange-70 transition-colors shadow-sm"
                 >
                   <span>pawelvlodarczyk.pl</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -107,7 +107,7 @@ export const AboutSection: React.FC = () => {
                 <div className="w-full pt-2">
                   <a 
                     href="/audyt"
-                    className="w-full block text-center py-3.5 rounded-xl bg-ubuntuOrange-50 hover:bg-ubuntuOrange-60 text-white font-bold text-xs shadow-md transition-all"
+                    className="w-full block text-center py-3.5 rounded-xl bg-ubuntuOrange-60 hover:bg-ubuntuOrange-70 text-white font-bold text-xs shadow-md transition-all"
                   >
                     Zamów Audyt Procesu (3 500 zł)
                   </a>
